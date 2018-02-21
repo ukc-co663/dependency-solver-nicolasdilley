@@ -1,0 +1,11 @@
+{application,solver,
+             [{applications,[kernel,stdlib,elixir,logger,poison]},
+              {description,"solver"},
+              {modules,['Elixir.ConflictResolver','Elixir.Dependencies',
+                        'Elixir.DependencyManager','Elixir.Package',
+                        'Elixir.PackageParser',
+                        'Elixir.Poison.Encoder.Dependencies',
+                        'Elixir.Poison.Encoder.Package']},
+              {registered,[]},
+              {vsn,"0.1.0"},
+              {extra_applications,[logger]}]}.
