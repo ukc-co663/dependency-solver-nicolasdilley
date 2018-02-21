@@ -42,7 +42,8 @@ defmodule DependencyManager do
     case List.foldl(constraints, {[],initial}, fn(constraint, {commands,initial}) -> {resolvedCommands , newInitial} = resolveConstraint(constraint,repo,initial) 
                                                                                   {commands ++ resolvedCommands,newInitial} end) do
       {commands,_} -> commands
-      true -> []
+      true -> IO.puts "There was an error ! " 
+              []
     end
   end
 
@@ -100,12 +101,13 @@ defmodule DependencyManager do
         case Map.get(package,"depends",[]) do
           [] -> {:ok, ["+" <> packageFullName|[]],[packageFullName|initial]}
           dependenciesList -> 
-            case Enum.find(dependenciesList, fn(dependencies) ->
-              resolveDependency(dependencies,[],initial,repo)
-               != {:error} end) do
-            {:ok,newCommands,newInitial} -> {:ok, ["+" <> packageFullName|newCommands],[packageFullName |newInitial]}
-            _ -> {:error}
-            end
+            case resolve(dependenciesList,initial,repo) do
+                {:ok,newCommands,newInitial} ->
+                                                {:ok,["+" <> packageFullName|newCommands],[packageFullName |newInitial]}
+                _ -> 
+                    {:error}
+                end
+             
           end
 
       else
@@ -118,19 +120,32 @@ defmodule DependencyManager do
         
   end
 
-  def resolveDependency([],commands,initial,_repo) do
-    {:ok,commands,initial}
+  def resolve([],_initial,_repo) do
+    {:error}  
+  end
+
+
+  def resolve([dependencies|dependenciesList],initial,repo) do
+    case resolveDependency(dependencies,initial,repo) do
+        {:ok,newCommands,newInitial} -> {:ok,newCommands,newInitial}
+        {:error} -> resolve(dependenciesList,initial,repo)
+        x -> IO.inspect x
+      end
+  end
+
+  def resolveDependency([],_initial,_repo) do
+    {:error}
   end
 
   @doc """
     take a list of dependencies and tries to install them all 
     if one of them fail, return {:error} otherwise return {:ok,newCommands,newInitial}
   """
-  def resolveDependency([dependency| dependencies],commands,initial,repo) do
-      
+  def resolveDependency([dependency| dependencies],initial,repo) do 
       case resolveDependencies(findPackage(repo,dependency),initial,repo) do
-                    {:ok,newCommands,newInitial} -> resolveDependency(dependencies,commands ++ newCommands,newInitial,repo)
-                    {:error}->{:error}
+                    {:ok,commands,newInitial} -> {:ok,commands,newInitial}
+                    {:error}-> resolveDependency(dependencies,initial,repo)
+                    x -> IO.inspect x
       end
   end
   
