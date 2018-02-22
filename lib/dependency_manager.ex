@@ -114,7 +114,6 @@ defmodule DependencyManager do
   end
 
   def addAnotherPackageAndRecurse(initial,seen,commands,constraints,[package|leftToParse],repo) do
-    IO.inspect package["name"]
     packageFullName = package["name"] <> "=" <>package["version"]
     
     commandSign = case packageFullName in initial do
