@@ -5,7 +5,7 @@ defmodule PackageParser do
 
   	"""
 	def parseRepo (repo) do
-		Poison.decode!(repo)
+		parsedRepo = Poison.decode!(repo)
 	end
 
 	def parseConstraints(constraints)do

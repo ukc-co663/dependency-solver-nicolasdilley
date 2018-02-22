@@ -1,0 +1,3637 @@
+=erl_crash_dump:0.3
+Thu Feb 22 21:01:10 2018
+Slogan: eheap_alloc: Cannot allocate 2277966824 bytes of memory (of type "heap").
+System version: Erlang/OTP 19 [erts-8.3.5.4] [source] [64-bit] [smp:4:4] [async-threads:10] [hipe] [kernel-poll:false]
+Compiled: Tue Dec 19 10:26:02 2017
+Taints: erl_tracer
+Atoms: 8228
+Calling Thread: scheduler:2
+=scheduler:1
+Scheduler Sleep Info Flags: SLEEPING | TSE_SLEEPING | WAITING
+Scheduler Sleep Info Aux Work: 
+Current Port: 
+Run Queue Max Length: 0
+Run Queue High Length: 0
+Run Queue Normal Length: 0
+Run Queue Low Length: 0
+Run Queue Port Length: 0
+Run Queue Flags: OUT_OF_WORK | HALFTIME_OUT_OF_WORK
+Current Process: 
+=scheduler:2
+Scheduler Sleep Info Flags: 
+Scheduler Sleep Info Aux Work: 
+Current Port: 
+Run Queue Max Length: 0
+Run Queue High Length: 0
+Run Queue Normal Length: 0
+Run Queue Low Length: 0
+Run Queue Port Length: 0
+Run Queue Flags: NONEMPTY | UNKNOWN(134217728)
+Current Process: <0.74.0>
+Current Process State: Garbing
+Current Process Internal State: ACT_PRIO_NORMAL | USR_PRIO_NORMAL | PRQ_PRIO_NORMAL | ACTIVE | RUNNING | GC | ON_HEAP_MSGQ
+Current Process Program counter: 0x00007f8bb7355f90 ('Elixir.Map':get/3 + 56)
+Current Process CP: 0x0000000000000000 (invalid)
+Current Process Limited Stack Trace:
+0x00007f8b78569e10:SReturn addr 0xB7381710 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1656)
+0x00007f8b78569e58:SReturn addr 0xB73814F8 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1120)
+0x00007f8b78569ea0:SReturn addr 0xB7381710 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1656)
+0x00007f8b78569ee8:SReturn addr 0xB73814F8 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1120)
+0x00007f8b78569f30:SReturn addr 0xB7381710 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1656)
+0x00007f8b78569f78:SReturn addr 0xB73814F8 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1120)
+0x00007f8b78569fc0:SReturn addr 0xB7381710 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1656)
+0x00007f8b7856a008:SReturn addr 0xB73814F8 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1120)
+0x00007f8b7856a050:SReturn addr 0xB7381710 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1656)
+0x00007f8b7856a098:SReturn addr 0xB73814F8 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1120)
+0x00007f8b7856a0e0:SReturn addr 0xB7381710 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1656)
+0x00007f8b7856a128:SReturn addr 0xB73814F8 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1120)
+0x00007f8b7856a170:SReturn addr 0xB7381710 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1656)
+0x00007f8b7856a1b8:SReturn addr 0xB73814F8 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1120)
+0x00007f8b7856a200:SReturn addr 0xB7381710 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1656)
+0x00007f8b7856a248:SReturn addr 0xB73814F8 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1120)
+0x00007f8b7856a290:SReturn addr 0xB7381710 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1656)
+0x00007f8b7856a2d8:SReturn addr 0xB73814F8 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1120)
+0x00007f8b7856a320:SReturn addr 0xB7381710 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1656)
+0x00007f8b7856a368:SReturn addr 0xB73814F8 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1120)
+0x00007f8b7856a3b0:SReturn addr 0xB7381710 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1656)
+0x00007f8b7856a3f8:SReturn addr 0xB73814F8 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1120)
+0x00007f8b7856a440:SReturn addr 0xB7381710 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1656)
+0x00007f8b7856a488:SReturn addr 0xB73814F8 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1120)
+0x00007f8b7856a4d0:SReturn addr 0xB7381710 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1656)
+0x00007f8b7856a518:SReturn addr 0xB73814F8 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1120)
+0x00007f8b7856a560:SReturn addr 0xB7381710 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1656)
+0x00007f8b7856a5a8:SReturn addr 0xB73814F8 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1120)
+0x00007f8b7856a5f0:SReturn addr 0xB7381710 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1656)
+0x00007f8b7856a610: skipping 141011 frames
+0x00007f8b7867dcd8:SReturn addr 0xB73814F8 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1120)
+0x00007f8b7867dd20:SReturn addr 0xB7381710 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1656)
+0x00007f8b7867dd68:SReturn addr 0xB73814F8 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1120)
+0x00007f8b7867ddb0:SReturn addr 0xB7381710 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1656)
+0x00007f8b7867ddf8:SReturn addr 0xB73814F8 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1120)
+0x00007f8b7867de40:SReturn addr 0xB7381710 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1656)
+0x00007f8b7867de88:SReturn addr 0xB73814F8 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1120)
+0x00007f8b7867ded0:SReturn addr 0xB7381710 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1656)
+0x00007f8b7867df18:SReturn addr 0xB73814F8 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1120)
+0x00007f8b7867df60:SReturn addr 0xB7381710 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1656)
+0x00007f8b7867dfa8:SReturn addr 0xB73814F8 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1120)
+0x00007f8b7867dff0:SReturn addr 0xB7381710 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1656)
+0x00007f8b7867e038:SReturn addr 0xB73814F8 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1120)
+0x00007f8b7867e080:SReturn addr 0xB7381710 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1656)
+0x00007f8b7867e0c8:SReturn addr 0xB73814F8 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1120)
+0x00007f8b7867e110:SReturn addr 0xB7381710 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1656)
+0x00007f8b7867e158:SReturn addr 0xB73814F8 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1120)
+0x00007f8b7867e1a0:SReturn addr 0xB7381710 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1656)
+0x00007f8b7867e1e8:SReturn addr 0xB73814F8 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1120)
+0x00007f8b7867e230:SReturn addr 0xB7381710 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1656)
+0x00007f8b7867e278:SReturn addr 0xB73814F8 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1120)
+0x00007f8b7867e2c0:SReturn addr 0xB7381710 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1656)
+0x00007f8b7867e308:SReturn addr 0xB73814F8 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1120)
+0x00007f8b7867e350:SReturn addr 0xB7381710 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1656)
+0x00007f8b7867e398:SReturn addr 0xB73814F8 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1120)
+0x00007f8b7867e3e0:SReturn addr 0xB7381710 ('Elixir.DependencyManager':addAnotherPackageAndRecurse/6 + 1656)
+0x00007f8b7867e428:SReturn addr 0xB73824A0 ('Elixir.DependencyManager':main/1 + 576)
+0x00007f8b7867e470:SReturn addr 0xB737F958 ('Elixir.Kernel.CLI':'-exec_fun/2-fun-0-'/3 + 144)
+0x00007f8b7867e478:SReturn addr 0x80BC46F8 (<terminate process normally>)
+=scheduler:3
+Scheduler Sleep Info Flags: SLEEPING | TSE_SLEEPING | WAITING
+Scheduler Sleep Info Aux Work: 
+Current Port: 
+Run Queue Max Length: 0
+Run Queue High Length: 0
+Run Queue Normal Length: 0
+Run Queue Low Length: 0
+Run Queue Port Length: 0
+Run Queue Flags: OUT_OF_WORK | HALFTIME_OUT_OF_WORK | INACTIVE
+Current Process: 
+=scheduler:4
+Scheduler Sleep Info Flags: SLEEPING | TSE_SLEEPING | WAITING
+Scheduler Sleep Info Aux Work: 
+Current Port: 
+Run Queue Max Length: 0
+Run Queue High Length: 0
+Run Queue Normal Length: 0
+Run Queue Low Length: 0
+Run Queue Port Length: 0
+Run Queue Flags: OUT_OF_WORK | HALFTIME_OUT_OF_WORK | INACTIVE
+Current Process: 
+=memory
+total: 2174899552
+processes: 2158532704
+processes_used: 2158532704
+system: 16366848
+atom: 256337
+atom_used: 223628
+binary: 5886736
+code: 5020433
+ets: 278584
+=hash_table:atom_tab
+size: 6421
+used: 4638
+objs: 8228
+depth: 7
+=index_table:atom_tab
+size: 9216
+limit: 1048576
+entries: 8228
+=hash_table:module_code
+size: 97
+used: 68
+objs: 109
+depth: 5
+=index_table:module_code
+size: 1024
+limit: 65536
+entries: 109
+=hash_table:export_list
+size: 3203
+used: 2128
+objs: 3512
+depth: 6
+=index_table:export_list
+size: 4096
+limit: 524288
+entries: 3512
+=hash_table:export_list
+size: 3203
+used: 2125
+objs: 3503
+depth: 6
+=hash_table:process_reg
+size: 23
+used: 14
+objs: 22
+depth: 3
+=hash_table:fun_table
+size: 797
+used: 525
+objs: 883
+depth: 4
+=hash_table:node_table
+size: 11
+used: 1
+objs: 1
+depth: 1
+=hash_table:dist_table
+size: 11
+used: 1
+objs: 1
+depth: 1
+=allocated_areas
+sys_misc: 66592
+static: 2098336
+atom_space: 131104 98395
+atom_table: 125233
+module_table: 59472
+export_table: 175596
+export_list: 618112
+register_table: 300
+fun_table: 6490
+module_refs: 5184
+loaded_code: 4155579
+dist_table: 563
+node_table: 251
+bits_bufs_size: 0
+bif_timer: 0
+link_lh: 0
+process_table: 3145728
+port_table: 786432
+ets_misc: 49192
+=allocator:sys_alloc
+option e: true
+option m: libc
+option tt: 131072
+option tp: 0
+=allocator:temp_alloc[0]
+versions: 2.1 3.0
+option e: true
+option t: 5
+option ramv: false
+option sbct: 524288
+option asbcst: 4145152
+option rsbcst: 90
+option rsbcmt: 80
+option rmbcmt: 100
+option mmbcs: 131072
+option mmsbc: 256
+option mmmbc: 18446744073709551615
+option lmbcs: 10485760
+option smbcs: 1048576
+option mbcgs: 10
+option acul: 0
+option mbsd: 3
+option as: gf
+mbcs blocks: 0 4 4
+mbcs blocks size: 0 8448 8448
+mbcs carriers: 1 1 1
+mbcs mseg carriers: 0
+mbcs sys_alloc carriers: 1
+mbcs carriers size: 131072 131072 131072
+mbcs mseg carriers size: 0
+mbcs sys_alloc carriers size: 131072
+sbcs blocks: 0 0 0
+sbcs blocks size: 0 0 0
+sbcs carriers: 0 0 0
+sbcs mseg carriers: 0
+sbcs sys_alloc carriers: 0
+sbcs carriers size: 0 0 0
+sbcs mseg carriers size: 0
+sbcs sys_alloc carriers size: 0
+temp_alloc calls: 2258
+temp_free calls: 2258
+temp_realloc calls: 0
+mseg_alloc calls: 0
+mseg_dealloc calls: 0
+mseg_realloc calls: 0
+sys_alloc calls: 1
+sys_free calls: 0
+sys_realloc calls: 0
+=allocator:temp_alloc[1]
+versions: 0.9 3.0
+option e: true
+option t: 5
+option ramv: false
+option sbct: 524288
+option asbcst: 4145152
+option rsbcst: 90
+option rsbcmt: 80
+option rmbcmt: 100
+option mmbcs: 131072
+option mmsbc: 256
+option mmmbc: 18446744073709551615
+option lmbcs: 10485760
+option smbcs: 1048576
+option mbcgs: 10
+option acul: 0
+option as: af
+mbcs blocks: 0 4 4
+mbcs blocks size: 0 6000 6000
+mbcs carriers: 1 1 1
+mbcs mseg carriers: 0
+mbcs sys_alloc carriers: 1
+mbcs carriers size: 131072 131072 131072
+mbcs mseg carriers size: 0
+mbcs sys_alloc carriers size: 131072
+sbcs blocks: 0 0 0
+sbcs blocks size: 0 0 0
+sbcs carriers: 0 0 0
+sbcs mseg carriers: 0
+sbcs sys_alloc carriers: 0
+sbcs carriers size: 0 0 0
+sbcs mseg carriers size: 0
+sbcs sys_alloc carriers size: 0
+temp_alloc calls: 1089
+temp_free calls: 1089
+temp_realloc calls: 0
+mseg_alloc calls: 0
+mseg_dealloc calls: 0
+mseg_realloc calls: 0
+sys_alloc calls: 1
+sys_free calls: 0
+sys_realloc calls: 0
+=allocator:temp_alloc[2]
+versions: 0.9 3.0
+option e: true
+option t: 5
+option ramv: false
+option sbct: 524288
+option asbcst: 4145152
+option rsbcst: 90
+option rsbcmt: 80
+option rmbcmt: 100
+option mmbcs: 131072
+option mmsbc: 256
+option mmmbc: 18446744073709551615
+option lmbcs: 10485760
+option smbcs: 1048576
+option mbcgs: 10
+option acul: 0
+option as: af
+mbcs blocks: 0 4 4
+mbcs blocks size: 0 65544 65544
+mbcs carriers: 1 1 1
+mbcs mseg carriers: 0
+mbcs sys_alloc carriers: 1
+mbcs carriers size: 131072 131072 131072
+mbcs mseg carriers size: 0
+mbcs sys_alloc carriers size: 131072
+sbcs blocks: 0 0 0
+sbcs blocks size: 0 0 0
+sbcs carriers: 0 0 0
+sbcs mseg carriers: 0
+sbcs sys_alloc carriers: 0
+sbcs carriers size: 0 0 0
+sbcs mseg carriers size: 0
+sbcs sys_alloc carriers size: 0
+temp_alloc calls: 3451181
+temp_free calls: 3451181
+temp_realloc calls: 39
+mseg_alloc calls: 0
+mseg_dealloc calls: 0
+mseg_realloc calls: 0
+sys_alloc calls: 1
+sys_free calls: 0
+sys_realloc calls: 0
+=allocator:temp_alloc[3]
+versions: 0.9 3.0
+option e: true
+option t: 5
+option ramv: false
+option sbct: 524288
+option asbcst: 4145152
+option rsbcst: 90
+option rsbcmt: 80
+option rmbcmt: 100
+option mmbcs: 131072
+option mmsbc: 256
+option mmmbc: 18446744073709551615
+option lmbcs: 10485760
+option smbcs: 1048576
+option mbcgs: 10
+option acul: 0
+option as: af
+mbcs blocks: 0 4 4
+mbcs blocks size: 0 5848 5848
+mbcs carriers: 1 1 1
+mbcs mseg carriers: 0
+mbcs sys_alloc carriers: 1
+mbcs carriers size: 131072 131072 131072
+mbcs mseg carriers size: 0
+mbcs sys_alloc carriers size: 131072
+sbcs blocks: 0 0 0
+sbcs blocks size: 0 0 0
+sbcs carriers: 0 0 0
+sbcs mseg carriers: 0
+sbcs sys_alloc carriers: 0
+sbcs carriers size: 0 0 0
+sbcs mseg carriers size: 0
+sbcs sys_alloc carriers size: 0
+temp_alloc calls: 1884
+temp_free calls: 1884
+temp_realloc calls: 0
+mseg_alloc calls: 0
+mseg_dealloc calls: 0
+mseg_realloc calls: 0
+sys_alloc calls: 1
+sys_free calls: 0
+sys_realloc calls: 0
+=allocator:temp_alloc[4]
+versions: 0.9 3.0
+option e: true
+option t: 5
+option ramv: false
+option sbct: 524288
+option asbcst: 4145152
+option rsbcst: 90
+option rsbcmt: 80
+option rmbcmt: 100
+option mmbcs: 131072
+option mmsbc: 256
+option mmmbc: 18446744073709551615
+option lmbcs: 10485760
+option smbcs: 1048576
+option mbcgs: 10
+option acul: 0
+option as: af
+mbcs blocks: 0 4 4
+mbcs blocks size: 0 8768 8768
+mbcs carriers: 1 1 1
+mbcs mseg carriers: 0
+mbcs sys_alloc carriers: 1
+mbcs carriers size: 131072 131072 131072
+mbcs mseg carriers size: 0
+mbcs sys_alloc carriers size: 131072
+sbcs blocks: 0 0 0
+sbcs blocks size: 0 0 0
+sbcs carriers: 0 0 0
+sbcs mseg carriers: 0
+sbcs sys_alloc carriers: 0
+sbcs carriers size: 0 0 0
+sbcs mseg carriers size: 0
+sbcs sys_alloc carriers size: 0
+temp_alloc calls: 2118
+temp_free calls: 2118
+temp_realloc calls: 0
+mseg_alloc calls: 0
+mseg_dealloc calls: 0
+mseg_realloc calls: 0
+sys_alloc calls: 1
+sys_free calls: 0
+sys_realloc calls: 0
+=allocator:sl_alloc[0]
+versions: 0.9 3.0
+option e: true
+option t: 5
+option ramv: false
+option sbct: 524288
+option asbcst: 4145152
+option rsbcst: 80
+option rsbcmt: 80
+option rmbcmt: 50
+option mmbcs: 32768
+option mmsbc: 256
+option mmmbc: 18446744073709551615
+option lmbcs: 5242880
+option smbcs: 262144
+option mbcgs: 10
+option acul: 0
+option as: aoffcbf
+mbcs blocks: 1 183 183
+mbcs blocks size: 520 49176 49176
+mbcs carriers: 1 2 2
+mbcs mseg carriers: 0
+mbcs sys_alloc carriers: 1
+mbcs carriers size: 32768 294912 294912
+mbcs mseg carriers size: 0
+mbcs sys_alloc carriers size: 32768
+sbcs blocks: 0 0 0
+sbcs blocks size: 0 0 0
+sbcs carriers: 0 0 0
+sbcs mseg carriers: 0
+sbcs sys_alloc carriers: 0
+sbcs carriers size: 0 0 0
+sbcs mseg carriers size: 0
+sbcs sys_alloc carriers size: 0
+sl_alloc calls: 711
+sl_free calls: 710
+sl_realloc calls: 1
+mseg_alloc calls: 5
+mseg_dealloc calls: 5
+mseg_realloc calls: 0
+sys_alloc calls: 1
+sys_free calls: 0
+sys_realloc calls: 0
+=allocator:sl_alloc[1]
+versions: 0.9 3.0
+option e: true
+option t: 5
+option ramv: false
+option sbct: 524288
+option asbcst: 4145152
+option rsbcst: 80
+option rsbcmt: 80
+option rmbcmt: 50
+option mmbcs: 32768
+option mmsbc: 256
+option mmmbc: 18446744073709551615
+option lmbcs: 5242880
+option smbcs: 262144
+option mbcgs: 10
+option acul: 60
+option as: aoffcbf
+mbcs blocks: 0 267 267
+mbcs blocks size: 0 163872 163872
+mbcs carriers: 1 2 2
+mbcs mseg carriers: 0
+mbcs sys_alloc carriers: 1
+mbcs carriers size: 32768 294912 294912
+mbcs mseg carriers size: 0
+mbcs sys_alloc carriers size: 32768
+mbcs_pool blocks: 0
+mbcs_pool blocks size: 0
+mbcs_pool carriers: 0
+mbcs_pool carriers size: 0
+sbcs blocks: 0 0 0
+sbcs blocks size: 0 0 0
+sbcs carriers: 0 0 0
+sbcs mseg carriers: 0
+sbcs sys_alloc carriers: 0
+sbcs carriers size: 0 0 0
+sbcs mseg carriers size: 0
+sbcs sys_alloc carriers size: 0
+sl_alloc calls: 274
+sl_free calls: 274
+sl_realloc calls: 0
+mseg_alloc calls: 1
+mseg_dealloc calls: 1
+mseg_realloc calls: 0
+sys_alloc calls: 1
+sys_free calls: 0
+sys_realloc calls: 0
+=allocator:sl_alloc[2]
+versions: 0.9 3.0
+option e: true
+option t: 5
+option ramv: false
+option sbct: 524288
+option asbcst: 4145152
+option rsbcst: 80
+option rsbcmt: 80
+option rmbcmt: 50
+option mmbcs: 32768
+option mmsbc: 256
+option mmmbc: 18446744073709551615
+option lmbcs: 5242880
+option smbcs: 262144
+option mbcgs: 10
+option acul: 60
+option as: aoffcbf
+mbcs blocks: 0 505 505
+mbcs blocks size: 0 250504 250504
+mbcs carriers: 1 2 2
+mbcs mseg carriers: 0
+mbcs sys_alloc carriers: 1
+mbcs carriers size: 32768 294912 294912
+mbcs mseg carriers size: 0
+mbcs sys_alloc carriers size: 32768
+mbcs_pool blocks: 0
+mbcs_pool blocks size: 0
+mbcs_pool carriers: 0
+mbcs_pool carriers size: 0
+sbcs blocks: 0 0 0
+sbcs blocks size: 0 0 0
+sbcs carriers: 0 0 0
+sbcs mseg carriers: 0
+sbcs sys_alloc carriers: 0
+sbcs carriers size: 0 0 0
+sbcs mseg carriers size: 0
+sbcs sys_alloc carriers size: 0
+sl_alloc calls: 5843
+sl_free calls: 5843
+sl_realloc calls: 6
+mseg_alloc calls: 12
+mseg_dealloc calls: 12
+mseg_realloc calls: 0
+sys_alloc calls: 1
+sys_free calls: 0
+sys_realloc calls: 0
+=allocator:sl_alloc[3]
+versions: 0.9 3.0
+option e: true
+option t: 5
+option ramv: false
+option sbct: 524288
+option asbcst: 4145152
+option rsbcst: 80
+option rsbcmt: 80
+option rmbcmt: 50
+option mmbcs: 32768
+option mmsbc: 256
+option mmmbc: 18446744073709551615
+option lmbcs: 5242880
+option smbcs: 262144
+option mbcgs: 10
+option acul: 60
+option as: aoffcbf
+mbcs blocks: 0 499 499
+mbcs blocks size: 0 166352 166352
+mbcs carriers: 1 2 2
+mbcs mseg carriers: 0
+mbcs sys_alloc carriers: 1
+mbcs carriers size: 32768 294912 294912
+mbcs mseg carriers size: 0
+mbcs sys_alloc carriers size: 32768
+mbcs_pool blocks: 0
+mbcs_pool blocks size: 0
+mbcs_pool carriers: 0
+mbcs_pool carriers size: 0
+sbcs blocks: 0 0 0
+sbcs blocks size: 0 0 0
+sbcs carriers: 0 0 0
+sbcs mseg carriers: 0
+sbcs sys_alloc carriers: 0
+sbcs carriers size: 0 0 0
+sbcs mseg carriers size: 0
+sbcs sys_alloc carriers size: 0
+sl_alloc calls: 501
+sl_free calls: 501
+sl_realloc calls: 0
+mseg_alloc calls: 1
+mseg_dealloc calls: 1
+mseg_realloc calls: 0
+sys_alloc calls: 1
+sys_free calls: 0
+sys_realloc calls: 0
+=allocator:sl_alloc[4]
+versions: 0.9 3.0
+option e: true
+option t: 5
+option ramv: false
+option sbct: 524288
+option asbcst: 4145152
+option rsbcst: 80
+option rsbcmt: 80
+option rmbcmt: 50
+option mmbcs: 32768
+option mmsbc: 256
+option mmmbc: 18446744073709551615
+option lmbcs: 5242880
+option smbcs: 262144
+option mbcgs: 10
+option acul: 60
+option as: aoffcbf
+mbcs blocks: 0 475 475
+mbcs blocks size: 0 232456 232456
+mbcs carriers: 1 2 2
+mbcs mseg carriers: 0
+mbcs sys_alloc carriers: 1
+mbcs carriers size: 32768 294912 294912
+mbcs mseg carriers size: 0
+mbcs sys_alloc carriers size: 32768
+mbcs_pool blocks: 0
+mbcs_pool blocks size: 0
+mbcs_pool carriers: 0
+mbcs_pool carriers size: 0
+sbcs blocks: 0 0 0
+sbcs blocks size: 0 0 0
+sbcs carriers: 0 0 0
+sbcs mseg carriers: 0
+sbcs sys_alloc carriers: 0
+sbcs carriers size: 0 0 0
+sbcs mseg carriers size: 0
+sbcs sys_alloc carriers size: 0
+sl_alloc calls: 478
+sl_free calls: 478
+sl_realloc calls: 0
+mseg_alloc calls: 1
+mseg_dealloc calls: 1
+mseg_realloc calls: 0
+sys_alloc calls: 1
+sys_free calls: 0
+sys_realloc calls: 0
+=allocator:std_alloc[0]
+versions: 0.9 3.0
+option e: true
+option t: 5
+option ramv: false
+option sbct: 524288
+option asbcst: 4145152
+option rsbcst: 20
+option rsbcmt: 80
+option rmbcmt: 50
+option mmbcs: 32768
+option mmsbc: 256
+option mmmbc: 18446744073709551615
+option lmbcs: 5242880
+option smbcs: 262144
+option mbcgs: 10
+option acul: 0
+option as: aoffcbf
+mbcs blocks: 18 22 22
+mbcs blocks size: 132928 142632 142632
+mbcs carriers: 2 2 2
+mbcs mseg carriers: 1
+mbcs sys_alloc carriers: 1
+mbcs carriers size: 294912 294912 294912
+mbcs mseg carriers size: 262144
+mbcs sys_alloc carriers size: 32768
+sbcs blocks: 0 0 0
+sbcs blocks size: 0 0 0
+sbcs carriers: 0 0 0
+sbcs mseg carriers: 0
+sbcs sys_alloc carriers: 0
+sbcs carriers size: 0 0 0
+sbcs mseg carriers size: 0
+sbcs sys_alloc carriers size: 0
+std_alloc calls: 33
+std_free calls: 15
+std_realloc calls: 0
+mseg_alloc calls: 1
+mseg_dealloc calls: 0
+mseg_realloc calls: 0
+sys_alloc calls: 1
+sys_free calls: 0
+sys_realloc calls: 0
+=allocator:std_alloc[1]
+versions: 0.9 3.0
+option e: true
+option t: 5
+option ramv: false
+option sbct: 524288
+option asbcst: 4145152
+option rsbcst: 20
+option rsbcmt: 80
+option rmbcmt: 50
+option mmbcs: 32768
+option mmsbc: 256
+option mmmbc: 18446744073709551615
+option lmbcs: 5242880
+option smbcs: 262144
+option mbcgs: 10
+option acul: 60
+option as: aoffcbf
+mbcs blocks: 1 3 3
+mbcs blocks size: 64 8016 8016
+mbcs carriers: 1 1 1
+mbcs mseg carriers: 0
+mbcs sys_alloc carriers: 1
+mbcs carriers size: 32768 32768 32768
+mbcs mseg carriers size: 0
+mbcs sys_alloc carriers size: 32768
+mbcs_pool blocks: 0
+mbcs_pool blocks size: 0
+mbcs_pool carriers: 0
+mbcs_pool carriers size: 0
+sbcs blocks: 0 0 0
+sbcs blocks size: 0 0 0
+sbcs carriers: 0 0 0
+sbcs mseg carriers: 0
+sbcs sys_alloc carriers: 0
+sbcs carriers size: 0 0 0
+sbcs mseg carriers size: 0
+sbcs sys_alloc carriers size: 0
+std_alloc calls: 7
+std_free calls: 6
+std_realloc calls: 0
+mseg_alloc calls: 0
+mseg_dealloc calls: 0
+mseg_realloc calls: 0
+sys_alloc calls: 1
+sys_free calls: 0
+sys_realloc calls: 0
+=allocator:std_alloc[2]
+versions: 0.9 3.0
+option e: true
+option t: 5
+option ramv: false
+option sbct: 524288
+option asbcst: 4145152
+option rsbcst: 20
+option rsbcmt: 80
+option rmbcmt: 50
+option mmbcs: 32768
+option mmsbc: 256
+option mmmbc: 18446744073709551615
+option lmbcs: 5242880
+option smbcs: 262144
+option mbcgs: 10
+option acul: 60
+option as: aoffcbf
+mbcs blocks: 60 61 61
+mbcs blocks size: 17576 24696 24696
+mbcs carriers: 1 1 1
+mbcs mseg carriers: 0
+mbcs sys_alloc carriers: 1
+mbcs carriers size: 32768 32768 32768
+mbcs mseg carriers size: 0
+mbcs sys_alloc carriers size: 32768
+mbcs_pool blocks: 0
+mbcs_pool blocks size: 0
+mbcs_pool carriers: 0
+mbcs_pool carriers size: 0
+sbcs blocks: 0 0 0
+sbcs blocks size: 0 0 0
+sbcs carriers: 0 0 0
+sbcs mseg carriers: 0
+sbcs sys_alloc carriers: 0
+sbcs carriers size: 0 0 0
+sbcs mseg carriers size: 0
+sbcs sys_alloc carriers size: 0
+std_alloc calls: 215
+std_free calls: 155
+std_realloc calls: 0
+mseg_alloc calls: 0
+mseg_dealloc calls: 0
+mseg_realloc calls: 0
+sys_alloc calls: 1
+sys_free calls: 0
+sys_realloc calls: 0
+=allocator:std_alloc[3]
+versions: 0.9 3.0
+option e: true
+option t: 5
+option ramv: false
+option sbct: 524288
+option asbcst: 4145152
+option rsbcst: 20
+option rsbcmt: 80
+option rmbcmt: 50
+option mmbcs: 32768
+option mmsbc: 256
+option mmmbc: 18446744073709551615
+option lmbcs: 5242880
+option smbcs: 262144
+option mbcgs: 10
+option acul: 60
+option as: aoffcbf
+mbcs blocks: 0 2 2
+mbcs blocks size: 0 10352 10352
+mbcs carriers: 1 1 1
+mbcs mseg carriers: 0
+mbcs sys_alloc carriers: 1
+mbcs carriers size: 32768 32768 32768
+mbcs mseg carriers size: 0
+mbcs sys_alloc carriers size: 32768
+mbcs_pool blocks: 0
+mbcs_pool blocks size: 0
+mbcs_pool carriers: 0
+mbcs_pool carriers size: 0
+sbcs blocks: 0 0 0
+sbcs blocks size: 0 0 0
+sbcs carriers: 0 0 0
+sbcs mseg carriers: 0
+sbcs sys_alloc carriers: 0
+sbcs carriers size: 0 0 0
+sbcs mseg carriers size: 0
+sbcs sys_alloc carriers size: 0
+std_alloc calls: 9
+std_free calls: 9
+std_realloc calls: 0
+mseg_alloc calls: 0
+mseg_dealloc calls: 0
+mseg_realloc calls: 0
+sys_alloc calls: 1
+sys_free calls: 0
+sys_realloc calls: 0
+=allocator:std_alloc[4]
+versions: 0.9 3.0
+option e: true
+option t: 5
+option ramv: false
+option sbct: 524288
+option asbcst: 4145152
+option rsbcst: 20
+option rsbcmt: 80
+option rmbcmt: 50
+option mmbcs: 32768
+option mmsbc: 256
+option mmmbc: 18446744073709551615
+option lmbcs: 5242880
+option smbcs: 262144
+option mbcgs: 10
+option acul: 60
+option as: aoffcbf
+mbcs blocks: 0 1 1
+mbcs blocks size: 0 7168 7168
+mbcs carriers: 1 1 1
+mbcs mseg carriers: 0
+mbcs sys_alloc carriers: 1
+mbcs carriers size: 32768 32768 32768
+mbcs mseg carriers size: 0
+mbcs sys_alloc carriers size: 32768
+mbcs_pool blocks: 0
+mbcs_pool blocks size: 0
+mbcs_pool carriers: 0
+mbcs_pool carriers size: 0
+sbcs blocks: 0 0 0
+sbcs blocks size: 0 0 0
+sbcs carriers: 0 0 0
+sbcs mseg carriers: 0
+sbcs sys_alloc carriers: 0
+sbcs carriers size: 0 0 0
+sbcs mseg carriers size: 0
+sbcs sys_alloc carriers size: 0
+std_alloc calls: 3
+std_free calls: 3
+std_realloc calls: 0
+mseg_alloc calls: 0
+mseg_dealloc calls: 0
+mseg_realloc calls: 0
+sys_alloc calls: 1
+sys_free calls: 0
+sys_realloc calls: 0
+=allocator:ll_alloc[0]
+versions: 0.9 3.0
+option e: true
+option t: 5
+option ramv: false
+option sbct: 18446744073709551615
+option asbcst: 0
+option rsbcst: 0
+option rsbcmt: 0
+option rmbcmt: 0
+option mmbcs: 524288
+option mmsbc: 0
+option mmmbc: 18446744073709551615
+option lmbcs: 5242880
+option smbcs: 262144
+option mbcgs: 10
+option acul: 0
+option as: aoffcbf
+mbcs blocks: 3425 3429 3429
+mbcs blocks size: 7843072 7863520 7863520
+mbcs carriers: 5 5 5
+mbcs mseg carriers: 4
+mbcs sys_alloc carriers: 1
+mbcs carriers size: 9961472 9961472 9961472
+mbcs mseg carriers size: 9437184
+mbcs sys_alloc carriers size: 524288
+sbcs blocks: 0 0 0
+sbcs blocks size: 0 0 0
+sbcs carriers: 0 0 0
+sbcs mseg carriers: 0
+sbcs sys_alloc carriers: 0
+sbcs carriers size: 0 0 0
+sbcs mseg carriers size: 0
+sbcs sys_alloc carriers size: 0
+ll_alloc calls: 3430
+ll_free calls: 5
+ll_realloc calls: 28
+mseg_alloc calls: 4
+mseg_dealloc calls: 0
+mseg_realloc calls: 0
+sys_alloc calls: 1
+sys_free calls: 0
+sys_realloc calls: 0
+=allocator:ll_alloc[1]
+versions: 0.9 3.0
+option e: true
+option t: 5
+option ramv: false
+option sbct: 18446744073709551615
+option asbcst: 0
+option rsbcst: 0
+option rsbcmt: 0
+option rmbcmt: 0
+option mmbcs: 524288
+option mmsbc: 0
+option mmmbc: 18446744073709551615
+option lmbcs: 5242880
+option smbcs: 262144
+option mbcgs: 10
+option acul: 85
+option as: aoffcbf
+mbcs blocks: 707 708 708
+mbcs blocks size: 379472 417632 417632
+mbcs carriers: 1 1 1
+mbcs mseg carriers: 0
+mbcs sys_alloc carriers: 1
+mbcs carriers size: 524288 524288 524288
+mbcs mseg carriers size: 0
+mbcs sys_alloc carriers size: 524288
+mbcs_pool blocks: 0
+mbcs_pool blocks size: 0
+mbcs_pool carriers: 0
+mbcs_pool carriers size: 0
+sbcs blocks: 0 0 0
+sbcs blocks size: 0 0 0
+sbcs carriers: 0 0 0
+sbcs mseg carriers: 0
+sbcs sys_alloc carriers: 0
+sbcs carriers size: 0 0 0
+sbcs mseg carriers size: 0
+sbcs sys_alloc carriers size: 0
+ll_alloc calls: 707
+ll_free calls: 0
+ll_realloc calls: 15
+mseg_alloc calls: 0
+mseg_dealloc calls: 0
+mseg_realloc calls: 0
+sys_alloc calls: 1
+sys_free calls: 0
+sys_realloc calls: 0
+=allocator:ll_alloc[2]
+versions: 0.9 3.0
+option e: true
+option t: 5
+option ramv: false
+option sbct: 18446744073709551615
+option asbcst: 0
+option rsbcst: 0
+option rsbcmt: 0
+option rmbcmt: 0
+option mmbcs: 524288
+option mmsbc: 0
+option mmmbc: 18446744073709551615
+option lmbcs: 5242880
+option smbcs: 262144
+option mbcgs: 10
+option acul: 85
+option as: aoffcbf
+mbcs blocks: 8155 8155 8155
+mbcs blocks size: 3896064 4344000 4344000
+mbcs carriers: 5 5 5
+mbcs mseg carriers: 4
+mbcs sys_alloc carriers: 1
+mbcs carriers size: 6291456 6291456 6291456
+mbcs mseg carriers size: 5767168
+mbcs sys_alloc carriers size: 524288
+mbcs_pool blocks: 0
+mbcs_pool blocks size: 0
+mbcs_pool carriers: 0
+mbcs_pool carriers size: 0
+sbcs blocks: 0 0 0
+sbcs blocks size: 0 0 0
+sbcs carriers: 0 0 0
+sbcs mseg carriers: 0
+sbcs sys_alloc carriers: 0
+sbcs carriers size: 0 0 0
+sbcs mseg carriers size: 0
+sbcs sys_alloc carriers size: 0
+ll_alloc calls: 8158
+ll_free calls: 3
+ll_realloc calls: 151
+mseg_alloc calls: 4
+mseg_dealloc calls: 0
+mseg_realloc calls: 0
+sys_alloc calls: 1
+sys_free calls: 0
+sys_realloc calls: 0
+=allocator:ll_alloc[3]
+versions: 0.9 3.0
+option e: true
+option t: 5
+option ramv: false
+option sbct: 18446744073709551615
+option asbcst: 0
+option rsbcst: 0
+option rsbcmt: 0
+option rmbcmt: 0
+option mmbcs: 524288
+option mmsbc: 0
+option mmmbc: 18446744073709551615
+option lmbcs: 5242880
+option smbcs: 262144
+option mbcgs: 10
+option acul: 85
+option as: aoffcbf
+mbcs blocks: 409 409 409
+mbcs blocks size: 298480 324616 324616
+mbcs carriers: 1 1 1
+mbcs mseg carriers: 0
+mbcs sys_alloc carriers: 1
+mbcs carriers size: 524288 524288 524288
+mbcs mseg carriers size: 0
+mbcs sys_alloc carriers size: 524288
+mbcs_pool blocks: 0
+mbcs_pool blocks size: 0
+mbcs_pool carriers: 0
+mbcs_pool carriers size: 0
+sbcs blocks: 0 0 0
+sbcs blocks size: 0 0 0
+sbcs carriers: 0 0 0
+sbcs mseg carriers: 0
+sbcs sys_alloc carriers: 0
+sbcs carriers size: 0 0 0
+sbcs mseg carriers size: 0
+sbcs sys_alloc carriers size: 0
+ll_alloc calls: 409
+ll_free calls: 0
+ll_realloc calls: 16
+mseg_alloc calls: 0
+mseg_dealloc calls: 0
+mseg_realloc calls: 0
+sys_alloc calls: 1
+sys_free calls: 0
+sys_realloc calls: 0
+=allocator:ll_alloc[4]
+versions: 0.9 3.0
+option e: true
+option t: 5
+option ramv: false
+option sbct: 18446744073709551615
+option asbcst: 0
+option rsbcst: 0
+option rsbcmt: 0
+option rmbcmt: 0
+option mmbcs: 524288
+option mmsbc: 0
+option mmmbc: 18446744073709551615
+option lmbcs: 5242880
+option smbcs: 262144
+option mbcgs: 10
+option acul: 85
+option as: aoffcbf
+mbcs blocks: 755 756 756
+mbcs blocks size: 425024 467304 467304
+mbcs carriers: 1 1 1
+mbcs mseg carriers: 0
+mbcs sys_alloc carriers: 1
+mbcs carriers size: 524288 524288 524288
+mbcs mseg carriers size: 0
+mbcs sys_alloc carriers size: 524288
+mbcs_pool blocks: 0
+mbcs_pool blocks size: 0
+mbcs_pool carriers: 0
+mbcs_pool carriers size: 0
+sbcs blocks: 0 0 0
+sbcs blocks size: 0 0 0
+sbcs carriers: 0 0 0
+sbcs mseg carriers: 0
+sbcs sys_alloc carriers: 0
+sbcs carriers size: 0 0 0
+sbcs mseg carriers size: 0
+sbcs sys_alloc carriers size: 0
+ll_alloc calls: 755
+ll_free calls: 0
+ll_realloc calls: 9
+mseg_alloc calls: 0
+mseg_dealloc calls: 0
+mseg_realloc calls: 0
+sys_alloc calls: 1
+sys_free calls: 0
+sys_realloc calls: 0
+=allocator:eheap_alloc[0]
+versions: 0.9 3.0
+option e: true
+option t: 5
+option ramv: false
+option sbct: 524288
+option asbcst: 4145152
+option rsbcst: 50
+option rsbcmt: 80
+option rmbcmt: 50
+option mmbcs: 131072
+option mmsbc: 256
+option mmmbc: 18446744073709551615
+option lmbcs: 5242880
+option smbcs: 262144
+option mbcgs: 10
+option acul: 0
+option as: aoffcbf
+mbcs blocks: 9 33 33
+mbcs blocks size: 68080 70232 70232
+mbcs carriers: 1 1 1
+mbcs mseg carriers: 0
+mbcs sys_alloc carriers: 1
+mbcs carriers size: 131072 131072 131072
+mbcs mseg carriers size: 0
+mbcs sys_alloc carriers size: 131072
+sbcs blocks: 0 0 0
+sbcs blocks size: 0 0 0
+sbcs carriers: 0 0 0
+sbcs mseg carriers: 0
+sbcs sys_alloc carriers: 0
+sbcs carriers size: 0 0 0
+sbcs mseg carriers size: 0
+sbcs sys_alloc carriers size: 0
+eheap_alloc calls: 34
+eheap_free calls: 25
+eheap_realloc calls: 0
+mseg_alloc calls: 0
+mseg_dealloc calls: 0
+mseg_realloc calls: 0
+sys_alloc calls: 1
+sys_free calls: 0
+sys_realloc calls: 0
+=allocator:eheap_alloc[1]
+versions: 0.9 3.0
+option e: true
+option t: 5
+option ramv: false
+option sbct: 524288
+option asbcst: 4145152
+option rsbcst: 50
+option rsbcmt: 80
+option rmbcmt: 50
+option mmbcs: 131072
+option mmsbc: 256
+option mmmbc: 18446744073709551615
+option lmbcs: 5242880
+option smbcs: 262144
+option mbcgs: 10
+option acul: 45
+option as: aoffcbf
+mbcs blocks: 0 6 6
+mbcs blocks size: 0 15024 15024
+mbcs carriers: 1 1 1
+mbcs mseg carriers: 0
+mbcs sys_alloc carriers: 1
+mbcs carriers size: 131072 131072 131072
+mbcs mseg carriers size: 0
+mbcs sys_alloc carriers size: 131072
+mbcs_pool blocks: 0
+mbcs_pool blocks size: 0
+mbcs_pool carriers: 0
+mbcs_pool carriers size: 0
+sbcs blocks: 0 0 0
+sbcs blocks size: 0 0 0
+sbcs carriers: 0 0 0
+sbcs mseg carriers: 0
+sbcs sys_alloc carriers: 0
+sbcs carriers size: 0 0 0
+sbcs mseg carriers size: 0
+sbcs sys_alloc carriers size: 0
+eheap_alloc calls: 13
+eheap_free calls: 13
+eheap_realloc calls: 0
+mseg_alloc calls: 0
+mseg_dealloc calls: 0
+mseg_realloc calls: 0
+sys_alloc calls: 1
+sys_free calls: 0
+sys_realloc calls: 0
+=allocator:eheap_alloc[2]
+versions: 0.9 3.0
+option e: true
+option t: 5
+option ramv: false
+option sbct: 524288
+option asbcst: 4145152
+option rsbcst: 50
+option rsbcmt: 80
+option rmbcmt: 50
+option mmbcs: 131072
+option mmsbc: 256
+option mmmbc: 18446744073709551615
+option lmbcs: 5242880
+option smbcs: 262144
+option mbcgs: 10
+option acul: 45
+option as: aoffcbf
+mbcs blocks: 60 63 63
+mbcs blocks size: 888240 1580432 1580432
+mbcs carriers: 4 4 4
+mbcs mseg carriers: 3
+mbcs sys_alloc carriers: 1
+mbcs carriers size: 3538944 3538944 3538944
+mbcs mseg carriers size: 3407872
+mbcs sys_alloc carriers size: 131072
+mbcs_pool blocks: 0
+mbcs_pool blocks size: 0
+mbcs_pool carriers: 0
+mbcs_pool carriers size: 0
+sbcs blocks: 3 4 4
+sbcs blocks size: 2154395768 5379133720 5379133720
+sbcs carriers: 3 4 4
+sbcs mseg carriers: 3
+sbcs sys_alloc carriers: 0
+sbcs carriers size: 2154500096 5379518464 5379518464
+sbcs mseg carriers size: 2154500096
+sbcs sys_alloc carriers size: 0
+eheap_alloc calls: 1073
+eheap_free calls: 1009
+eheap_realloc calls: 294
+mseg_alloc calls: 280
+mseg_dealloc calls: 271
+mseg_realloc calls: 219
+sys_alloc calls: 5
+sys_free calls: 2
+sys_realloc calls: 0
+=allocator:eheap_alloc[3]
+versions: 0.9 3.0
+option e: true
+option t: 5
+option ramv: false
+option sbct: 524288
+option asbcst: 4145152
+option rsbcst: 50
+option rsbcmt: 80
+option rmbcmt: 50
+option mmbcs: 131072
+option mmsbc: 256
+option mmmbc: 18446744073709551615
+option lmbcs: 5242880
+option smbcs: 262144
+option mbcgs: 10
+option acul: 45
+option as: aoffcbf
+mbcs blocks: 0 8 8
+mbcs blocks size: 0 28184 28184
+mbcs carriers: 1 1 1
+mbcs mseg carriers: 0
+mbcs sys_alloc carriers: 1
+mbcs carriers size: 131072 131072 131072
+mbcs mseg carriers size: 0
+mbcs sys_alloc carriers size: 131072
+mbcs_pool blocks: 0
+mbcs_pool blocks size: 0
+mbcs_pool carriers: 0
+mbcs_pool carriers size: 0
+sbcs blocks: 0 0 0
+sbcs blocks size: 0 0 0
+sbcs carriers: 0 0 0
+sbcs mseg carriers: 0
+sbcs sys_alloc carriers: 0
+sbcs carriers size: 0 0 0
+sbcs mseg carriers size: 0
+sbcs sys_alloc carriers size: 0
+eheap_alloc calls: 8
+eheap_free calls: 8
+eheap_realloc calls: 0
+mseg_alloc calls: 0
+mseg_dealloc calls: 0
+mseg_realloc calls: 0
+sys_alloc calls: 1
+sys_free calls: 0
+sys_realloc calls: 0
+=allocator:eheap_alloc[4]
+versions: 0.9 3.0
+option e: true
+option t: 5
+option ramv: false
+option sbct: 524288
+option asbcst: 4145152
+option rsbcst: 50
+option rsbcmt: 80
+option rmbcmt: 50
+option mmbcs: 131072
+option mmsbc: 256
+option mmmbc: 18446744073709551615
+option lmbcs: 5242880
+option smbcs: 262144
+option mbcgs: 10
+option acul: 45
+option as: aoffcbf
+mbcs blocks: 0 3 3
+mbcs blocks size: 0 35392 35392
+mbcs carriers: 1 1 1
+mbcs mseg carriers: 0
+mbcs sys_alloc carriers: 1
+mbcs carriers size: 131072 131072 131072
+mbcs mseg carriers size: 0
+mbcs sys_alloc carriers size: 131072
+mbcs_pool blocks: 0
+mbcs_pool blocks size: 0
+mbcs_pool carriers: 0
+mbcs_pool carriers size: 0
+sbcs blocks: 0 0 0
+sbcs blocks size: 0 0 0
+sbcs carriers: 0 0 0
+sbcs mseg carriers: 0
+sbcs sys_alloc carriers: 0
+sbcs carriers size: 0 0 0
+sbcs mseg carriers size: 0
+sbcs sys_alloc carriers size: 0
+eheap_alloc calls: 5
+eheap_free calls: 5
+eheap_realloc calls: 0
+mseg_alloc calls: 0
+mseg_dealloc calls: 0
+mseg_realloc calls: 0
+sys_alloc calls: 1
+sys_free calls: 0
+sys_realloc calls: 0
+=allocator:ets_alloc[0]
+versions: 0.9 3.0
+option e: true
+option t: 5
+option ramv: false
+option sbct: 524288
+option asbcst: 4145152
+option rsbcst: 20
+option rsbcmt: 80
+option rmbcmt: 50
+option mmbcs: 32768
+option mmsbc: 256
+option mmmbc: 18446744073709551615
+option lmbcs: 5242880
+option smbcs: 262144
+option mbcgs: 10
+option acul: 0
+option as: aoffcbf
+mbcs blocks: 6 6 6
+mbcs blocks size: 21200 21200 21200
+mbcs carriers: 1 1 1
+mbcs mseg carriers: 0
+mbcs sys_alloc carriers: 1
+mbcs carriers size: 32768 32768 32768
+mbcs mseg carriers size: 0
+mbcs sys_alloc carriers size: 32768
+sbcs blocks: 0 0 0
+sbcs blocks size: 0 0 0
+sbcs carriers: 0 0 0
+sbcs mseg carriers: 0
+sbcs sys_alloc carriers: 0
+sbcs carriers size: 0 0 0
+sbcs mseg carriers size: 0
+sbcs sys_alloc carriers size: 0
+ets_alloc calls: 6
+ets_free calls: 0
+ets_realloc calls: 0
+mseg_alloc calls: 0
+mseg_dealloc calls: 0
+mseg_realloc calls: 0
+sys_alloc calls: 1
+sys_free calls: 0
+sys_realloc calls: 0
+=allocator:ets_alloc[1]
+versions: 0.9 3.0
+option e: true
+option t: 5
+option ramv: false
+option sbct: 524288
+option asbcst: 4145152
+option rsbcst: 20
+option rsbcmt: 80
+option rmbcmt: 50
+option mmbcs: 32768
+option mmsbc: 256
+option mmmbc: 18446744073709551615
+option lmbcs: 5242880
+option smbcs: 262144
+option mbcgs: 10
+option acul: 60
+option as: aoffcbf
+mbcs blocks: 0 0 0
+mbcs blocks size: 0 0 0
+mbcs carriers: 1 1 1
+mbcs mseg carriers: 0
+mbcs sys_alloc carriers: 1
+mbcs carriers size: 32768 32768 32768
+mbcs mseg carriers size: 0
+mbcs sys_alloc carriers size: 32768
+mbcs_pool blocks: 0
+mbcs_pool blocks size: 0
+mbcs_pool carriers: 0
+mbcs_pool carriers size: 0
+sbcs blocks: 0 0 0
+sbcs blocks size: 0 0 0
+sbcs carriers: 0 0 0
+sbcs mseg carriers: 0
+sbcs sys_alloc carriers: 0
+sbcs carriers size: 0 0 0
+sbcs mseg carriers size: 0
+sbcs sys_alloc carriers size: 0
+ets_alloc calls: 0
+ets_free calls: 0
+ets_realloc calls: 0
+mseg_alloc calls: 0
+mseg_dealloc calls: 0
+mseg_realloc calls: 0
+sys_alloc calls: 1
+sys_free calls: 0
+sys_realloc calls: 0
+=allocator:ets_alloc[2]
+versions: 0.9 3.0
+option e: true
+option t: 5
+option ramv: false
+option sbct: 524288
+option asbcst: 4145152
+option rsbcst: 20
+option rsbcmt: 80
+option rmbcmt: 50
+option mmbcs: 32768
+option mmsbc: 256
+option mmmbc: 18446744073709551615
+option lmbcs: 5242880
+option smbcs: 262144
+option mbcgs: 10
+option acul: 60
+option as: aoffcbf
+mbcs blocks: 461 461 461
+mbcs blocks size: 208192 208192 208192
+mbcs carriers: 2 2 2
+mbcs mseg carriers: 1
+mbcs sys_alloc carriers: 1
+mbcs carriers size: 294912 294912 294912
+mbcs mseg carriers size: 262144
+mbcs sys_alloc carriers size: 32768
+mbcs_pool blocks: 0
+mbcs_pool blocks size: 0
+mbcs_pool carriers: 0
+mbcs_pool carriers size: 0
+sbcs blocks: 0 0 0
+sbcs blocks size: 0 0 0
+sbcs carriers: 0 0 0
+sbcs mseg carriers: 0
+sbcs sys_alloc carriers: 0
+sbcs carriers size: 0 0 0
+sbcs mseg carriers size: 0
+sbcs sys_alloc carriers size: 0
+ets_alloc calls: 464
+ets_free calls: 3
+ets_realloc calls: 2
+mseg_alloc calls: 1
+mseg_dealloc calls: 0
+mseg_realloc calls: 0
+sys_alloc calls: 1
+sys_free calls: 0
+sys_realloc calls: 0
+=allocator:ets_alloc[3]
+versions: 0.9 3.0
+option e: true
+option t: 5
+option ramv: false
+option sbct: 524288
+option asbcst: 4145152
+option rsbcst: 20
+option rsbcmt: 80
+option rmbcmt: 50
+option mmbcs: 32768
+option mmsbc: 256
+option mmmbc: 18446744073709551615
+option lmbcs: 5242880
+option smbcs: 262144
+option mbcgs: 10
+option acul: 60
+option as: aoffcbf
+mbcs blocks: 0 0 0
+mbcs blocks size: 0 0 0
+mbcs carriers: 1 1 1
+mbcs mseg carriers: 0
+mbcs sys_alloc carriers: 1
+mbcs carriers size: 32768 32768 32768
+mbcs mseg carriers size: 0
+mbcs sys_alloc carriers size: 32768
+mbcs_pool blocks: 0
+mbcs_pool blocks size: 0
+mbcs_pool carriers: 0
+mbcs_pool carriers size: 0
+sbcs blocks: 0 0 0
+sbcs blocks size: 0 0 0
+sbcs carriers: 0 0 0
+sbcs mseg carriers: 0
+sbcs sys_alloc carriers: 0
+sbcs carriers size: 0 0 0
+sbcs mseg carriers size: 0
+sbcs sys_alloc carriers size: 0
+ets_alloc calls: 0
+ets_free calls: 0
+ets_realloc calls: 0
+mseg_alloc calls: 0
+mseg_dealloc calls: 0
+mseg_realloc calls: 0
+sys_alloc calls: 1
+sys_free calls: 0
+sys_realloc calls: 0
+=allocator:ets_alloc[4]
+versions: 0.9 3.0
+option e: true
+option t: 5
+option ramv: false
+option sbct: 524288
+option asbcst: 4145152
+option rsbcst: 20
+option rsbcmt: 80
+option rmbcmt: 50
+option mmbcs: 32768
+option mmsbc: 256
+option mmmbc: 18446744073709551615
+option lmbcs: 5242880
+option smbcs: 262144
+option mbcgs: 10
+option acul: 60
+option as: aoffcbf
+mbcs blocks: 0 0 0
+mbcs blocks size: 0 0 0
+mbcs carriers: 1 1 1
+mbcs mseg carriers: 0
+mbcs sys_alloc carriers: 1
+mbcs carriers size: 32768 32768 32768
+mbcs mseg carriers size: 0
+mbcs sys_alloc carriers size: 32768
+mbcs_pool blocks: 0
+mbcs_pool blocks size: 0
+mbcs_pool carriers: 0
+mbcs_pool carriers size: 0
+sbcs blocks: 0 0 0
+sbcs blocks size: 0 0 0
+sbcs carriers: 0 0 0
+sbcs mseg carriers: 0
+sbcs sys_alloc carriers: 0
+sbcs carriers size: 0 0 0
+sbcs mseg carriers size: 0
+sbcs sys_alloc carriers size: 0
+ets_alloc calls: 0
+ets_free calls: 0
+ets_realloc calls: 0
+mseg_alloc calls: 0
+mseg_dealloc calls: 0
+mseg_realloc calls: 0
+sys_alloc calls: 1
+sys_free calls: 0
+sys_realloc calls: 0
+=allocator:fix_alloc[0]
+versions: 0.9 3.0
+option e: true
+option t: 5
+option ramv: false
+option sbct: 524288
+option asbcst: 4145152
+option rsbcst: 20
+option rsbcmt: 80
+option rmbcmt: 50
+option mmbcs: 32768
+option mmsbc: 256
+option mmmbc: 18446744073709551615
+option lmbcs: 5242880
+option smbcs: 262144
+option mbcgs: 10
+option acul: 0
+option as: aoffcbf
+fix type: driver_select_data_state 48 48
+fix type: driver_event_data_state 0 0
+fix type: nlink_sh 0 0
+fix type: monitor_sh 0 0
+fix type: sl_thr_q_element 0 0
+fix type: bif_timer 0 0
+fix type: hl_ptimer 0 0
+fix type: ll_ptimer 0 0
+fix type: msg_ref 0 0
+fix type: proc 1680 1680
+mbcs blocks: 3 3 3
+mbcs blocks size: 1760 1760 1760
+mbcs carriers: 1 1 1
+mbcs mseg carriers: 0
+mbcs sys_alloc carriers: 1
+mbcs carriers size: 32768 32768 32768
+mbcs mseg carriers size: 0
+mbcs sys_alloc carriers size: 32768
+sbcs blocks: 0 0 0
+sbcs blocks size: 0 0 0
+sbcs carriers: 0 0 0
+sbcs mseg carriers: 0
+sbcs sys_alloc carriers: 0
+sbcs carriers size: 0 0 0
+sbcs mseg carriers size: 0
+sbcs sys_alloc carriers size: 0
+fix_alloc calls: 3
+fix_free calls: 0
+fix_realloc calls: 0
+mseg_alloc calls: 0
+mseg_dealloc calls: 0
+mseg_realloc calls: 0
+sys_alloc calls: 1
+sys_free calls: 0
+sys_realloc calls: 0
+=allocator:fix_alloc[1]
+versions: 0.9 3.0
+option e: true
+option t: 5
+option ramv: false
+option sbct: 524288
+option asbcst: 4145152
+option rsbcst: 20
+option rsbcmt: 80
+option rmbcmt: 50
+option mmbcs: 32768
+option mmsbc: 256
+option mmmbc: 18446744073709551615
+option lmbcs: 5242880
+option smbcs: 262144
+option mbcgs: 10
+option acul: 60
+option as: aoffcbf
+mbcs blocks: 0 6 6
+mbcs blocks size: 0 384 384
+mbcs carriers: 1 1 1
+mbcs mseg carriers: 0
+mbcs sys_alloc carriers: 1
+mbcs carriers size: 32768 32768 32768
+mbcs mseg carriers size: 0
+mbcs sys_alloc carriers size: 32768
+mbcs_pool blocks: 0
+mbcs_pool blocks size: 0
+mbcs_pool carriers: 0
+mbcs_pool carriers size: 0
+sbcs blocks: 0 0 0
+sbcs blocks size: 0 0 0
+sbcs carriers: 0 0 0
+sbcs mseg carriers: 0
+sbcs sys_alloc carriers: 0
+sbcs carriers size: 0 0 0
+sbcs mseg carriers size: 0
+sbcs sys_alloc carriers size: 0
+fix_alloc calls: 14
+fix_free calls: 14
+fix_realloc calls: 0
+mseg_alloc calls: 0
+mseg_dealloc calls: 0
+mseg_realloc calls: 0
+sys_alloc calls: 1
+sys_free calls: 0
+sys_realloc calls: 0
+=allocator:fix_alloc[2]
+versions: 0.9 3.0
+option e: true
+option t: 5
+option ramv: false
+option sbct: 524288
+option asbcst: 4145152
+option rsbcst: 20
+option rsbcmt: 80
+option rmbcmt: 50
+option mmbcs: 32768
+option mmsbc: 256
+option mmmbc: 18446744073709551615
+option lmbcs: 5242880
+option smbcs: 262144
+option mbcgs: 10
+option acul: 60
+option as: aoffcbf
+mbcs blocks: 126 177 177
+mbcs blocks size: 35648 39632 39632
+mbcs carriers: 2 2 2
+mbcs mseg carriers: 1
+mbcs sys_alloc carriers: 1
+mbcs carriers size: 294912 294912 294912
+mbcs mseg carriers size: 262144
+mbcs sys_alloc carriers size: 32768
+mbcs_pool blocks: 0
+mbcs_pool blocks size: 0
+mbcs_pool carriers: 0
+mbcs_pool carriers size: 0
+sbcs blocks: 0 0 0
+sbcs blocks size: 0 0 0
+sbcs carriers: 0 0 0
+sbcs mseg carriers: 0
+sbcs sys_alloc carriers: 0
+sbcs carriers size: 0 0 0
+sbcs mseg carriers size: 0
+sbcs sys_alloc carriers size: 0
+fix_alloc calls: 2804
+fix_free calls: 2678
+fix_realloc calls: 0
+mseg_alloc calls: 1
+mseg_dealloc calls: 0
+mseg_realloc calls: 0
+sys_alloc calls: 1
+sys_free calls: 0
+sys_realloc calls: 0
+=allocator:fix_alloc[3]
+versions: 0.9 3.0
+option e: true
+option t: 5
+option ramv: false
+option sbct: 524288
+option asbcst: 4145152
+option rsbcst: 20
+option rsbcmt: 80
+option rmbcmt: 50
+option mmbcs: 32768
+option mmsbc: 256
+option mmmbc: 18446744073709551615
+option lmbcs: 5242880
+option smbcs: 262144
+option mbcgs: 10
+option acul: 60
+option as: aoffcbf
+mbcs blocks: 0 2 2
+mbcs blocks size: 0 128 128
+mbcs carriers: 1 1 1
+mbcs mseg carriers: 0
+mbcs sys_alloc carriers: 1
+mbcs carriers size: 32768 32768 32768
+mbcs mseg carriers size: 0
+mbcs sys_alloc carriers size: 32768
+mbcs_pool blocks: 0
+mbcs_pool blocks size: 0
+mbcs_pool carriers: 0
+mbcs_pool carriers size: 0
+sbcs blocks: 0 0 0
+sbcs blocks size: 0 0 0
+sbcs carriers: 0 0 0
+sbcs mseg carriers: 0
+sbcs sys_alloc carriers: 0
+sbcs carriers size: 0 0 0
+sbcs mseg carriers size: 0
+sbcs sys_alloc carriers size: 0
+fix_alloc calls: 4
+fix_free calls: 4
+fix_realloc calls: 0
+mseg_alloc calls: 0
+mseg_dealloc calls: 0
+mseg_realloc calls: 0
+sys_alloc calls: 1
+sys_free calls: 0
+sys_realloc calls: 0
+=allocator:fix_alloc[4]
+versions: 0.9 3.0
+option e: true
+option t: 5
+option ramv: false
+option sbct: 524288
+option asbcst: 4145152
+option rsbcst: 20
+option rsbcmt: 80
+option rmbcmt: 50
+option mmbcs: 32768
+option mmsbc: 256
+option mmmbc: 18446744073709551615
+option lmbcs: 5242880
+option smbcs: 262144
+option mbcgs: 10
+option acul: 60
+option as: aoffcbf
+mbcs blocks: 0 4 4
+mbcs blocks size: 0 256 256
+mbcs carriers: 1 1 1
+mbcs mseg carriers: 0
+mbcs sys_alloc carriers: 1
+mbcs carriers size: 32768 32768 32768
+mbcs mseg carriers size: 0
+mbcs sys_alloc carriers size: 32768
+mbcs_pool blocks: 0
+mbcs_pool blocks size: 0
+mbcs_pool carriers: 0
+mbcs_pool carriers size: 0
+sbcs blocks: 0 0 0
+sbcs blocks size: 0 0 0
+sbcs carriers: 0 0 0
+sbcs mseg carriers: 0
+sbcs sys_alloc carriers: 0
+sbcs carriers size: 0 0 0
+sbcs mseg carriers size: 0
+sbcs sys_alloc carriers size: 0
+fix_alloc calls: 6
+fix_free calls: 6
+fix_realloc calls: 0
+mseg_alloc calls: 0
+mseg_dealloc calls: 0
+mseg_realloc calls: 0
+sys_alloc calls: 1
+sys_free calls: 0
+sys_realloc calls: 0
+=allocator:literal_alloc
+versions: 0.9 3.0
+option e: true
+option t: false
+option ramv: false
+option sbct: 18446744073709551615
+option asbcst: 0
+option rsbcst: 0
+option rsbcmt: 0
+option rmbcmt: 0
+option mmbcs: 1048576
+option mmsbc: 0
+option mmmbc: 18446744073709551615
+option lmbcs: 10485760
+option smbcs: 1048576
+option mbcgs: 10
+option acul: 0
+option as: aobf
+mbcs blocks: 110 110 110
+mbcs blocks size: 392288 392288 392288
+mbcs carriers: 1 1 1
+mbcs mseg carriers: 1
+mbcs sys_alloc carriers: 0
+mbcs carriers size: 1048576 1048576 1048576
+mbcs mseg carriers size: 1048576
+mbcs sys_alloc carriers size: 0
+sbcs blocks: 0 0 0
+sbcs blocks size: 0 0 0
+sbcs carriers: 0 0 0
+sbcs mseg carriers: 0
+sbcs sys_alloc carriers: 0
+sbcs carriers size: 0 0 0
+sbcs mseg carriers size: 0
+sbcs sys_alloc carriers size: 0
+literal_alloc calls: 110
+literal_free calls: 0
+literal_realloc calls: 0
+mseg_alloc calls: 1
+mseg_dealloc calls: 0
+mseg_realloc calls: 0
+sys_alloc calls: 0
+sys_free calls: 0
+sys_realloc calls: 0
+=allocator:exec_alloc
+versions: 0.9 3.0
+option e: true
+option t: false
+option ramv: false
+option sbct: 18446744073709551615
+option asbcst: 0
+option rsbcst: 0
+option rsbcmt: 0
+option rmbcmt: 0
+option mmbcs: 0
+option mmsbc: 0
+option mmmbc: 18446744073709551615
+option lmbcs: 10485760
+option smbcs: 1048576
+option mbcgs: 10
+option acul: 0
+option as: aobf
+mbcs blocks: 0 0 0
+mbcs blocks size: 0 0 0
+mbcs carriers: 0 0 0
+mbcs mseg carriers: 0
+mbcs sys_alloc carriers: 0
+mbcs carriers size: 0 0 0
+mbcs mseg carriers size: 0
+mbcs sys_alloc carriers size: 0
+sbcs blocks: 0 0 0
+sbcs blocks size: 0 0 0
+sbcs carriers: 0 0 0
+sbcs mseg carriers: 0
+sbcs sys_alloc carriers: 0
+sbcs carriers size: 0 0 0
+sbcs mseg carriers size: 0
+sbcs sys_alloc carriers size: 0
+exec_alloc calls: 0
+exec_free calls: 0
+exec_realloc calls: 0
+mseg_alloc calls: 0
+mseg_dealloc calls: 0
+mseg_realloc calls: 0
+sys_alloc calls: 0
+sys_free calls: 0
+sys_realloc calls: 0
+=allocator:binary_alloc[0]
+versions: 0.9 3.0
+option e: true
+option t: 5
+option ramv: false
+option sbct: 524288
+option asbcst: 4145152
+option rsbcst: 20
+option rsbcmt: 80
+option rmbcmt: 50
+option mmbcs: 32768
+option mmsbc: 256
+option mmmbc: 18446744073709551615
+option lmbcs: 5242880
+option smbcs: 262144
+option mbcgs: 10
+option acul: 0
+option as: aoffcbf
+mbcs blocks: 3 23 23
+mbcs blocks size: 616 1187912 1187912
+mbcs carriers: 1 3 3
+mbcs mseg carriers: 0
+mbcs sys_alloc carriers: 1
+mbcs carriers size: 32768 1343488 1343488
+mbcs mseg carriers size: 0
+mbcs sys_alloc carriers size: 32768
+sbcs blocks: 1 1 1
+sbcs blocks size: 2909608 2909608 2909608
+sbcs carriers: 1 1 1
+sbcs mseg carriers: 1
+sbcs sys_alloc carriers: 0
+sbcs carriers size: 2912256 2912256 2912256
+sbcs mseg carriers size: 2912256
+sbcs sys_alloc carriers size: 0
+binary_alloc calls: 106
+binary_free calls: 102
+binary_realloc calls: 0
+mseg_alloc calls: 7
+mseg_dealloc calls: 6
+mseg_realloc calls: 0
+sys_alloc calls: 1
+sys_free calls: 0
+sys_realloc calls: 0
+=allocator:binary_alloc[1]
+versions: 0.9 3.0
+option e: true
+option t: 5
+option ramv: false
+option sbct: 524288
+option asbcst: 4145152
+option rsbcst: 20
+option rsbcmt: 80
+option rmbcmt: 50
+option mmbcs: 32768
+option mmsbc: 256
+option mmmbc: 18446744073709551615
+option lmbcs: 5242880
+option smbcs: 262144
+option mbcgs: 10
+option acul: 60
+option as: aoffcbf
+mbcs blocks: 0 6 6
+mbcs blocks size: 0 6336 6336
+mbcs carriers: 1 1 1
+mbcs mseg carriers: 0
+mbcs sys_alloc carriers: 1
+mbcs carriers size: 32768 32768 32768
+mbcs mseg carriers size: 0
+mbcs sys_alloc carriers size: 32768
+mbcs_pool blocks: 0
+mbcs_pool blocks size: 0
+mbcs_pool carriers: 0
+mbcs_pool carriers size: 0
+sbcs blocks: 0 0 0
+sbcs blocks size: 0 0 0
+sbcs carriers: 0 0 0
+sbcs mseg carriers: 0
+sbcs sys_alloc carriers: 0
+sbcs carriers size: 0 0 0
+sbcs mseg carriers size: 0
+sbcs sys_alloc carriers size: 0
+binary_alloc calls: 13
+binary_free calls: 13
+binary_realloc calls: 0
+mseg_alloc calls: 0
+mseg_dealloc calls: 0
+mseg_realloc calls: 0
+sys_alloc calls: 1
+sys_free calls: 0
+sys_realloc calls: 0
+=allocator:binary_alloc[2]
+versions: 0.9 3.0
+option e: true
+option t: 5
+option ramv: false
+option sbct: 524288
+option asbcst: 4145152
+option rsbcst: 20
+option rsbcmt: 80
+option rmbcmt: 50
+option mmbcs: 32768
+option mmsbc: 256
+option mmmbc: 18446744073709551615
+option lmbcs: 5242880
+option smbcs: 262144
+option mbcgs: 10
+option acul: 60
+option as: aoffcbf
+mbcs blocks: 25412 25412 25412
+mbcs blocks size: 2976512 2978056 2978056
+mbcs carriers: 5 5 5
+mbcs mseg carriers: 4
+mbcs sys_alloc carriers: 1
+mbcs carriers size: 4489216 4489216 4489216
+mbcs mseg carriers size: 4456448
+mbcs sys_alloc carriers size: 32768
+mbcs_pool blocks: 0
+mbcs_pool blocks size: 0
+mbcs_pool carriers: 0
+mbcs_pool carriers size: 0
+sbcs blocks: 0 0 0
+sbcs blocks size: 0 0 0
+sbcs carriers: 0 0 0
+sbcs mseg carriers: 0
+sbcs sys_alloc carriers: 0
+sbcs carriers size: 0 0 0
+sbcs mseg carriers size: 0
+sbcs sys_alloc carriers size: 0
+binary_alloc calls: 3335165
+binary_free calls: 3309753
+binary_realloc calls: 22974
+mseg_alloc calls: 202
+mseg_dealloc calls: 198
+mseg_realloc calls: 0
+sys_alloc calls: 1
+sys_free calls: 0
+sys_realloc calls: 0
+=allocator:binary_alloc[3]
+versions: 0.9 3.0
+option e: true
+option t: 5
+option ramv: false
+option sbct: 524288
+option asbcst: 4145152
+option rsbcst: 20
+option rsbcmt: 80
+option rmbcmt: 50
+option mmbcs: 32768
+option mmsbc: 256
+option mmmbc: 18446744073709551615
+option lmbcs: 5242880
+option smbcs: 262144
+option mbcgs: 10
+option acul: 60
+option as: aoffcbf
+mbcs blocks: 0 7 7
+mbcs blocks size: 0 7392 7392
+mbcs carriers: 1 1 1
+mbcs mseg carriers: 0
+mbcs sys_alloc carriers: 1
+mbcs carriers size: 32768 32768 32768
+mbcs mseg carriers size: 0
+mbcs sys_alloc carriers size: 32768
+mbcs_pool blocks: 0
+mbcs_pool blocks size: 0
+mbcs_pool carriers: 0
+mbcs_pool carriers size: 0
+sbcs blocks: 0 0 0
+sbcs blocks size: 0 0 0
+sbcs carriers: 0 0 0
+sbcs mseg carriers: 0
+sbcs sys_alloc carriers: 0
+sbcs carriers size: 0 0 0
+sbcs mseg carriers size: 0
+sbcs sys_alloc carriers size: 0
+binary_alloc calls: 9
+binary_free calls: 9
+binary_realloc calls: 0
+mseg_alloc calls: 0
+mseg_dealloc calls: 0
+mseg_realloc calls: 0
+sys_alloc calls: 1
+sys_free calls: 0
+sys_realloc calls: 0
+=allocator:binary_alloc[4]
+versions: 0.9 3.0
+option e: true
+option t: 5
+option ramv: false
+option sbct: 524288
+option asbcst: 4145152
+option rsbcst: 20
+option rsbcmt: 80
+option rmbcmt: 50
+option mmbcs: 32768
+option mmsbc: 256
+option mmmbc: 18446744073709551615
+option lmbcs: 5242880
+option smbcs: 262144
+option mbcgs: 10
+option acul: 60
+option as: aoffcbf
+mbcs blocks: 0 3 3
+mbcs blocks size: 0 3168 3168
+mbcs carriers: 1 1 1
+mbcs mseg carriers: 0
+mbcs sys_alloc carriers: 1
+mbcs carriers size: 32768 32768 32768
+mbcs mseg carriers size: 0
+mbcs sys_alloc carriers size: 32768
+mbcs_pool blocks: 0
+mbcs_pool blocks size: 0
+mbcs_pool carriers: 0
+mbcs_pool carriers size: 0
+sbcs blocks: 0 0 0
+sbcs blocks size: 0 0 0
+sbcs carriers: 0 0 0
+sbcs mseg carriers: 0
+sbcs sys_alloc carriers: 0
+sbcs carriers size: 0 0 0
+sbcs mseg carriers size: 0
+sbcs sys_alloc carriers size: 0
+binary_alloc calls: 6
+binary_free calls: 6
+binary_realloc calls: 0
+mseg_alloc calls: 0
+mseg_dealloc calls: 0
+mseg_realloc calls: 0
+sys_alloc calls: 1
+sys_free calls: 0
+sys_realloc calls: 0
+=allocator:driver_alloc[0]
+versions: 0.9 3.0
+option e: true
+option t: 5
+option ramv: false
+option sbct: 524288
+option asbcst: 4145152
+option rsbcst: 20
+option rsbcmt: 80
+option rmbcmt: 50
+option mmbcs: 32768
+option mmsbc: 256
+option mmmbc: 18446744073709551615
+option lmbcs: 5242880
+option smbcs: 262144
+option mbcgs: 10
+option acul: 0
+option as: aoffcbf
+mbcs blocks: 26 28 28
+mbcs blocks size: 4608 86576 86576
+mbcs carriers: 1 2 2
+mbcs mseg carriers: 0
+mbcs sys_alloc carriers: 1
+mbcs carriers size: 32768 294912 294912
+mbcs mseg carriers size: 0
+mbcs sys_alloc carriers size: 32768
+sbcs blocks: 0 0 0
+sbcs blocks size: 0 0 0
+sbcs carriers: 0 0 0
+sbcs mseg carriers: 0
+sbcs sys_alloc carriers: 0
+sbcs carriers size: 0 0 0
+sbcs mseg carriers size: 0
+sbcs sys_alloc carriers size: 0
+driver_alloc calls: 47
+driver_free calls: 21
+driver_realloc calls: 0
+mseg_alloc calls: 18
+mseg_dealloc calls: 18
+mseg_realloc calls: 0
+sys_alloc calls: 1
+sys_free calls: 0
+sys_realloc calls: 0
+=allocator:driver_alloc[1]
+versions: 0.9 3.0
+option e: true
+option t: 5
+option ramv: false
+option sbct: 524288
+option asbcst: 4145152
+option rsbcst: 20
+option rsbcmt: 80
+option rmbcmt: 50
+option mmbcs: 32768
+option mmsbc: 256
+option mmmbc: 18446744073709551615
+option lmbcs: 5242880
+option smbcs: 262144
+option mbcgs: 10
+option acul: 60
+option as: aoffcbf
+mbcs blocks: 0 14 14
+mbcs blocks size: 0 5088 5088
+mbcs carriers: 1 1 1
+mbcs mseg carriers: 0
+mbcs sys_alloc carriers: 1
+mbcs carriers size: 32768 32768 32768
+mbcs mseg carriers size: 0
+mbcs sys_alloc carriers size: 32768
+mbcs_pool blocks: 0
+mbcs_pool blocks size: 0
+mbcs_pool carriers: 0
+mbcs_pool carriers size: 0
+sbcs blocks: 0 0 0
+sbcs blocks size: 0 0 0
+sbcs carriers: 0 0 0
+sbcs mseg carriers: 0
+sbcs sys_alloc carriers: 0
+sbcs carriers size: 0 0 0
+sbcs mseg carriers size: 0
+sbcs sys_alloc carriers size: 0
+driver_alloc calls: 28
+driver_free calls: 28
+driver_realloc calls: 0
+mseg_alloc calls: 0
+mseg_dealloc calls: 0
+mseg_realloc calls: 0
+sys_alloc calls: 1
+sys_free calls: 0
+sys_realloc calls: 0
+=allocator:driver_alloc[2]
+versions: 0.9 3.0
+option e: true
+option t: 5
+option ramv: false
+option sbct: 524288
+option asbcst: 4145152
+option rsbcst: 20
+option rsbcmt: 80
+option rmbcmt: 50
+option mmbcs: 32768
+option mmsbc: 256
+option mmmbc: 18446744073709551615
+option lmbcs: 5242880
+option smbcs: 262144
+option mbcgs: 10
+option acul: 60
+option as: aoffcbf
+mbcs blocks: 12 66 66
+mbcs blocks size: 3832 45040 45040
+mbcs carriers: 1 2 2
+mbcs mseg carriers: 0
+mbcs sys_alloc carriers: 1
+mbcs carriers size: 32768 294912 294912
+mbcs mseg carriers size: 0
+mbcs sys_alloc carriers size: 32768
+mbcs_pool blocks: 0
+mbcs_pool blocks size: 0
+mbcs_pool carriers: 0
+mbcs_pool carriers size: 0
+sbcs blocks: 0 0 0
+sbcs blocks size: 0 0 0
+sbcs carriers: 0 0 0
+sbcs mseg carriers: 0
+sbcs sys_alloc carriers: 0
+sbcs carriers size: 0 0 0
+sbcs mseg carriers size: 0
+sbcs sys_alloc carriers size: 0
+driver_alloc calls: 5053
+driver_free calls: 5041
+driver_realloc calls: 0
+mseg_alloc calls: 42
+mseg_dealloc calls: 42
+mseg_realloc calls: 0
+sys_alloc calls: 1
+sys_free calls: 0
+sys_realloc calls: 0
+=allocator:driver_alloc[3]
+versions: 0.9 3.0
+option e: true
+option t: 5
+option ramv: false
+option sbct: 524288
+option asbcst: 4145152
+option rsbcst: 20
+option rsbcmt: 80
+option rmbcmt: 50
+option mmbcs: 32768
+option mmsbc: 256
+option mmmbc: 18446744073709551615
+option lmbcs: 5242880
+option smbcs: 262144
+option mbcgs: 10
+option acul: 60
+option as: aoffcbf
+mbcs blocks: 0 5 5
+mbcs blocks size: 0 1800 1800
+mbcs carriers: 1 1 1
+mbcs mseg carriers: 0
+mbcs sys_alloc carriers: 1
+mbcs carriers size: 32768 32768 32768
+mbcs mseg carriers size: 0
+mbcs sys_alloc carriers size: 32768
+mbcs_pool blocks: 0
+mbcs_pool blocks size: 0
+mbcs_pool carriers: 0
+mbcs_pool carriers size: 0
+sbcs blocks: 0 0 0
+sbcs blocks size: 0 0 0
+sbcs carriers: 0 0 0
+sbcs mseg carriers: 0
+sbcs sys_alloc carriers: 0
+sbcs carriers size: 0 0 0
+sbcs mseg carriers size: 0
+sbcs sys_alloc carriers size: 0
+driver_alloc calls: 8
+driver_free calls: 8
+driver_realloc calls: 0
+mseg_alloc calls: 0
+mseg_dealloc calls: 0
+mseg_realloc calls: 0
+sys_alloc calls: 1
+sys_free calls: 0
+sys_realloc calls: 0
+=allocator:driver_alloc[4]
+versions: 0.9 3.0
+option e: true
+option t: 5
+option ramv: false
+option sbct: 524288
+option asbcst: 4145152
+option rsbcst: 20
+option rsbcmt: 80
+option rmbcmt: 50
+option mmbcs: 32768
+option mmsbc: 256
+option mmmbc: 18446744073709551615
+option lmbcs: 5242880
+option smbcs: 262144
+option mbcgs: 10
+option acul: 60
+option as: aoffcbf
+mbcs blocks: 0 9 9
+mbcs blocks size: 0 2960 2960
+mbcs carriers: 1 1 1
+mbcs mseg carriers: 0
+mbcs sys_alloc carriers: 1
+mbcs carriers size: 32768 32768 32768
+mbcs mseg carriers size: 0
+mbcs sys_alloc carriers size: 32768
+mbcs_pool blocks: 0
+mbcs_pool blocks size: 0
+mbcs_pool carriers: 0
+mbcs_pool carriers size: 0
+sbcs blocks: 0 0 0
+sbcs blocks size: 0 0 0
+sbcs carriers: 0 0 0
+sbcs mseg carriers: 0
+sbcs sys_alloc carriers: 0
+sbcs carriers size: 0 0 0
+sbcs mseg carriers size: 0
+sbcs sys_alloc carriers size: 0
+driver_alloc calls: 12
+driver_free calls: 12
+driver_realloc calls: 0
+mseg_alloc calls: 0
+mseg_dealloc calls: 0
+mseg_realloc calls: 0
+sys_alloc calls: 1
+sys_free calls: 0
+sys_realloc calls: 0
+=allocator:test_alloc
+option e: false
+=allocator:mseg_alloc[0]
+version: 0.9
+option amcbf: 4194304
+option rmcbf: 20
+option mcs: 10
+memory kind: all memory
+cached_segments: 0
+cache_hits: 26
+segments: 6 8 8
+segments_watermark: 5
+segments_size: 12611584 13660160 13660160
+mseg_alloc calls: 35
+mseg_dealloc calls: 29
+mseg_realloc calls: 0
+mseg_create calls: 9
+mseg_create_resize calls: 0
+mseg_destroy calls: 4
+mseg_recreate calls: 0
+mseg_clear_cache calls: 4
+mseg_check_cache calls: 3
+=allocator:mseg_alloc[1]
+version: 0.9
+option amcbf: 4194304
+option rmcbf: 20
+option mcs: 10
+memory kind: all memory
+cached_segments: 0
+cache_hits: 0
+segments: 0 1 1
+segments_watermark: 0
+segments_size: 0 262144 262144
+mseg_alloc calls: 1
+mseg_dealloc calls: 1
+mseg_realloc calls: 0
+mseg_create calls: 1
+mseg_create_resize calls: 0
+mseg_destroy calls: 1
+mseg_recreate calls: 0
+mseg_clear_cache calls: 0
+mseg_check_cache calls: 1
+=allocator:mseg_alloc[2]
+version: 0.9
+option amcbf: 4194304
+option rmcbf: 20
+option mcs: 10
+memory kind: all memory
+cached_segments: 0
+cache_hits: 440
+segments: 16 17 17
+segments_watermark: 11
+segments_size: 2168655872 3811373056 3811373056
+mseg_alloc calls: 542
+mseg_dealloc calls: 523
+mseg_realloc calls: 219
+mseg_create calls: 102
+mseg_create_resize calls: 0
+mseg_destroy calls: 145
+mseg_recreate calls: 96
+mseg_clear_cache calls: 4
+mseg_check_cache calls: 19
+=allocator:mseg_alloc[3]
+version: 0.9
+option amcbf: 4194304
+option rmcbf: 20
+option mcs: 10
+memory kind: all memory
+cached_segments: 0
+cache_hits: 0
+segments: 0 1 1
+segments_watermark: 0
+segments_size: 0 262144 262144
+mseg_alloc calls: 1
+mseg_dealloc calls: 1
+mseg_realloc calls: 0
+mseg_create calls: 1
+mseg_create_resize calls: 0
+mseg_destroy calls: 1
+mseg_recreate calls: 0
+mseg_clear_cache calls: 0
+mseg_check_cache calls: 1
+=allocator:mseg_alloc[4]
+version: 0.9
+option amcbf: 4194304
+option rmcbf: 20
+option mcs: 10
+memory kind: all memory
+cached_segments: 0
+cache_hits: 0
+segments: 0 1 1
+segments_watermark: 0
+segments_size: 0 262144 262144
+mseg_alloc calls: 1
+mseg_dealloc calls: 1
+mseg_realloc calls: 0
+mseg_create calls: 1
+mseg_create_resize calls: 0
+mseg_destroy calls: 1
+mseg_recreate calls: 0
+mseg_clear_cache calls: 0
+mseg_check_cache calls: 1
+=allocator:erts_mmap.default_mmap
+option scs: 0
+os mmap size used: 2181267456
+=allocator:erts_mmap.literal_mmap
+option scs: 1073442816
+option sco: true
+option scrpm: false
+option scrfsd: 4672
+supercarrier total size: 1073741824
+supercarrier total sa size: 1048576
+supercarrier total sua size: 0
+supercarrier used size: 1347584
+supercarrier used sa size: 1048576
+supercarrier used sua size: 0
+supercarrier used free segs: 0
+supercarrier max free segs: 0
+supercarrier allocated free segs: 0
+supercarrier reserved free segs: 4672
+supercarrier sa free segs: 0
+supercarrier sua free segs: 0
+=allocator:erts_mmap.exec_mmap
+option scs: 536633344
+option sco: true
+option scrpm: false
+option scrfsd: 3712
+supercarrier total size: 536870912
+supercarrier total sa size: 0
+supercarrier total sua size: 0
+supercarrier used size: 237568
+supercarrier used sa size: 0
+supercarrier used sua size: 0
+supercarrier used free segs: 0
+supercarrier max free segs: 0
+supercarrier allocated free segs: 0
+supercarrier reserved free segs: 3712
+supercarrier sa free segs: 0
+supercarrier sua free segs: 0
+=allocator:alloc_util
+option mmc: 18446744073709551615
+option ycs: 1048576
+option sac: true
+=allocator:instr
+option m: false
+option s: false
+option t: false
+=proc:<0.0.0>
+State: Waiting
+Name: init
+Spawned as: otp_ring0:start/2
+Spawned by: []
+Started: Thu Feb 22 20:59:59 2018
+Message queue length: 0
+Number of heap fragments: 0
+Heap fragment data: 0
+Link list: [<0.3.0>, <0.31.0>, <0.30.0>, <0.4.0>]
+Reductions: 920
+Stack+heap: 610
+OldHeap: 987
+Heap unused: 188
+OldHeap unused: 837
+Memory: 13776
+Program counter: 0x00007f8be61e2928 (init:boot_loop/2 + 48)
+CP: 0x0000000000000000 (invalid)
+arity = 0
+Internal State: ACT_PRIO_NORMAL | USR_PRIO_NORMAL | PRQ_PRIO_NORMAL | TRAP_EXIT | ON_HEAP_MSGQ
+=proc:<0.1.0>
+State: Waiting
+Name: erts_code_purger
+Spawned as: erts_code_purger:start/0
+Spawned by: <0.0.0>
+Started: Thu Feb 22 20:59:59 2018
+Message queue length: 0
+Number of heap fragments: 0
+Heap fragment data: 0
+Reductions: 4
+Stack+heap: 233
+OldHeap: 0
+Heap unused: 233
+OldHeap unused: 0
+Memory: 2704
+Program counter: 0x00007f8be61d5920 (erts_code_purger:loop/0 + 24)
+CP: 0x0000000000000000 (invalid)
+arity = 0
+Internal State: ACT_PRIO_NORMAL | USR_PRIO_NORMAL | PRQ_PRIO_NORMAL | TRAP_EXIT | ON_HEAP_MSGQ
+=proc:<0.3.0>
+State: Waiting
+Spawned as: erlang:apply/2
+Spawned by: <0.0.0>
+Started: Thu Feb 22 20:59:59 2018
+Message queue length: 0
+Number of heap fragments: 0
+Heap fragment data: 0
+Link list: [<0.0.0>, {to,<0.74.0>,#Ref<0.0.2.167>}]
+Reductions: 2391
+Stack+heap: 6772
+OldHeap: 10958
+Heap unused: 4437
+OldHeap unused: 9693
+Memory: 142792
+Program counter: 0x00007f8bb73780d0 ('Elixir.Kernel.CLI':exec_fun/2 + 200)
+CP: 0x0000000000000000 (invalid)
+arity = 0
+Internal State: ACT_PRIO_NORMAL | USR_PRIO_NORMAL | PRQ_PRIO_NORMAL | ON_HEAP_MSGQ
+=proc:<0.4.0>
+State: Waiting
+Name: erl_prim_loader
+Spawned as: erlang:apply/2
+Spawned by: <0.3.0>
+Started: Thu Feb 22 20:59:59 2018
+Message queue length: 0
+Number of heap fragments: 0
+Heap fragment data: 0
+Link list: [#Port<0.1>, <0.0.0>, #Port<0.227>]
+Reductions: 304851
+Stack+heap: 75113
+OldHeap: 0
+Heap unused: 19945
+OldHeap unused: 0
+Memory: 601952
+Program counter: 0x00007f8beee922c8 (erl_prim_loader:loop/3 + 152)
+CP: 0x0000000000000000 (invalid)
+arity = 0
+Internal State: ACT_PRIO_NORMAL | USR_PRIO_NORMAL | PRQ_PRIO_NORMAL | TRAP_EXIT | ON_HEAP_MSGQ
+=proc:<0.30.0>
+State: Waiting
+Name: error_logger
+Spawned as: proc_lib:init_p/5
+Spawned by: <0.3.0>
+Started: Thu Feb 22 20:59:59 2018
+Message queue length: 0
+Number of heap fragments: 0
+Heap fragment data: 382
+Link list: [<0.0.0>, <0.71.0>, <0.49.0>]
+Reductions: 492
+Stack+heap: 987
+OldHeap: 376
+Heap unused: 440
+OldHeap unused: 358
+Memory: 15008
+Program counter: 0x00007f8beec437f0 (gen_event:fetch_msg/5 + 48)
+CP: 0x0000000000000000 (invalid)
+arity = 0
+Internal State: ACT_PRIO_NORMAL | USR_PRIO_NORMAL | PRQ_PRIO_NORMAL | TRAP_EXIT | OFF_HEAP_MSGQ
+=proc:<0.31.0>
+State: Waiting
+Name: application_controller
+Spawned as: erlang:apply/2
+Spawned by: <0.3.0>
+Started: Thu Feb 22 20:59:59 2018
+Message queue length: 0
+Number of heap fragments: 0
+Heap fragment data: 0
+Link list: [<0.0.0>, <0.58.0>, <0.64.0>, <0.33.0>]
+Reductions: 47224
+Stack+heap: 6772
+OldHeap: 46422
+Heap unused: 806
+OldHeap unused: 35963
+Memory: 426640
+Program counter: 0x00007f8beec3ad70 (gen_server:loop/6 + 232)
+CP: 0x0000000000000000 (invalid)
+arity = 0
+Internal State: ACT_PRIO_NORMAL | USR_PRIO_NORMAL | PRQ_PRIO_NORMAL | TRAP_EXIT | ON_HEAP_MSGQ
+=proc:<0.33.0>
+State: Waiting
+Spawned as: proc_lib:init_p/5
+Spawned by: <0.32.0>
+Started: Thu Feb 22 20:59:59 2018
+Message queue length: 0
+Number of heap fragments: 0
+Heap fragment data: 0
+Link list: [<0.34.0>, <0.31.0>]
+Reductions: 64
+Stack+heap: 233
+OldHeap: 376
+Heap unused: 190
+OldHeap unused: 167
+Memory: 5880
+Program counter: 0x00007f8beecc7868 (application_master:main_loop/2 + 48)
+CP: 0x0000000000000000 (invalid)
+arity = 0
+Internal State: ACT_PRIO_NORMAL | USR_PRIO_NORMAL | PRQ_PRIO_NORMAL | TRAP_EXIT | ON_HEAP_MSGQ
+=proc:<0.34.0>
+State: Waiting
+Spawned as: application_master:start_it/4
+Spawned by: <0.33.0>
+Started: Thu Feb 22 20:59:59 2018
+Message queue length: 0
+Number of heap fragments: 0
+Heap fragment data: 0
+Link list: [<0.35.0>, <0.33.0>]
+Reductions: 59
+Stack+heap: 233
+OldHeap: 0
+Heap unused: 94
+OldHeap unused: 0
+Memory: 2784
+Program counter: 0x00007f8beecc9c80 (application_master:loop_it/4 + 48)
+CP: 0x0000000000000000 (invalid)
+arity = 0
+Internal State: ACT_PRIO_NORMAL | USR_PRIO_NORMAL | PRQ_PRIO_NORMAL | TRAP_EXIT | ON_HEAP_MSGQ
+=proc:<0.35.0>
+State: Waiting
+Name: kernel_sup
+Spawned as: proc_lib:init_p/5
+Spawned by: <0.34.0>
+Started: Thu Feb 22 20:59:59 2018
+Message queue length: 0
+Number of heap fragments: 0
+Heap fragment data: 0
+Link list: [<0.34.0>, <0.38.0>, <0.36.0>, <0.42.0>, <0.45.0>, <0.44.0>, <0.48.0>, <0.51.0>, <0.50.0>, <0.46.0>, <0.39.0>]
+Reductions: 1669
+Stack+heap: 610
+OldHeap: 987
+Heap unused: 42
+OldHeap unused: 835
+Memory: 14144
+Program counter: 0x00007f8beec3ad70 (gen_server:loop/6 + 232)
+CP: 0x0000000000000000 (invalid)
+arity = 0
+Internal State: ACT_PRIO_NORMAL | USR_PRIO_NORMAL | PRQ_PRIO_NORMAL | TRAP_EXIT | ON_HEAP_MSGQ
+=proc:<0.36.0>
+State: Waiting
+Name: code_server
+Spawned as: erlang:apply/2
+Spawned by: <0.35.0>
+Started: Thu Feb 22 20:59:59 2018
+Message queue length: 0
+Number of heap fragments: 0
+Heap fragment data: 0
+Link list: [<0.35.0>]
+Reductions: 40759
+Stack+heap: 6772
+OldHeap: 10958
+Heap unused: 5359
+OldHeap unused: 9598
+Memory: 142720
+Program counter: 0x00007f8beecdac00 (code_server:loop/1 + 152)
+CP: 0x0000000000000000 (invalid)
+arity = 0
+Internal State: ACT_PRIO_NORMAL | USR_PRIO_NORMAL | PRQ_PRIO_NORMAL | TRAP_EXIT | ON_HEAP_MSGQ
+=proc:<0.38.0>
+State: Waiting
+Name: rex
+Spawned as: proc_lib:init_p/5
+Spawned by: <0.35.0>
+Started: Thu Feb 22 20:59:59 2018
+Message queue length: 0
+Number of heap fragments: 0
+Heap fragment data: 0
+Link list: [<0.35.0>]
+Reductions: 21
+Stack+heap: 233
+OldHeap: 0
+Heap unused: 168
+OldHeap unused: 0
+Memory: 2832
+Program counter: 0x00007f8beec3ad70 (gen_server:loop/6 + 232)
+CP: 0x0000000000000000 (invalid)
+arity = 0
+Internal State: ACT_PRIO_NORMAL | USR_PRIO_NORMAL | PRQ_PRIO_NORMAL | TRAP_EXIT | OFF_HEAP_MSGQ
+=proc:<0.39.0>
+State: Waiting
+Name: global_name_server
+Spawned as: proc_lib:init_p/5
+Spawned by: <0.35.0>
+Started: Thu Feb 22 20:59:59 2018
+Message queue length: 0
+Number of heap fragments: 0
+Heap fragment data: 0
+Link list: [<0.35.0>, <0.41.0>, <0.40.0>]
+Reductions: 44
+Stack+heap: 233
+OldHeap: 0
+Heap unused: 119
+OldHeap unused: 0
+Memory: 2912
+Program counter: 0x00007f8beec3ad70 (gen_server:loop/6 + 232)
+CP: 0x0000000000000000 (invalid)
+arity = 0
+Internal State: ACT_PRIO_NORMAL | USR_PRIO_NORMAL | PRQ_PRIO_NORMAL | TRAP_EXIT | ON_HEAP_MSGQ
+=proc:<0.40.0>
+State: Waiting
+Spawned as: erlang:apply/2
+Spawned by: <0.39.0>
+Started: Thu Feb 22 20:59:59 2018
+Message queue length: 0
+Number of heap fragments: 0
+Heap fragment data: 0
+Link list: [<0.39.0>]
+Reductions: 21
+Stack+heap: 233
+OldHeap: 0
+Heap unused: 163
+OldHeap unused: 0
+Memory: 2744
+Program counter: 0x00007f8bb7667f28 (global:loop_the_locker/1 + 808)
+CP: 0x0000000000000000 (invalid)
+arity = 0
+Internal State: ACT_PRIO_NORMAL | USR_PRIO_NORMAL | PRQ_PRIO_NORMAL | TRAP_EXIT | ON_HEAP_MSGQ
+=proc:<0.41.0>
+State: Waiting
+Spawned as: erlang:apply/2
+Spawned by: <0.39.0>
+Started: Thu Feb 22 20:59:59 2018
+Message queue length: 0
+Number of heap fragments: 0
+Heap fragment data: 0
+Link list: [<0.39.0>]
+Reductions: 3
+Stack+heap: 233
+OldHeap: 0
+Heap unused: 222
+OldHeap unused: 0
+Memory: 2744
+Program counter: 0x00007f8bb766ede0 (global:loop_the_registrar/0 + 24)
+CP: 0x0000000000000000 (invalid)
+arity = 0
+Internal State: ACT_PRIO_NORMAL | USR_PRIO_NORMAL | PRQ_PRIO_NORMAL | ON_HEAP_MSGQ
+=proc:<0.42.0>
+State: Waiting
+Name: inet_db
+Spawned as: proc_lib:init_p/5
+Spawned by: <0.35.0>
+Started: Thu Feb 22 20:59:59 2018
+Message queue length: 0
+Number of heap fragments: 0
+Heap fragment data: 0
+Link list: [<0.35.0>]
+Reductions: 224
+Stack+heap: 233
+OldHeap: 376
+Heap unused: 164
+OldHeap unused: 350
+Memory: 5840
+Program counter: 0x00007f8beec3ad70 (gen_server:loop/6 + 232)
+CP: 0x0000000000000000 (invalid)
+arity = 0
+Internal State: ACT_PRIO_NORMAL | USR_PRIO_NORMAL | PRQ_PRIO_NORMAL | TRAP_EXIT | ON_HEAP_MSGQ
+=proc:<0.44.0>
+State: Waiting
+Name: global_group
+Spawned as: proc_lib:init_p/5
+Spawned by: <0.35.0>
+Started: Thu Feb 22 20:59:59 2018
+Message queue length: 0
+Number of heap fragments: 0
+Heap fragment data: 0
+Link list: [<0.35.0>]
+Reductions: 55
+Stack+heap: 233
+OldHeap: 0
+Heap unused: 109
+OldHeap unused: 0
+Memory: 2832
+Program counter: 0x00007f8beec3ad70 (gen_server:loop/6 + 232)
+CP: 0x0000000000000000 (invalid)
+arity = 0
+Internal State: ACT_PRIO_MAX | USR_PRIO_MAX | PRQ_PRIO_MAX | TRAP_EXIT | ON_HEAP_MSGQ
+=proc:<0.45.0>
+State: Waiting
+Name: file_server_2
+Spawned as: proc_lib:init_p/5
+Spawned by: <0.35.0>
+Started: Thu Feb 22 20:59:59 2018
+Message queue length: 0
+Number of heap fragments: 0
+Heap fragment data: 0
+Link list: [<0.35.0>, #Port<0.180>]
+Reductions: 1106
+Stack+heap: 610
+OldHeap: 610
+Heap unused: 256
+OldHeap unused: 573
+Memory: 10768
+Program counter: 0x00007f8beec3ad70 (gen_server:loop/6 + 232)
+CP: 0x0000000000000000 (invalid)
+arity = 0
+Internal State: ACT_PRIO_NORMAL | USR_PRIO_NORMAL | PRQ_PRIO_NORMAL | TRAP_EXIT | ON_HEAP_MSGQ
+=proc:<0.46.0>
+State: Waiting
+Name: standard_error_sup
+Spawned as: proc_lib:init_p/5
+Spawned by: <0.35.0>
+Started: Thu Feb 22 20:59:59 2018
+Message queue length: 0
+Number of heap fragments: 0
+Heap fragment data: 0
+Link list: [<0.47.0>, <0.35.0>]
+Reductions: 34
+Stack+heap: 233
+OldHeap: 0
+Heap unused: 116
+OldHeap unused: 0
+Memory: 2872
+Program counter: 0x00007f8beec3ad70 (gen_server:loop/6 + 232)
+CP: 0x0000000000000000 (invalid)
+arity = 0
+Internal State: ACT_PRIO_NORMAL | USR_PRIO_NORMAL | PRQ_PRIO_NORMAL | TRAP_EXIT | ON_HEAP_MSGQ
+=proc:<0.47.0>
+State: Waiting
+Name: standard_error
+Spawned as: erlang:apply/2
+Spawned by: <0.46.0>
+Started: Thu Feb 22 20:59:59 2018
+Message queue length: 0
+Number of heap fragments: 0
+Heap fragment data: 0
+Link list: [#Port<0.186>, <0.46.0>]
+Reductions: 25
+Stack+heap: 233
+OldHeap: 0
+Heap unused: 189
+OldHeap unused: 0
+Memory: 2872
+Program counter: 0x00007f8bb76f4de0 (standard_error:server_loop/1 + 40)
+CP: 0x0000000000000000 (invalid)
+arity = 0
+Internal State: ACT_PRIO_NORMAL | USR_PRIO_NORMAL | PRQ_PRIO_NORMAL | TRAP_EXIT | ON_HEAP_MSGQ
+=proc:<0.48.0>
+State: Waiting
+Spawned as: proc_lib:init_p/5
+Spawned by: <0.35.0>
+Started: Thu Feb 22 20:59:59 2018
+Message queue length: 0
+Number of heap fragments: 0
+Heap fragment data: 0
+Link list: [<0.49.0>, <0.35.0>]
+Reductions: 57
+Stack+heap: 233
+OldHeap: 0
+Heap unused: 87
+OldHeap unused: 0
+Memory: 2872
+Program counter: 0x00007f8beec3ad70 (gen_server:loop/6 + 232)
+CP: 0x0000000000000000 (invalid)
+arity = 0
+Internal State: ACT_PRIO_NORMAL | USR_PRIO_NORMAL | PRQ_PRIO_NORMAL | TRAP_EXIT | ON_HEAP_MSGQ
+=proc:<0.49.0>
+State: Waiting
+Name: user
+Spawned as: erlang:apply/2
+Spawned by: <0.48.0>
+Started: Thu Feb 22 20:59:59 2018
+Message queue length: 0
+Number of heap fragments: 0
+Heap fragment data: 0
+Link list: [#Port<0.191>, <0.48.0>, <0.30.0>]
+Reductions: 59
+Stack+heap: 233
+OldHeap: 0
+Heap unused: 131
+OldHeap unused: 0
+Memory: 2912
+Program counter: 0x00007f8bb7704758 (user:server_loop/2 + 40)
+CP: 0x0000000000000000 (invalid)
+arity = 0
+Internal State: ACT_PRIO_NORMAL | USR_PRIO_NORMAL | PRQ_PRIO_NORMAL | TRAP_EXIT | ON_HEAP_MSGQ
+=proc:<0.50.0>
+State: Waiting
+Spawned as: proc_lib:init_p/5
+Spawned by: <0.35.0>
+Started: Thu Feb 22 20:59:59 2018
+Message queue length: 0
+Number of heap fragments: 0
+Heap fragment data: 0
+Link list: [<0.35.0>]
+Reductions: 152
+Stack+heap: 233
+OldHeap: 0
+Heap unused: 164
+OldHeap unused: 0
+Memory: 2832
+Program counter: 0x00007f8beec3ad70 (gen_server:loop/6 + 232)
+CP: 0x0000000000000000 (invalid)
+arity = 0
+Internal State: ACT_PRIO_NORMAL | USR_PRIO_NORMAL | PRQ_PRIO_NORMAL | TRAP_EXIT | ON_HEAP_MSGQ
+=proc:<0.51.0>
+State: Waiting
+Name: kernel_safe_sup
+Spawned as: proc_lib:init_p/5
+Spawned by: <0.35.0>
+Started: Thu Feb 22 20:59:59 2018
+Message queue length: 0
+Number of heap fragments: 0
+Heap fragment data: 0
+Link list: [<0.35.0>]
+Reductions: 56
+Stack+heap: 233
+OldHeap: 0
+Heap unused: 74
+OldHeap unused: 0
+Memory: 2832
+Program counter: 0x00007f8beec3ad70 (gen_server:loop/6 + 232)
+CP: 0x0000000000000000 (invalid)
+arity = 0
+Internal State: ACT_PRIO_NORMAL | USR_PRIO_NORMAL | PRQ_PRIO_NORMAL | TRAP_EXIT | ON_HEAP_MSGQ
+=proc:<0.58.0>
+State: Waiting
+Spawned as: proc_lib:init_p/5
+Spawned by: <0.57.0>
+Started: Thu Feb 22 20:59:59 2018
+Message queue length: 0
+Number of heap fragments: 0
+Heap fragment data: 0
+Link list: [<0.59.0>, <0.31.0>]
+Reductions: 25
+Stack+heap: 610
+OldHeap: 0
+Heap unused: 56
+OldHeap unused: 0
+Memory: 5888
+Program counter: 0x00007f8beecc7868 (application_master:main_loop/2 + 48)
+CP: 0x0000000000000000 (invalid)
+arity = 0
+Internal State: ACT_PRIO_NORMAL | USR_PRIO_NORMAL | PRQ_PRIO_NORMAL | TRAP_EXIT | ON_HEAP_MSGQ
+=proc:<0.59.0>
+State: Waiting
+Spawned as: application_master:start_it/4
+Spawned by: <0.58.0>
+Started: Thu Feb 22 20:59:59 2018
+Message queue length: 0
+Number of heap fragments: 0
+Heap fragment data: 0
+Link list: [<0.60.0>, <0.58.0>]
+Reductions: 115
+Stack+heap: 233
+OldHeap: 0
+Heap unused: 103
+OldHeap unused: 0
+Memory: 2784
+Program counter: 0x00007f8beecc9c80 (application_master:loop_it/4 + 48)
+CP: 0x0000000000000000 (invalid)
+arity = 0
+Internal State: ACT_PRIO_NORMAL | USR_PRIO_NORMAL | PRQ_PRIO_NORMAL | TRAP_EXIT | ON_HEAP_MSGQ
+=proc:<0.60.0>
+State: Waiting
+Name: elixir_sup
+Spawned as: proc_lib:init_p/5
+Spawned by: <0.59.0>
+Started: Thu Feb 22 20:59:59 2018
+Message queue length: 0
+Number of heap fragments: 0
+Heap fragment data: 0
+Link list: [<0.59.0>, <0.62.0>, <0.61.0>]
+Reductions: 164
+Stack+heap: 233
+OldHeap: 376
+Heap unused: 85
+OldHeap unused: 337
+Memory: 5920
+Program counter: 0x00007f8beec3ad70 (gen_server:loop/6 + 232)
+CP: 0x0000000000000000 (invalid)
+arity = 0
+Internal State: ACT_PRIO_NORMAL | USR_PRIO_NORMAL | PRQ_PRIO_NORMAL | TRAP_EXIT | ON_HEAP_MSGQ
+=proc:<0.61.0>
+State: Waiting
+Name: elixir_config
+Spawned as: proc_lib:init_p/5
+Spawned by: <0.60.0>
+Started: Thu Feb 22 20:59:59 2018
+Message queue length: 0
+Number of heap fragments: 0
+Heap fragment data: 0
+Link list: [<0.60.0>]
+Reductions: 20
+Stack+heap: 233
+OldHeap: 0
+Heap unused: 182
+OldHeap unused: 0
+Memory: 2832
+Program counter: 0x00007f8beec3ad70 (gen_server:loop/6 + 232)
+CP: 0x0000000000000000 (invalid)
+arity = 0
+Internal State: ACT_PRIO_NORMAL | USR_PRIO_NORMAL | PRQ_PRIO_NORMAL | ON_HEAP_MSGQ
+=proc:<0.62.0>
+State: Waiting
+Name: elixir_code_server
+Spawned as: proc_lib:init_p/5
+Spawned by: <0.60.0>
+Started: Thu Feb 22 20:59:59 2018
+Message queue length: 0
+Number of heap fragments: 0
+Heap fragment data: 0
+Link list: [<0.60.0>]
+Reductions: 26
+Stack+heap: 233
+OldHeap: 0
+Heap unused: 169
+OldHeap unused: 0
+Memory: 2832
+Program counter: 0x00007f8beec3ad70 (gen_server:loop/6 + 232)
+CP: 0x0000000000000000 (invalid)
+arity = 0
+Internal State: ACT_PRIO_NORMAL | USR_PRIO_NORMAL | PRQ_PRIO_NORMAL | ON_HEAP_MSGQ
+=proc:<0.64.0>
+State: Waiting
+Spawned as: proc_lib:init_p/5
+Spawned by: <0.63.0>
+Started: Thu Feb 22 20:59:59 2018
+Message queue length: 0
+Number of heap fragments: 0
+Heap fragment data: 0
+Link list: [<0.65.0>, <0.31.0>]
+Reductions: 23
+Stack+heap: 233
+OldHeap: 0
+Heap unused: 117
+OldHeap unused: 0
+Memory: 2872
+Program counter: 0x00007f8beecc7868 (application_master:main_loop/2 + 48)
+CP: 0x0000000000000000 (invalid)
+arity = 0
+Internal State: ACT_PRIO_NORMAL | USR_PRIO_NORMAL | PRQ_PRIO_NORMAL | TRAP_EXIT | ON_HEAP_MSGQ
+=proc:<0.65.0>
+State: Waiting
+Spawned as: application_master:start_it/4
+Spawned by: <0.64.0>
+Started: Thu Feb 22 20:59:59 2018
+Message queue length: 0
+Number of heap fragments: 0
+Heap fragment data: 0
+Link list: [<0.66.0>, <0.64.0>]
+Reductions: 277
+Stack+heap: 233
+OldHeap: 376
+Heap unused: 17
+OldHeap unused: 347
+Memory: 5792
+Program counter: 0x00007f8beecc9c80 (application_master:loop_it/4 + 48)
+CP: 0x0000000000000000 (invalid)
+arity = 0
+Internal State: ACT_PRIO_NORMAL | USR_PRIO_NORMAL | PRQ_PRIO_NORMAL | TRAP_EXIT | ON_HEAP_MSGQ
+=proc:<0.66.0>
+State: Waiting
+Name: 'Elixir.Logger.Supervisor'
+Spawned as: proc_lib:init_p/5
+Spawned by: <0.65.0>
+Started: Thu Feb 22 20:59:59 2018
+Message queue length: 0
+Number of heap fragments: 0
+Heap fragment data: 0
+Link list: [<0.65.0>, <0.68.0>, <0.71.0>, <0.69.0>, <0.67.0>]
+Reductions: 392
+Stack+heap: 376
+OldHeap: 376
+Heap unused: 86
+OldHeap unused: 218
+Memory: 7144
+Program counter: 0x00007f8beec3ad70 (gen_server:loop/6 + 232)
+CP: 0x0000000000000000 (invalid)
+arity = 0
+Internal State: ACT_PRIO_NORMAL | USR_PRIO_NORMAL | PRQ_PRIO_NORMAL | TRAP_EXIT | ON_HEAP_MSGQ
+=proc:<0.67.0>
+State: Waiting
+Name: 'Elixir.Logger'
+Spawned as: proc_lib:init_p/5
+Spawned by: <0.66.0>
+Started: Thu Feb 22 20:59:59 2018
+Message queue length: 0
+Number of heap fragments: 0
+Heap fragment data: 0
+Link list: [<0.66.0>, <0.70.0>, <0.68.0>]
+Reductions: 368
+Stack+heap: 376
+OldHeap: 376
+Heap unused: 92
+OldHeap unused: 323
+Memory: 7064
+Program counter: 0x00007f8beec437f0 (gen_event:fetch_msg/5 + 48)
+CP: 0x0000000000000000 (invalid)
+arity = 0
+Internal State: ACT_PRIO_NORMAL | USR_PRIO_NORMAL | PRQ_PRIO_NORMAL | TRAP_EXIT | ON_HEAP_MSGQ
+=proc:<0.68.0>
+State: Waiting
+Spawned as: proc_lib:init_p/5
+Spawned by: <0.66.0>
+Started: Thu Feb 22 20:59:59 2018
+Message queue length: 0
+Number of heap fragments: 0
+Heap fragment data: 0
+Link list: [<0.67.0>, <0.66.0>]
+Reductions: 38
+Stack+heap: 233
+OldHeap: 0
+Heap unused: 110
+OldHeap unused: 0
+Memory: 2872
+Program counter: 0x00007f8beec3ad70 (gen_server:loop/6 + 232)
+CP: 0x0000000000000000 (invalid)
+arity = 0
+Internal State: ACT_PRIO_NORMAL | USR_PRIO_NORMAL | PRQ_PRIO_NORMAL | ON_HEAP_MSGQ
+=proc:<0.69.0>
+State: Waiting
+Name: 'Elixir.Logger.Watcher'
+Spawned as: proc_lib:init_p/5
+Spawned by: <0.66.0>
+Started: Thu Feb 22 20:59:59 2018
+Message queue length: 0
+Number of heap fragments: 0
+Heap fragment data: 0
+Link list: [<0.70.0>, <0.66.0>]
+Reductions: 121
+Stack+heap: 376
+OldHeap: 376
+Heap unused: 337
+OldHeap unused: 303
+Memory: 7024
+Program counter: 0x00007f8beec3ad70 (gen_server:loop/6 + 232)
+CP: 0x0000000000000000 (invalid)
+arity = 0
+Internal State: ACT_PRIO_NORMAL | USR_PRIO_NORMAL | PRQ_PRIO_NORMAL | TRAP_EXIT | ON_HEAP_MSGQ
+=proc:<0.70.0>
+State: Waiting
+Spawned as: proc_lib:init_p/5
+Spawned by: <0.69.0>
+Started: Thu Feb 22 20:59:59 2018
+Message queue length: 0
+Number of heap fragments: 0
+Heap fragment data: 0
+Link list: [<0.67.0>, <0.69.0>]
+Reductions: 38
+Stack+heap: 233
+OldHeap: 0
+Heap unused: 108
+OldHeap unused: 0
+Memory: 2872
+Program counter: 0x00007f8beec3ad70 (gen_server:loop/6 + 232)
+CP: 0x0000000000000000 (invalid)
+arity = 0
+Internal State: ACT_PRIO_NORMAL | USR_PRIO_NORMAL | PRQ_PRIO_NORMAL | ON_HEAP_MSGQ
+=proc:<0.71.0>
+State: Waiting
+Spawned as: proc_lib:init_p/5
+Spawned by: <0.66.0>
+Started: Thu Feb 22 20:59:59 2018
+Message queue length: 0
+Number of heap fragments: 0
+Heap fragment data: 0
+Link list: [<0.30.0>, <0.66.0>]
+Reductions: 38
+Stack+heap: 233
+OldHeap: 0
+Heap unused: 106
+OldHeap unused: 0
+Memory: 2872
+Program counter: 0x00007f8beec3ad70 (gen_server:loop/6 + 232)
+CP: 0x0000000000000000 (invalid)
+arity = 0
+Internal State: ACT_PRIO_NORMAL | USR_PRIO_NORMAL | PRQ_PRIO_NORMAL | ON_HEAP_MSGQ
+=proc:<0.74.0>
+State: Garbing
+Spawned as: erlang:apply/2
+Last scheduled in for: maps:find/2
+Spawned by: <0.3.0>
+Started: Thu Feb 22 20:59:59 2018
+Message queue length: 0
+Number of heap fragments: 1
+Heap fragment data: 6316
+Link list: [{from,<0.3.0>,#Ref<0.0.2.167>}]
+Reductions: 13898989
+Stack+heap: 31936144
+OldHeap: 237288211
+Heap unused: 141523
+OldHeap unused: 2394153
+Memory: 2153846280
+New heap start: 7F8B692D7028
+New heap top: 7F8B78569E10
+Stack top: 7F8B78569E10
+Stack end: 7F8B7867E4A8
+Old heap start: 7F8A81EA0028
+Old heap top: 7F8AF1EB9778
+Old heap end: 7F8AF30FD8C0
+Program counter: 0x00007f8bb7355f90 ('Elixir.Map':get/3 + 56)
+CP: 0x0000000000000000 (invalid)
+Internal State: ACT_PRIO_NORMAL | USR_PRIO_NORMAL | PRQ_PRIO_NORMAL | ACTIVE | RUNNING | GC | ON_HEAP_MSGQ
+=port:#Port<0.0>
+Slot: 0
+Connected: <0.0.0>
+Port controls forker process: forker
+=port:#Port<0.1>
+Slot: 8
+Connected: <0.4.0>
+Links: <0.4.0>
+Port controls linked-in driver: efile
+=port:#Port<0.180>
+Slot: 1440
+Connected: <0.45.0>
+Links: <0.45.0>
+Port controls linked-in driver: efile
+=port:#Port<0.186>
+Slot: 1488
+Connected: <0.47.0>
+Links: <0.47.0>
+Port is UNIX fd not opened by emulator: 2/2
+=port:#Port<0.191>
+Slot: 1528
+Connected: <0.49.0>
+Links: <0.49.0>
+Port is UNIX fd not opened by emulator: 0/1
+=port:#Port<0.227>
+Slot: 1816
+Connected: <0.4.0>
+Links: <0.4.0>
+Port controls linked-in driver: zlib_drv
+=ets:<0.31.0>
+Slot: 0
+Table: ac_tab
+Name: ac_tab
+Buckets: 256
+Chain Length Avg: 0.125000
+Chain Length Max: 2
+Chain Length Min: 0
+Chain Length Std Dev: 0.342327
+Chain Length Expected Std Dev: 0.352862
+Fixed: false
+Objects: 32
+Words: 2098
+Type: set
+Protection: public
+Compressed: false
+Write Concurrency: false
+Read Concurrency: true
+=ets:<0.36.0>
+Slot: 1
+Table: 1
+Name: code
+Buckets: 256
+Chain Length Avg: 1.242188
+Chain Length Max: 8
+Chain Length Min: 0
+Chain Length Std Dev: 1.279319
+Chain Length Expected Std Dev: 1.112356
+Fixed: false
+Objects: 318
+Words: 16157
+Type: set
+Protection: private
+Compressed: false
+Write Concurrency: false
+Read Concurrency: false
+=ets:<0.36.0>
+Slot: 2
+Table: 4098
+Name: code_names
+Buckets: 256
+Chain Length Avg: 0.066406
+Chain Length Max: 1
+Chain Length Min: 0
+Chain Length Std Dev: 0.248991
+Chain Length Expected Std Dev: 0.257190
+Fixed: false
+Objects: 17
+Words: 2271
+Type: set
+Protection: private
+Compressed: false
+Write Concurrency: false
+Read Concurrency: false
+=ets:<0.39.0>
+Slot: 3
+Table: global_locks
+Name: global_locks
+Buckets: 256
+Chain Length Avg: 0.000000
+Chain Length Max: 0
+Chain Length Min: 0
+Chain Length Std Dev: 0.000000
+Chain Length Expected Std Dev: 0.000000
+Fixed: false
+Objects: 0
+Words: 298
+Type: set
+Protection: protected
+Compressed: false
+Write Concurrency: false
+Read Concurrency: false
+=ets:<0.39.0>
+Slot: 4
+Table: global_names
+Name: global_names
+Buckets: 256
+Chain Length Avg: 0.000000
+Chain Length Max: 0
+Chain Length Min: 0
+Chain Length Std Dev: 0.000000
+Chain Length Expected Std Dev: 0.000000
+Fixed: false
+Objects: 0
+Words: 298
+Type: set
+Protection: protected
+Compressed: false
+Write Concurrency: false
+Read Concurrency: false
+=ets:<0.39.0>
+Slot: 5
+Table: global_names_ext
+Name: global_names_ext
+Buckets: 256
+Chain Length Avg: 0.000000
+Chain Length Max: 0
+Chain Length Min: 0
+Chain Length Std Dev: 0.000000
+Chain Length Expected Std Dev: 0.000000
+Fixed: false
+Objects: 0
+Words: 298
+Type: set
+Protection: protected
+Compressed: false
+Write Concurrency: false
+Read Concurrency: false
+=ets:<0.39.0>
+Slot: 6
+Table: global_pid_names
+Name: global_pid_names
+Buckets: 256
+Chain Length Avg: 0.000000
+Chain Length Max: 0
+Chain Length Min: 0
+Chain Length Std Dev: 0.000000
+Chain Length Expected Std Dev: 0.000000
+Fixed: false
+Objects: 0
+Words: 298
+Type: bag
+Protection: protected
+Compressed: false
+Write Concurrency: false
+Read Concurrency: false
+=ets:<0.39.0>
+Slot: 7
+Table: global_pid_ids
+Name: global_pid_ids
+Buckets: 256
+Chain Length Avg: 0.000000
+Chain Length Max: 0
+Chain Length Min: 0
+Chain Length Std Dev: 0.000000
+Chain Length Expected Std Dev: 0.000000
+Fixed: false
+Objects: 0
+Words: 298
+Type: bag
+Protection: protected
+Compressed: false
+Write Concurrency: false
+Read Concurrency: false
+=ets:<0.42.0>
+Slot: 8
+Table: inet_db
+Name: inet_db
+Buckets: 256
+Chain Length Avg: 0.113281
+Chain Length Max: 3
+Chain Length Min: 0
+Chain Length Std Dev: 0.351975
+Chain Length Expected Std Dev: 0.335915
+Fixed: false
+Objects: 29
+Words: 575
+Type: set
+Protection: public
+Compressed: false
+Write Concurrency: false
+Read Concurrency: false
+=ets:<0.42.0>
+Slot: 9
+Table: inet_cache
+Name: inet_cache
+Buckets: 256
+Chain Length Avg: 0.000000
+Chain Length Max: 0
+Chain Length Min: 0
+Chain Length Std Dev: 0.000000
+Chain Length Expected Std Dev: 0.000000
+Fixed: false
+Objects: 0
+Words: 298
+Type: bag
+Protection: public
+Compressed: false
+Write Concurrency: false
+Read Concurrency: false
+=ets:<0.42.0>
+Slot: 10
+Table: inet_hosts_byname
+Name: inet_hosts_byname
+Buckets: 256
+Chain Length Avg: 0.000000
+Chain Length Max: 0
+Chain Length Min: 0
+Chain Length Std Dev: 0.000000
+Chain Length Expected Std Dev: 0.000000
+Fixed: false
+Objects: 0
+Words: 298
+Type: bag
+Protection: protected
+Compressed: false
+Write Concurrency: false
+Read Concurrency: false
+=ets:<0.42.0>
+Slot: 11
+Table: inet_hosts_byaddr
+Name: inet_hosts_byaddr
+Buckets: 256
+Chain Length Avg: 0.000000
+Chain Length Max: 0
+Chain Length Min: 0
+Chain Length Std Dev: 0.000000
+Chain Length Expected Std Dev: 0.000000
+Fixed: false
+Objects: 0
+Words: 298
+Type: bag
+Protection: protected
+Compressed: false
+Write Concurrency: false
+Read Concurrency: false
+=ets:<0.42.0>
+Slot: 12
+Table: inet_hosts_file_byname
+Name: inet_hosts_file_byname
+Buckets: 256
+Chain Length Avg: 0.000000
+Chain Length Max: 0
+Chain Length Min: 0
+Chain Length Std Dev: 0.000000
+Chain Length Expected Std Dev: 0.000000
+Fixed: false
+Objects: 0
+Words: 298
+Type: bag
+Protection: protected
+Compressed: false
+Write Concurrency: false
+Read Concurrency: false
+=ets:<0.42.0>
+Slot: 13
+Table: inet_hosts_file_byaddr
+Name: inet_hosts_file_byaddr
+Buckets: 256
+Chain Length Avg: 0.000000
+Chain Length Max: 0
+Chain Length Min: 0
+Chain Length Std Dev: 0.000000
+Chain Length Expected Std Dev: 0.000000
+Fixed: false
+Objects: 0
+Words: 298
+Type: bag
+Protection: protected
+Compressed: false
+Write Concurrency: false
+Read Concurrency: false
+=ets:<0.45.0>
+Slot: 14
+Table: file_io_servers
+Name: file_io_servers
+Buckets: 256
+Chain Length Avg: 0.000000
+Chain Length Max: 0
+Chain Length Min: 0
+Chain Length Std Dev: 0.000000
+Chain Length Expected Std Dev: 0.000000
+Fixed: false
+Objects: 0
+Words: 298
+Type: set
+Protection: protected
+Compressed: false
+Write Concurrency: false
+Read Concurrency: false
+=ets:<0.59.0>
+Slot: 15
+Table: elixir_config
+Name: elixir_config
+Buckets: 256
+Chain Length Avg: 0.035156
+Chain Length Max: 1
+Chain Length Min: 0
+Chain Length Std Dev: 0.184175
+Chain Length Expected Std Dev: 0.187133
+Fixed: false
+Objects: 9
+Words: 417
+Type: set
+Protection: public
+Compressed: false
+Write Concurrency: false
+Read Concurrency: true
+=ets:<0.62.0>
+Slot: 16
+Table: elixir_modules
+Name: elixir_modules
+Buckets: 256
+Chain Length Avg: 0.000000
+Chain Length Max: 0
+Chain Length Min: 0
+Chain Length Std Dev: 0.000000
+Chain Length Expected Std Dev: 0.000000
+Fixed: false
+Objects: 0
+Words: 298
+Type: set
+Protection: protected
+Compressed: false
+Write Concurrency: false
+Read Concurrency: true
+=ets:<0.65.0>
+Slot: 17
+Table: 'Elixir.Logger.Config'
+Name: 'Elixir.Logger.Config'
+Buckets: 256
+Chain Length Avg: 0.007812
+Chain Length Max: 1
+Chain Length Min: 0
+Chain Length Std Dev: 0.088042
+Chain Length Expected Std Dev: 0.088216
+Fixed: false
+Objects: 2
+Words: 337
+Type: set
+Protection: public
+Compressed: false
+Write Concurrency: false
+Read Concurrency: true
+=timer:<0.42.0>
+Message: refresh_timeout
+Time left: 3528273
+=node:'nonode@nohost'
+=no_distribution
+=loaded_modules
+Current code: 4544923
+Old code: 0
+=mod:otp_ring0
+Current size: 1136
+=mod:erts_code_purger
+Current size: 16288
+=mod:init
+Current size: 68576
+=mod:prim_eval
+Current size: 952
+=mod:prim_inet
+Current size: 115749
+=mod:prim_file
+Current size: 62371
+=mod:zlib
+Current size: 14512
+=mod:prim_zip
+Current size: 28416
+=mod:erl_prim_loader
+Current size: 78168
+=mod:erlang
+Current size: 91633
+=mod:erts_internal
+Current size: 8008
+=mod:erl_tracer
+Current size: 912
+=mod:erts_literal_area_collector
+Current size: 3256
+=mod:erts_dirty_process_code_checker
+Current size: 1680
+=mod:supervisor
+Current size: 80295
+Current attributes: 836C00000002680264000376736E6C000000016E100011A74B9F5D272C77EE0E3E273B64C78E6A68026400096265686176696F75726C0000000164000A67656E5F7365727665726A6A
+Current compilation info: 836C0000000368026400076F7074696F6E736C0000000568026400066F75746469726B003D2F6275696C646469722F6275696C642F4255494C442F6F74702D4F54502D31392E332E362E352F6C69622F7374646C69622F7372632F2E2E2F6562696E6802640001696B00402F6275696C646469722F6275696C642F4255494C442F6F74702D4F54502D31392E332E362E352F6C69622F7374646C69622F7372632F2E2E2F696E636C7564656802640001696B004A2F6275696C646469722F6275696C642F4255494C442F6F74702D4F54502D31392E332E362E352F6C69622F7374646C69622F7372632F2E2E2F2E2E2F6B65726E656C2F696E636C7564656400127761726E696E67735F61735F6572726F727364000A64656275675F696E666F6A680264000776657273696F6E6B0005372E302E336802640006736F757263656B00442F6275696C646469722F6275696C642F4255494C442F6F74702D4F54502D31392E332E362E352F6C69622F7374646C69622F7372632F73757065727669736F722E65726C6A
+=mod:erl_parse
+Current size: 253656
+Current attributes: 836C000000D0680264000376736E6C000000016E1000C32A9607B9E821E97B5520C76A62B7516A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000979656363706172733261076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000B7965636370617273325F3061076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000B7965636370617273325F3361076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000B7965636370617273325F3461076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000B7965636370617273325F3561076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000B7965636370617273325F3661076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000B7965636370617273325F3761076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000C7965636370617273325F313061076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000C7965636370617273325F323361076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000C7965636370617273325F343061076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000C7965636370617273325F353461076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000C7965636370617273325F363361076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000C7965636370617273325F373261076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000C7965636370617273325F373761076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000C7965636370617273325F383661076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F31303561076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F31303761076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F31313061076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F31313361076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F31313861076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F31323061076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F31323761076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F31323961076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F31333661076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F31343061076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F31343161076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F31343461076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F31343861076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F31353361076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F31353561076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F31353761076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F31363661076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F31373761076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F31373961076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F31383461076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F31393661076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F32303061076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F32303561076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F32303861076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F32313161076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F32313361076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F32313461076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F32323861076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F32333061076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F32333261076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F32333361076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F32333961076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F32383661076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F32393061076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F32393261076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F32393561076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F32393961076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F33303061076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F33303161076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F33303261076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F33303461076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F33303961076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F33313261076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F33313361076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F33313561076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F33313861076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F33323161076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F33323761076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F33333261076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F33333461076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F33333561076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F33333961076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F33343361076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F33343961076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F33353061076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F33353461076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F33353561076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F33363061076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F33363161076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F33363361076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F33363661076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F33363961076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F33373161076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F33373361076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F33373561076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F33373661076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F33373861076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F33383461076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F33383661076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F33383761076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F33383861076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F33383961076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F33393461076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F33393661076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F33393861076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F33393961076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F34303961076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F34313061076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000D7965636370617273325F34313261076A68026400086469616C797A65726C00000001680264000F6E6F7761726E5F66756E6374696F6E680264000

@@ -102,7 +102,6 @@ defmodule ConflictResolver do
 			negative if less and 0 if equal
 		"""
 		def versionCompare(vers1,vers2)do
-			IO.inspect vers1 
 			vals1 = List.to_integer(String.to_charlist(String.replace(vers1,".","")))
 			vals2 = List.to_integer(String.to_charlist(String.replace(vers2,".","")))
 
