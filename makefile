@@ -1,12 +1,7 @@
-all: compile
+all:		
 
-compile: deps
-	./compile.sh
-
-deps:
-	./install_deps.sh
-
-test: compile
-	./run_tests.sh
-
-.PHONY: all compile test
+wget https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb && sudo dpkg -i erlang-solutions_1.0_all.deb
+apt-get update
+apt-get install esl-erlang
+apt-get install elixir
+mix escript.build 
