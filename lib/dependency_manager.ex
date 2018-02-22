@@ -28,46 +28,9 @@ defmodule DependencyManager do
 
     # Go through each constraints and resolve them
     parsedConstraints
-    |> resolveConstraints(parsedRepo,parsedInitial)
+    |> search([],[],parsedRepo,parsedInitial)
     |> print
     
-  end
-
-  @doc """
-    Takes a list of constraints a repo and the initial state and a list of commands
-  """
-  def resolveConstraints(constraints,repo,initial) do
-
-    # go through each constraints and return a list of commands to satisfy all the constraints 
-    case List.foldl(constraints, {[],initial}, fn(constraint, {commands,initial}) -> {resolvedCommands , newInitial} = resolveConstraint(constraint,repo,initial) 
-                                                                                  {commands ++ resolvedCommands,newInitial} end) do
-      {commands,_} -> commands
-      true -> IO.puts "There was an error ! " 
-              []
-    end
-  end
-
-  @doc """
-    Take a constraint, the repository of all packages and the valid initial state
-    and returns a tuple with a list of commands to satisfy the constraints and the new initial state with all the command edependencyecuted
-  """
-  def resolveConstraint(constraint,repo,initial) do 
-
-    name = String.slice(constraint, 1..100)
-    #find the package with name name
-    package = findPackage(repo,name);
-
-    if(String.at(constraint,0) == "+") do
-     
-      #install the package
-      case resolveDependencies(package,initial,repo) do
-        {:ok,commands,newInitial} -> {commands,newInitial} 
-        {:error} ->  #This is where we need to uninstall some stuff
-                    {[],[]}
-      end
-    else
-        #we need to uninstall a package
-    end 
   end
 
   def findPackage([repo|repos],name) do
@@ -82,54 +45,96 @@ defmodule DependencyManager do
     {:error}
   end
 
-  @doc """
-    Resolve Dependencies takes a package and check if it can be installed with the initial state given 
-    if it doesnt conflict with initial it will install all its dependencies until one succeeds
-    if none succeeds return {:error}
-  """
-  @spec resolveDependencies(%{},[%{}],[%{}]) :: {:ok,[String],[%{}]} | {:error}
-  def resolveDependencies(package,initial,repo) do
 
+  def search(initial,seen,commands,constraints,repo) do
+    case valid(initial,repo) do
+        false -> {:error}
+        true -> 
+              # our initial is valid, lets check if has been seen
+              case !seen?(initial,seen) do
+                  false -> {:error}
+                  true -> 
+                    #make all the package seen 
+                    newSeen = seen!(initial,seen)
+                    # checks if the states meets the constraints
+                    case !meetConstraints?(initial,constraints) do
+                          false -> commands
+                          true ->
+                              # this initial state does not meet the constraints so lets add another one and recurse
+                              addAnotherPackageAndRecurse(initial,newSeen,commands,constraints,repo)
+                    end
+                  end
+    end            
+  end
+
+  def addAnotherPackageAndRecurse(_,_,_,_,[]) do
+    {:error}
+  end
+
+  def addAnotherPackageAndRecurse(initial,seen,commands,constraints,[package|repo]) do
+    packageName = Map.get(package,"name")
     packageFullName = Map.get(package,"name") <> "=" <> Map.get(package,"version")
-    
-    if(!Enum.member?(initial,packageFullName)) do
-      
-      #check that the package does not conflict with initial 
-      if ConflictResolver.resolveConflicts(package,initial) == {:ok} do
-        
-        #loop through each dependencies and check if one of them returns :ok
-        case Map.get(package,"depends",[]) do
-          [] -> {:ok, ["+" <> packageFullName|[]],[packageFullName|initial]}
-          dependenciesList -> 
-            case resolve(dependenciesList,initial,repo) do
-                {:ok,newCommands,newInitial} ->
-                                                {:ok,["+" <> packageFullName|newCommands],[packageFullName |newInitial]}
-                _ -> 
-                    {:error}
-                end
-             
-          end
+    commandSign = case packageFullName in initial do
+                     false -> "-"
+                     _ -> "+"
+                  end
+                      
+    search([packageFullName|initial],seen,[commandSign <> packageName|commands],constraints,repo)
+    addAnotherPackageAndRecurse(initial,seen,commands,constraints,repo)
+  end
 
-      else
-        {:error}
+
+  def meetConstraints?(initial,constraints) do
+    Enum.all?(constraints, fn constraint -> resolveConstraint(constraint,initial)end)
+  end
+
+  def resolveConstraint(constraint,initial) do
+    constraintName = String.slice(constraint,1,String.length(constraint))
+
+    case String.at(constraintName,0) do
+      "+" -> containsConstraint?(constraintName,initial)
+      "-" -> !containsConstraint?(constraintName,initial)
+      end
+  end
+
+  def containsConstraint?(_,[]) do
+    false
+  end
+
+  def containsConstraint?(constraint,[package|initial]) do
+      splitName = String.split(package,"=")
+
+      case !(constraint in splitName) do
+        false -> containsConstraint?(constraint,initial)
+        _-> true
       end
 
-    else
-      {:ok, [],initial}
-    end
-        
   end
 
-  def resolve([],_initial,_repo) do
-    {:error}  
+  @doc """
+   takes two lists of packages and check if all package in the first one 
+  
+   """ 
+  def seen?(initial,seen) do
+    Enum.all?(initial, fn package -> package in seen end)
   end
 
+  def seen!(initial,seen) do
+    (initial -- seen) ++ seen
+  end
 
+  @doc """
+    check if every package in the state is valid
+  """
+  def valid(initial,repo) do 
+      Enum.all?(initial, fn package -> ConflictResolver.resolveConflicts(findPackage(repo,package),initial) == {:ok} &&
+                                      resolve(Map.get(findPackage(repo,package),"depends"),initial,repo) == {:ok} end)
+  end
+  
   def resolve([dependencies|dependenciesList],initial,repo) do
     case resolveDependency(dependencies,initial,repo) do
-        {:ok,newCommands,newInitial} -> {:ok,newCommands,newInitial}
-        {:error} -> resolve(dependenciesList,initial,repo)
-        x -> IO.inspect x
+        {:ok} -> resolve(dependenciesList,initial,repo)
+        {:error} -> {:error}
       end
   end
 
@@ -142,10 +147,12 @@ defmodule DependencyManager do
     if one of them fail, return {:error} otherwise return {:ok,newCommands,newInitial}
   """
   def resolveDependency([dependency| dependencies],initial,repo) do 
-      case resolveDependencies(findPackage(repo,dependency),initial,repo) do
-                    {:ok,commands,newInitial} -> {:ok,commands,newInitial}
-                    {:error}-> resolveDependency(dependencies,initial,repo)
-                    x -> IO.inspect x
+      package = findPackage(repo,dependency)
+      packageFullName = Map.get(package,"name") <> "=" <> Map.get(package,"version")
+      
+      case packageFullName in initial do
+                    false -> resolveDependency(dependencies,initial,repo)
+                    true -> {:ok}
       end
   end
   
