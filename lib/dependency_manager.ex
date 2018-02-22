@@ -99,7 +99,7 @@ defmodule DependencyManager do
                     #make all the package seen 
                     newSeen = seen!(initial,seen)
                     # checks if the states meets the constraints
-                    case !meetConstraints?(initial,constraints) do
+                    case !meetConstraints?(initial,parsedConstraints) do
                           false -> commands
                           true ->
                               # this initial state does not meet the constraints so lets add another one and recurse
@@ -109,7 +109,7 @@ defmodule DependencyManager do
     end            
   end
 
-  def addAnotherPackageAndRecurse(_,_,_,_,[],[],_) do
+  def addAnotherPackageAndRecurse(_,_,_,_,_,[],_) do
     {:error}
   end
 
@@ -139,6 +139,7 @@ defmodule DependencyManager do
     package = findPackage(repo,newConstraint)
     packageFullName = Map.get(package,"name") <> "=" <> Map.get(package,"version")
     
+    newLeftToParse = Enum.filter(leftToParse,fn package -> Map.get(package,"name") == newConstraint end)
     commandSign = case packageFullName in initial do
                      false -> "+"
                      _ -> "-"
