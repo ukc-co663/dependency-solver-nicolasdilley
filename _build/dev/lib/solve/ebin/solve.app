@@ -1,6 +1,6 @@
-{application,solver,
+{application,solve,
              [{applications,[kernel,stdlib,elixir,logger,poison]},
-              {description,"solver"},
+              {description,"solve"},
               {modules,['Elixir.ConflictResolver','Elixir.Dependencies',
                         'Elixir.DependencyManager','Elixir.Package',
                         'Elixir.PackageParser',
