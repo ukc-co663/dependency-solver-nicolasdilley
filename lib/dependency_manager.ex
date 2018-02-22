@@ -100,7 +100,7 @@ defmodule DependencyManager do
                     newSeen = seen!(initial,seen)
                     # checks if the states meets the constraints
                     case !meetConstraints?(initial,constraints) do
-                          false -> Enum.reverse commands
+                          false -> commands
                           true ->
                               # this initial state does not meet the constraints so lets add another one and recurse
                               addAnotherPackageAndRecurse(initial,newSeen,commands,constraints,repo,repo)
@@ -120,14 +120,31 @@ defmodule DependencyManager do
                      _ -> "-"
                   end
     newInitial = [packageFullName|initial]
-    result = search(newInitial,seen,[commandSign <> packageFullName|commands],constraints,leftToParse,repo)
+    result = search(newInitial,seen,commands ++ [commandSign <> packageFullName],constraints,leftToParse,repo)
     if  result != {:error} do
       # add the commands needed to arrive to search plus the commands and return initial
-      Enum.reverse result
+      result
     else
         addAnotherPackageAndRecurse(initial,seen,commands,constraints,leftToParse,repo)
     end
   end
+
+  # def addAnotherPackageAndRecurse(initial,seen,commands,[constraint|constraints],parsedConstraints,leftToParse,repo) do 
+  #    packageFullName = Map.get(package,"name") <> "=" <> Map.get(package,"version")
+    
+  #   commandSign = case packageFullName in initial do
+  #                    false -> "+"
+  #                    _ -> "-"
+  #                 end
+  #   newInitial = [packageFullName|initial]
+  #   result = search(newInitial,seen,[commandSign <> packageFullName|commands],constraints,leftToParse,repo)
+  #   if  result != {:error} do
+  #     # add the commands needed to arrive to search plus the commands and return initial
+  #     Enum.reverse result
+  #   else
+  #       addAnotherPackageAndRecurse(initial,seen,commands,constraints,leftToParse,repo)
+  #   end
+  # end
 
 
   def meetConstraints?(initial,constraints) do
