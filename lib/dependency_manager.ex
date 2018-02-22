@@ -87,7 +87,7 @@ defmodule DependencyManager do
   
 
 
-  def search(initial,seen,commands,constraints,parsedConstraints,_leftToParse,repo) do
+  def search(initial,seen,commands,constraints,parsedConstraints,leftToParse,repo) do
     
     case valid(initial,repo) do
         false -> {:error}
@@ -132,25 +132,25 @@ defmodule DependencyManager do
  
   # try to install constraints first
   def addAnotherPackageAndRecurse(initial,seen,commands,[constraint|constraints],parsedConstraints,leftToParse,repo) do 
-    
+    IO.inspect constraints
     constraintList = String.split(constraint,"=")
     {:ok,constraintName} =  Enum.fetch(constraintList,0)
     newConstraint = String.slice(constraintName,1,String.length(constraintName))
     package = findPackage(repo,newConstraint)
     packageFullName = Map.get(package,"name") <> "=" <> Map.get(package,"version")
     
-    newLeftToParse = Enum.filter(leftToParse,fn package -> Map.get(package,"name") == newConstraint end)
+    newLeftToParse = Enum.reject(leftToParse,fn package -> Map.get(package,"name") == newConstraint end)
     commandSign = case packageFullName in initial do
                      false -> "+"
                      _ -> "-"
                   end
     newInitial = [packageFullName|initial]
-    result = search(newInitial,seen,[commandSign <> packageFullName|commands],constraints,parsedConstraints,leftToParse,repo)
+    result = search(newInitial,seen,[commandSign <> packageFullName|commands],constraints,parsedConstraints,newLeftToParse,repo)
     if  result != {:error} do
       # add the commands needed to arrive to search plus the commands and return initial
       Enum.reverse result
     else
-        addAnotherPackageAndRecurse(initial,seen,commands,constraints,parsedConstraints,leftToParse,repo)
+        addAnotherPackageAndRecurse(initial,seen,commands,constraints,parsedConstraints,newLeftToParse,repo)
     end
   end
 
