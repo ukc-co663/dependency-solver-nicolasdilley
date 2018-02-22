@@ -5,11 +5,12 @@ defmodule ConflictResolver do
 		It checks if the package conflict with any of the packages in the state. 
 		if it doesnt return {:ok} or return {:error}
 		"""
-		@spec resolveConflicts(%{},[%{}]) :: {atom}
-		def resolveConflicts(package,state) do
+		@spec resolveConflicts(%{},[%{}],[%{}]) :: {atom}
+		def resolveConflicts(package,state,repo) do
 			conflicts = Map.get(package,"conflicts",[])
+
 			if Enum.all?(state,fn pack -> 
-				(if Enum.all?(conflicts, fn conflict -> resolveConflict(pack,conflict) == {:ok} end) do
+				(if Enum.all?(conflicts, fn conflict -> resolveConflict(DependencyManager.findPackage(repo,pack),conflict) == {:ok} end) do
 					{:ok}
 				else
 					{:error} 
@@ -27,37 +28,8 @@ defmodule ConflictResolver do
 		check if the package conflict with a particular conflict
 		"""
 		@spec resolveConflict(%{},%{}) :: {:ok} | {:error}
-		def resolveConflict(package,conflict) do 
+		def resolveConflict(package,conflict) do
 			cond do
-				String.contains?(conflict,">") ->
-					[name,version] = String.split(conflict, ">")
-
-					if Map.get(package,"name") == name do
-						if versionCompare(Map.get(package,"version"),version) > 0 do
-							{:ok}
-						else
-							{:error}
-						end
-
-					else
-						{:ok}
-					end
-				String.contains?(conflict,"<") ->
-
-
-					[name,version] = String.split(conflict, "<")
-
-					if Map.get(package,"name") == name do
-						if versionCompare(Map.get(package,"version"),version) < 0 do
-							{:ok}
-						else
-							{:error}
-						end
-					else
-						{:ok}
-					end
-
-
 				String.contains?(conflict,">=") ->
 
 
@@ -90,8 +62,34 @@ defmodule ConflictResolver do
 						{:ok}
 					end
 
+				String.contains?(conflict,">") ->
+					[name,version] = String.split(conflict, ">")
 
-					true -> if (Map.get(package,"name") != conflict) do
+					if Map.get(package,"name") == name do
+						if versionCompare(Map.get(package,"version"),version) > 0 do
+							{:ok}
+						else
+							{:error}
+						end
+
+					else
+						{:ok}
+					end
+				String.contains?(conflict,"<") ->
+
+
+					[name,version] = String.split(conflict, "<")
+
+					if Map.get(package,"name") == name do
+						if versionCompare(Map.get(package,"version"),version) < 0 do
+							{:ok}
+						else
+							{:error}
+						end
+					else
+						{:ok}
+					end
+				true -> if (Map.get(package,"name") != conflict) do
 								{:ok}
 							else
 								{:error}

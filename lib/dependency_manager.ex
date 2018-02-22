@@ -31,17 +31,60 @@ defmodule DependencyManager do
     print(addAnotherPackageAndRecurse(parsedInitial,[],[],parsedConstraints,parsedRepo,parsedRepo))  
   end
 
-  def findPackage([repo|repos],name) do
-      if Map.get(repo,"name") == name do
-        repo 
-      else 
-        findPackage(repos,name)
-      end
-  end
-
   def findPackage([],_) do
     {:error}
   end
+
+  def findPackage([repo|repos],name) do
+      cond do
+        String.contains?(name,">") ->
+          [name,version] = String.split(name, ">")
+          if Map.get(repo,"name") == name do
+                  repo 
+                else 
+                  findPackage(repos,name)
+                end
+          
+        String.contains?(name,"<") ->
+          [name,version] = String.split(name, "<")
+          if Map.get(repo,"name") == name do
+                  repo 
+                else 
+                  findPackage(repos,name)
+                end
+        String.contains?(name,">=") ->
+          [name,version] = String.split(name, ">=")
+
+          if Map.get(repo,"name") == name do
+                  repo 
+                else 
+                  findPackage(repos,name)
+                end
+
+        String.contains?(name,"<=") ->
+          [name,version] = String.split(name, "<=")
+          if Map.get(repo,"name") == name do
+                  repo 
+                else 
+                  findPackage(repos,name)
+                end
+        String.contains?(name,"=") ->
+          [name,version] = String.split(name, "=")
+          if Map.get(repo,"name") == name do
+                  repo 
+                else 
+                  findPackage(repos,name)
+            end
+        true -> 
+                if Map.get(repo,"name") == name do
+                  repo 
+                else 
+                  findPackage(repos,name)
+                end
+    end
+  end
+
+  
 
 
   def search(initial,seen,commands,constraints,_leftToParse,repo) do
@@ -134,13 +177,20 @@ defmodule DependencyManager do
   def valid(initial,repo) do 
       Enum.all?(initial, fn package -> {:ok ,name} = Enum.fetch(String.split(package,"="),0)
                                       package = findPackage(repo,name)
-                                      ConflictResolver.resolveConflicts(package,initial) == {:ok} &&
+                                      ConflictResolver.resolveConflicts(package,initial,repo) == {:ok} &&
                                       resolve(Map.get(package,"depends"),initial,repo) == {:ok} end)
   end
+  
   def resolve([],_initial,_repo) do
         {:ok}
   end
+
+  def resolve(nil,_initial,_repo) do
+        {:ok}
+  end
+
   def resolve([dependencies|dependenciesList],initial,repo) do
+    
     case resolveDependency(dependencies,initial,repo) do
         {:ok} -> resolve(dependenciesList,initial,repo)
         {:error} -> false
