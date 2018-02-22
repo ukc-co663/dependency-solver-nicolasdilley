@@ -1,9 +1,0 @@
-
-
-
-1. take the initial state
-2. check for each package in the state if it has been satisfied dependency and conflict wise
-3. if all?(initial,seen) == true we have a loop
-4. add any unseen package to the seen list
-5. check if the state meets all the constraints
-6. if not for each package in repo, install or uninstall and recurse.

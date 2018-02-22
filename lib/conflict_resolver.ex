@@ -7,8 +7,7 @@ defmodule ConflictResolver do
 		"""
 		@spec resolveConflicts(%{},[%{}]) :: {atom}
 		def resolveConflicts(package,state) do
-
-			conflicts = Map.get(package,"conflicts")
+			conflicts = Map.get(package,"conflicts",[])
 			if Enum.all?(state,fn pack -> 
 				(if Enum.all?(conflicts, fn conflict -> resolveConflict(pack,conflict) == {:ok} end) do
 					{:ok}
