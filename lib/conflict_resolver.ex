@@ -7,8 +7,8 @@ defmodule ConflictResolver do
 		"""
 		@spec resolveConflicts(%{},[%{}],[%{}]) :: {atom}
 		def resolveConflicts(package,state,repo) do
-			conflicts = Map.get(package,"conflicts",[])
 
+			conflicts = Map.get(package,"conflicts",[])
 			if Enum.all?(state,fn pack -> 
 				(if Enum.all?(conflicts, fn conflict -> resolveConflict(DependencyManager.findPackage(repo,pack),conflict) == {:ok} end) do
 					{:ok}
@@ -29,6 +29,7 @@ defmodule ConflictResolver do
 		"""
 		@spec resolveConflict(%{},%{}) :: {:ok} | {:error}
 		def resolveConflict(package,conflict) do
+			IO.inspect conflict
 			cond do
 				String.contains?(conflict,">=") ->
 
@@ -102,6 +103,7 @@ defmodule ConflictResolver do
 			negative if less and 0 if equal
 		"""
 		def versionCompare(vers1,vers2)do
+			IO.inspect vers1 
 			vals1 = List.to_integer(String.to_charlist(String.replace(vers1,".","")))
 			vals2 = List.to_integer(String.to_charlist(String.replace(vers2,".","")))
 
