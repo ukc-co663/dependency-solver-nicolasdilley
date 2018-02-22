@@ -114,7 +114,8 @@ defmodule DependencyManager do
   end
 
   def addAnotherPackageAndRecurse(initial,seen,commands,constraints,[package|leftToParse],repo) do
-    packageFullName = Map.get(package,"name") <> "=" <> Map.get(package,"version")
+    IO.inspect package["name"]
+    packageFullName = package["name"] <> "=" <>package["version"]
     
     commandSign = case packageFullName in initial do
                      false -> "+"
@@ -127,7 +128,7 @@ defmodule DependencyManager do
                 # add the commands needed to arrive to search plus the commands and return initial
                 result
               else
-                  addAnotherPackageAndRecurse(initial,[],commands,constraints,leftToParse,repo)
+                  addAnotherPackageAndRecurse(initial,seen,commands,constraints,leftToParse,Enum.shuffle(repo))
               end
       "-" ->  newInitial = initial -- [packageFullName]
               result = search(newInitial,seen,commands ++ [commandSign <> packageFullName],constraints,leftToParse,repo)
@@ -135,7 +136,7 @@ defmodule DependencyManager do
                 # add the commands needed to arrive to search plus the commands and return initial
                 result
               else
-                  addAnotherPackageAndRecurse(initial,[],commands,constraints,leftToParse,repo)
+                  addAnotherPackageAndRecurse(initial,seen,commands,constraints,leftToParse,Enum.shuffle(repo))
               end
     end
     
