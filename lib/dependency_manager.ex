@@ -100,7 +100,7 @@ defmodule DependencyManager do
                     newSeen = seen!(initial,seen)
                     # checks if the states meets the constraints
                     case !meetConstraints?(initial,constraints) do
-                          false -> commands
+                          false -> Enum.reverse commands
                           true ->
                               # this initial state does not meet the constraints so lets add another one and recurse
                               addAnotherPackageAndRecurse(initial,newSeen,commands,constraints,repo,repo)
@@ -127,8 +127,6 @@ defmodule DependencyManager do
     else
         addAnotherPackageAndRecurse(initial,seen,commands,constraints,leftToParse,repo)
     end
-
-    
   end
 
 
@@ -138,10 +136,9 @@ defmodule DependencyManager do
 
   def resolveConstraint(constraint,initial) do
     constraintName = String.slice(constraint,1,String.length(constraint))
-    
     case String.at(constraint,0) do
       "+" -> containsConstraint?(constraintName,initial)
-      "-" -> !containsConstraint?(constraintName,initial)
+      "-" -> not containsConstraint?(constraintName,initial)
       end
   end
 
@@ -151,8 +148,9 @@ defmodule DependencyManager do
 
   def containsConstraint?(constraint,[package|initial]) do
       splitName = String.split(package,"=")
+      {:ok, name} = Enum.fetch(splitName,0)
 
-      case (constraint in splitName) do
+      case (constraint == name) do
         false -> containsConstraint?(constraint,initial)
         _-> true
       end
