@@ -71,15 +71,13 @@ defmodule DependencyManager do
   end
 
   def addAnotherPackageAndRecurse(initial,seen,commands,constraints,[package|leftToParse],repo) do
-    
-    packageName = Map.get(package,"name")
     packageFullName = Map.get(package,"name") <> "=" <> Map.get(package,"version")
     commandSign = case packageFullName in initial do
                      false -> "+"
                      _ -> "-"
                   end
     newInitial = [packageFullName|initial]
-    result = search(newInitial,seen,[commandSign <> packageName|commands],constraints,leftToParse,repo)
+    result = search(newInitial,seen,[commandSign <> packageFullName|commands],constraints,leftToParse,repo)
     if  result != {:error} do
       # add the commands needed to arrive to search plus the commands and return initial
       Enum.reverse result
@@ -154,8 +152,8 @@ defmodule DependencyManager do
   end
 
   @doc """
-    take a list of dependencies and tries to install them all 
-    if one of them fail, return {:error} otherwise return {:ok,newCommands,newInitial}
+    take a dependency and tries to install them all 
+    if one of them fail, return {:error} otherwise return {:ok}
   """
   def resolveDependency([dependency| dependencies],initial,repo) do 
       package = findPackage(repo,dependency)
