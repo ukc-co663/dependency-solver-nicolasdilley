@@ -127,7 +127,7 @@ defmodule DependencyManager do
                 # add the commands needed to arrive to search plus the commands and return initial
                 result
               else
-                  addAnotherPackageAndRecurse(initial,seen,commands,constraints,leftToParse,Enum.shuffle(repo))
+                  addAnotherPackageAndRecurse(initial,[],commands,constraints,leftToParse,Enum.shuffle(repo))
               end
       "-" ->  newInitial = initial -- [packageFullName]
               result = search(newInitial,seen,commands ++ [commandSign <> packageFullName],constraints,leftToParse,repo)
@@ -135,7 +135,7 @@ defmodule DependencyManager do
                 # add the commands needed to arrive to search plus the commands and return initial
                 result
               else
-                  addAnotherPackageAndRecurse(initial,seen,commands,constraints,leftToParse,Enum.shuffle(repo))
+                  addAnotherPackageAndRecurse(initial,[],commands,constraints,leftToParse,Enum.shuffle(repo))
               end
     end
     
