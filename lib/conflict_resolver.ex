@@ -29,7 +29,6 @@ defmodule ConflictResolver do
 		"""
 		@spec resolveConflict(%{},%{}) :: {:ok} | {:error}
 		def resolveConflict(package,conflict) do
-			IO.inspect conflict
 			cond do
 				String.contains?(conflict,">=") ->
 

@@ -28,7 +28,7 @@ defmodule DependencyManager do
 
     # Go through each constraints and resolve them
     
-    print(addAnotherPackageAndRecurse(parsedInitial,[],[],parsedConstraints,parsedConstraints,parsedRepo,parsedRepo))  
+    print(addAnotherPackageAndRecurse(parsedInitial,[],[],parsedConstraints,parsedRepo,parsedRepo))  
   end
 
   def findPackage([],_) do
@@ -87,7 +87,7 @@ defmodule DependencyManager do
   
 
 
-  def search(initial,seen,commands,constraints,parsedConstraints,leftToParse,repo) do
+  def search(initial,seen,commands,constraints,_leftToParse,repo) do
     
     case valid(initial,repo) do
         false -> {:error}
@@ -99,21 +99,21 @@ defmodule DependencyManager do
                     #make all the package seen 
                     newSeen = seen!(initial,seen)
                     # checks if the states meets the constraints
-                    case !meetConstraints?(initial,parsedConstraints) do
+                    case !meetConstraints?(initial,constraints) do
                           false -> commands
                           true ->
                               # this initial state does not meet the constraints so lets add another one and recurse
-                              addAnotherPackageAndRecurse(initial,newSeen,commands,constraints,parsedConstraints,repo,repo)
+                              addAnotherPackageAndRecurse(initial,newSeen,commands,constraints,repo,repo)
                     end
                   end
     end            
   end
 
-  def addAnotherPackageAndRecurse(_,_,_,_,_,[],_) do
+  def addAnotherPackageAndRecurse(_,_,_,_,[],_) do
     {:error}
   end
 
-  def addAnotherPackageAndRecurse(initial,seen,commands,[],parsedConstraints,[package|leftToParse],repo) do
+  def addAnotherPackageAndRecurse(initial,seen,commands,constraints,[package|leftToParse],repo) do
     packageFullName = Map.get(package,"name") <> "=" <> Map.get(package,"version")
 
     commandSign = case packageFullName in initial do
@@ -121,38 +121,31 @@ defmodule DependencyManager do
                      _ -> "-"
                   end
     newInitial = [packageFullName|initial]
-    result = search(newInitial,seen,commands ++ [commandSign <> packageFullName],[],parsedConstraints,leftToParse,repo)
+    result = search(newInitial,seen,commands ++ [commandSign <> packageFullName],constraints,leftToParse,repo)
     if  result != {:error} do
       # add the commands needed to arrive to search plus the commands and return initial
       result
     else
-        addAnotherPackageAndRecurse(initial,seen,commands,[],parsedConstraints,leftToParse,repo)
+        addAnotherPackageAndRecurse(initial,seen,commands,constraints,leftToParse,repo)
     end
   end
- 
-  # try to install constraints first
-  def addAnotherPackageAndRecurse(initial,seen,commands,[constraint|constraints],parsedConstraints,leftToParse,repo) do 
-    IO.inspect constraints
-    constraintList = String.split(constraint,"=")
-    {:ok,constraintName} =  Enum.fetch(constraintList,0)
-    newConstraint = String.slice(constraintName,1,String.length(constraintName))
-    package = findPackage(repo,newConstraint)
-    packageFullName = Map.get(package,"name") <> "=" <> Map.get(package,"version")
+
+  # def addAnotherPackageAndRecurse(initial,seen,commands,[constraint|constraints],parsedConstraints,leftToParse,repo) do 
+  #    packageFullName = Map.get(package,"name") <> "=" <> Map.get(package,"version")
     
-    newLeftToParse = Enum.reject(leftToParse,fn package -> Map.get(package,"name") == newConstraint end)
-    commandSign = case packageFullName in initial do
-                     false -> "+"
-                     _ -> "-"
-                  end
-    newInitial = [packageFullName|initial]
-    result = search(newInitial,seen,[commandSign <> packageFullName|commands],constraints,parsedConstraints,newLeftToParse,repo)
-    if  result != {:error} do
-      # add the commands needed to arrive to search plus the commands and return initial
-      Enum.reverse result
-    else
-        addAnotherPackageAndRecurse(initial,seen,commands,constraints,parsedConstraints,newLeftToParse,repo)
-    end
-  end
+  #   commandSign = case packageFullName in initial do
+  #                    false -> "+"
+  #                    _ -> "-"
+  #                 end
+  #   newInitial = [packageFullName|initial]
+  #   result = search(newInitial,seen,[commandSign <> packageFullName|commands],constraints,leftToParse,repo)
+  #   if  result != {:error} do
+  #     # add the commands needed to arrive to search plus the commands and return initial
+  #     Enum.reverse result
+  #   else
+  #       addAnotherPackageAndRecurse(initial,seen,commands,constraints,leftToParse,repo)
+  #   end
+  # end
 
 
   def meetConstraints?(initial,constraints) do
