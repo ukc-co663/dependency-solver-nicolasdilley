@@ -27,16 +27,17 @@ defmodule DependencyManager do
     parsedConstraints = PackageParser.parseConstraints(constraints)
 
     # Go through each constraints and resolve them
-    # spawn a worker to do the job 
-    #  the first worker that finds a solution returns it and the result gets printed
-
-    Enum.each(parsedRepo, fn package -> spawn(Worker,:start,[self(),parsedInitial,[],[],parsedConstraints,package,parsedRepo]) end)
-
-    receive do
-      {:ok, result} -> print(result)
-      _ -> IO.puts "Big error"
-      end
-    end
+    
+    return = Enum.reduce_while(parsedRepo,[],fn(package,toReturn) ->  result = addAnotherPackageAndRecurse(parsedInitial,[],[],parsedConstraints,package,parsedRepo)
+                                                                       
+                                                                      if result != {:error} && result != [] do
+                                                                        {:halt, result}
+                                                                      else 
+                                                                        {:cont, toReturn}
+                                                                      end
+                             end)
+    print(return)  
+  end
 
   def findPackage([],_) do
     {:error}
