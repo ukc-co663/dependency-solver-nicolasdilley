@@ -1,6 +1,6 @@
 defmodule Worker do
-	def start(parentId,parsedInitial,[],[],parsedConstraints,package,parsedRepo) do
-		result = DependencyManager.addAnotherPackageAndRecurse(parsedInitial,[],[],parsedConstraints,package,parsedRepo)
+	def start(parentId,parsedInitial,seen,commands,parsedConstraints,package,parsedRepo) do
+		result = DependencyManager.addAnotherPackageAndRecurse(parsedInitial,seen,commands,parsedConstraints,package,parsedRepo)
                                                                        
            if result != {:error} && result != [] do
              # sends the message
