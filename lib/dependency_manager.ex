@@ -105,11 +105,11 @@ defmodule DependencyManager do
                           false -> commands
                           true ->
                               # this initial state does not meet the constraints so lets add another one and recurse
-                             List.foldl(repo,[],fn(package,toReturn) -> result = addAnotherPackageAndRecurse(initial,newSeen,commands,constraints,package,repo)
-                                                                      if result != {:error} && toReturn == [] do
-                                                                        result
+                             Enum.reduce_while(repo,[],fn(package,toReturn) -> result = addAnotherPackageAndRecurse(initial,newSeen,commands,constraints,package,repo)
+                                                                      if result != {:error} && result != [] do
+                                                                        {:halt, result}
                                                                       else 
-                                                                        toReturn
+                                                                        {:cont, toReturn}
                                                                       end
                              end)
                     end

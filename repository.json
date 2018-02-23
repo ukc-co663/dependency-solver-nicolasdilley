@@ -1,39 +1,15 @@
-[ { "name" : "A"
-  , "version" : "1"
-  , "size" : 9
-  , "depends" : [["B"], ["C"]] }
-, { "name" : "B"
-  , "version" : "2"
-  , "size" : 8
-  , "depends" : [["C"], ["D"]] }
-, { "name" : "C"
-  , "version" : "3"
-  , "size" : 7
-  , "depends" : [["D"], ["E"]] }
-, { "name" : "D"
-  , "version" : "0"
-  , "size" : 10
-  , "depends" : [["E", "F"]] }
-, { "name" : "E"
-  , "version" : "8"
-  , "size" : 2
-  , "conflicts" : ["F"]
-  , "depends" : [["G"]] }
-, { "name" : "F"
-  , "version" : "4"
-  , "size" : 6
-  , "depends" : [["H"]] }
-, { "name" : "G"
-  , "version" : "7"
-  , "size" : 3
-  , "depends" : [["I"]] }
-, { "name" : "H"
-  , "version" : "5"
-  , "size" : 5
-  , "depends" : [["J"]] }
-, { "name" : "I"
-  , "version" : "9"
-  , "size" : 1 }
-, { "name" : "J"
-  , "version" : "6"
-  , "size" : 4 } ]
+[ { "name" : "X1", "version" : "1", "size" : 42000 }
+, { "name" : "X2", "version" : "1", "size" : 21000 }
+, { "name" : "X3", "version" : "1", "size" : 20000 }
+, { "name" : "Y11", "depends" : [["Z11"]], "version" : "1", "size" : 42 }
+, { "name" : "Y12", "depends" : [["Y11","Z12"]], "version" : "1", "size" : 42 }
+, { "name" : "Y13", "depends" : [["Y12","Z13"]], "version" : "1", "size" : 42 }
+, { "name" : "Y22", "depends" : [["Z22"]], "version" : "1", "size" : 42 }
+, { "name" : "Y23", "depends" : [["Y22","Z23"]], "version" : "1", "size" : 42 }
+, { "name" : "Y33", "depends" : [["Z33"]], "version" : "1", "size" : 42 }
+, { "name" : "Z11", "depends" : [["X1"]], "version" : "1", "size" : 42 }
+, { "name" : "Z12", "depends" : [["X2"]], "version" : "1", "size" : 42 }
+, { "name" : "Z13", "depends" : [["X3"]], "version" : "1", "size" : 42 }
+, { "name" : "Z22", "depends" : [["Y11"],["X2"]], "version" : "1", "size" : 42 }
+, { "name" : "Z23", "depends" : [["Y12"],["X3"]], "version" : "1", "size" : 42 }
+, { "name" : "Z33", "depends" : [["Y22"],["X3"]], "version" : "1", "size" : 42 } ]
