@@ -112,17 +112,16 @@ defmodule DependencyManager do
                           false -> commands
                           true ->
                               # this initial state does not meet the constraints so lets add another one and recurse
-                             # Enum.reduce_while(repo,[],fn(package,toReturn) ->  result = addAnotherPackageAndRecurse(initial,newSeen,commands,constraints,package,repo)
+                             Enum.reduce_while(repo,[],fn(package,toReturn) ->  result = addAnotherPackageAndRecurse(initial,newSeen,commands,constraints,package,repo)
                                                                        
-                             #                                          if result != {:error} && result != [] do
-                             #                                            {:halt, result}
-                             #                                          else 
-                             #                                            {:cont, toReturn}
-                             #                                          end
+                                                                      if result != {:error} && result != [] do
+                                                                        {:halt, result}
+                                                                      else 
+                                                                        {:cont, toReturn}
+                                                                      end
 
-                             Enum.each(repo, fn package -> spawn(Worker,:start,[self(),initial,newSeen,commands,constraints,package,repo]) end)
-
-                             # end)
+                  
+                             end)
                     end
                   end
     end            
