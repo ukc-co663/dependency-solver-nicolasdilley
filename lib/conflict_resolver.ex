@@ -7,7 +7,6 @@ defmodule ConflictResolver do
 		"""
 		@spec resolveConflicts(%{},[%{}],[%{}]) :: {atom}
 		def resolveConflicts(package,state,repo) do
-
 			conflicts = Map.get(package,"conflicts",[])
 			if Enum.all?(state,fn pack -> 
 				(if Enum.all?(conflicts, fn conflict -> resolveConflict(DependencyManager.findPackage(repo,pack),conflict) == {:ok} end) do
@@ -31,8 +30,6 @@ defmodule ConflictResolver do
 		def resolveConflict(package,conflict) do
 			cond do
 				String.contains?(conflict,">=") ->
-
-
 					[name,version] = String.split(conflict, ">=")
 
 					if Map.get(package,"name") == name do
@@ -80,7 +77,7 @@ defmodule ConflictResolver do
 
 					[name,version] = String.split(conflict, "<")
 
-					if Map.get(package,"name") == name do
+					if package["name"] == name do
 						if versionCompare(Map.get(package,"version"),version) < 0 do
 							{:ok}
 						else
@@ -89,7 +86,7 @@ defmodule ConflictResolver do
 					else
 						{:ok}
 					end
-				true -> if (Map.get(package,"name") != conflict) do
+				true -> if (package["name"] != conflict) do
 								{:ok}
 							else
 								{:error}

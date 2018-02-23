@@ -28,7 +28,8 @@ defmodule DependencyManager do
 
     # Go through each constraints and resolve them
     
-    print(search(parsedInitial,[],[],parsedConstraints,parsedRepo,parsedRepo))  
+    return = search(parsedInitial,[],[],parsedConstraints,parsedRepo)
+    print(return)  
   end
 
   def findPackage([],_) do
@@ -87,7 +88,7 @@ defmodule DependencyManager do
   
 
 
-  def search(initial,seen,commands,constraints,leftToParse,repo) do
+  def search(initial,seen,commands,constraints,repo) do
     
     case valid(initial,repo) do
         false -> {:error}
@@ -104,40 +105,34 @@ defmodule DependencyManager do
                           false -> commands
                           true ->
                               # this initial state does not meet the constraints so lets add another one and recurse
-                             addAnotherPackageAndRecurse(initial,newSeen,commands,constraints,repo,repo)
+                             List.foldl(repo,[],fn(package,toReturn) -> result = addAnotherPackageAndRecurse(initial,newSeen,commands,constraints,package,repo)
+                                                                      if result != {:error} && toReturn == [] do
+                                                                        result
+                                                                      else 
+                                                                        toReturn
+                                                                      end
+                             end)
                     end
                   end
     end            
   end
 
-  def addAnotherPackageAndRecurse(_,_,_,_,[],_) do
-    {:error}
-  end
+  # def addAnotherPackageAndRecurse(_,_,_,_,[],_) do
+  #   {:error}
+  # end
 
-  def addAnotherPackageAndRecurse(initial,seen,commands,constraints,[package|leftToParse],repo) do
+  def addAnotherPackageAndRecurse(initial,seen,commands,constraints,package,repo) do
     packageFullName = package["name"] <> "=" <>package["version"]
-    
     commandSign = case packageFullName in initial do
-                     false -> "+"
-                     _ -> "-"
+                    false -> "+"
+                    _ -> "-"
                   end
     case commandSign do
       "+" -> newInitial = [packageFullName|initial]
-              result = search(newInitial,seen,commands ++ [commandSign <> packageFullName],constraints,leftToParse,repo)
-              if  result != {:error} do
-                # add the commands needed to arrive to search plus the commands and return initial
-                result
-              else
-                  addAnotherPackageAndRecurse(newInitial,seen,commands ++ [commandSign <> packageFullName],constraints,leftToParse,repo)
-              end
+              search(newInitial,seen,commands ++ [commandSign <> packageFullName],constraints,repo)
+
       "-" ->  newInitial = initial -- [packageFullName]
-              result = search(newInitial,seen,commands ++ [commandSign <> packageFullName],constraints,leftToParse,repo)
-              if  result != {:error} do
-                # add the commands needed to arrive to search plus the commands and return initial
-                result
-              else
-                  addAnotherPackageAndRecurse(newInitial,seen,commands ++ [commandSign <> packageFullName],constraints,leftToParse,repo)
-              end
+              search(newInitial,seen,commands ++ [commandSign <> packageFullName],constraints,repo)
     end
     
   end
@@ -202,7 +197,6 @@ defmodule DependencyManager do
   end
 
   def resolve([dependencies|dependenciesList],initial,repo) do
-    
     case resolveDependency(dependencies,initial,repo) do
         {:ok} -> resolve(dependenciesList,initial,repo)
         {:error} -> false
@@ -214,7 +208,7 @@ defmodule DependencyManager do
   end
 
   @doc """
-    take a dependency and tries to install them all 
+    take a dependency and see if it is matched
     if one of them fail, return {:error} otherwise return {:ok}
   """
   def resolveDependency([dependency| dependencies],initial,repo) do 
@@ -229,7 +223,7 @@ defmodule DependencyManager do
   
   # prints to the stdout the commands
   def print(commands) do
-    newCommands = Poison.encode!(Enum.reverse commands)
+    newCommands = Poison.encode!(commands)
     IO.puts newCommands
   end
 
