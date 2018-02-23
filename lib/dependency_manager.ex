@@ -98,7 +98,7 @@ defmodule DependencyManager do
                   true -> 
                     #make all the package seen 
                     newSeen = seen!(initial,seen)
-                    IO.inspect newSeen
+                   
                     # checks if the states meets the constraints
                     case !meetConstraints?(initial,constraints) do
                           false -> commands
@@ -115,7 +115,7 @@ defmodule DependencyManager do
   end
 
   def addAnotherPackageAndRecurse(initial,seen,commands,constraints,[package|leftToParse],repo) do
-    IO.inspect commands
+   
     packageFullName = package["name"] <> "=" <>package["version"]
     
     commandSign = case packageFullName in initial do
