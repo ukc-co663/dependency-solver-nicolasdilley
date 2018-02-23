@@ -33,8 +33,7 @@ defmodule DependencyManager do
     Enum.each(parsedRepo, fn package -> spawn(Worker,:start,[self(),parsedInitial,[],[],parsedConstraints,package,parsedRepo]) end)
 
     receive do
-      {:ok, result} -> IO.inspect result
-                        print(result)
+      {:ok, result} -> print(result)
       _ -> IO.puts "Big error"
       end
     end
