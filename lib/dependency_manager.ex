@@ -28,7 +28,7 @@ defmodule DependencyManager do
 
     # Go through each constraints and resolve them
     
-    print(addAnotherPackageAndRecurse(parsedInitial,[],[],parsedConstraints,parsedRepo,parsedRepo))  
+    print(search(parsedInitial,[],[],parsedConstraints,parsedRepo,parsedRepo))  
   end
 
   def findPackage([],_) do
@@ -98,12 +98,13 @@ defmodule DependencyManager do
                   true -> 
                     #make all the package seen 
                     newSeen = seen!(initial,seen)
+                    IO.inspect newSeen
                     # checks if the states meets the constraints
                     case !meetConstraints?(initial,constraints) do
                           false -> commands
                           true ->
                               # this initial state does not meet the constraints so lets add another one and recurse
-                              addAnotherPackageAndRecurse(initial,newSeen,commands,constraints,repo,repo)
+                             addAnotherPackageAndRecurse(initial,newSeen,commands,constraints,repo,repo)
                     end
                   end
     end            
@@ -114,6 +115,7 @@ defmodule DependencyManager do
   end
 
   def addAnotherPackageAndRecurse(initial,seen,commands,constraints,[package|leftToParse],repo) do
+    IO.inspect commands
     packageFullName = package["name"] <> "=" <>package["version"]
     
     commandSign = case packageFullName in initial do
@@ -127,7 +129,7 @@ defmodule DependencyManager do
                 # add the commands needed to arrive to search plus the commands and return initial
                 result
               else
-                  addAnotherPackageAndRecurse(initial,[],commands,constraints,leftToParse,Enum.shuffle(repo))
+                  addAnotherPackageAndRecurse(newInitial,seen,commands ++ [commandSign <> packageFullName],constraints,leftToParse,repo)
               end
       "-" ->  newInitial = initial -- [packageFullName]
               result = search(newInitial,seen,commands ++ [commandSign <> packageFullName],constraints,leftToParse,repo)
@@ -135,14 +137,14 @@ defmodule DependencyManager do
                 # add the commands needed to arrive to search plus the commands and return initial
                 result
               else
-                  addAnotherPackageAndRecurse(initial,[],commands,constraints,leftToParse,Enum.shuffle(repo))
+                  addAnotherPackageAndRecurse(newInitial,seen,commands ++ [commandSign <> packageFullName],constraints,leftToParse,repo)
               end
     end
     
   end
 
   def meetConstraints?(initial,constraints) do
-    Enum.all?(constraints, fn constraint -> resolveConstraint(constraint,initial)end)
+   Enum.all?(constraints, fn constraint -> resolveConstraint(constraint,initial) end)
   end
 
   def resolveConstraint(constraint,initial) do
@@ -160,7 +162,6 @@ defmodule DependencyManager do
   def containsConstraint?(constraint,[package|initial]) do
       splitName = String.split(package,"=")
       {:ok, name} = Enum.fetch(splitName,0)
-
       case (constraint == name) do
         false -> containsConstraint?(constraint,initial)
         _-> true
@@ -177,7 +178,7 @@ defmodule DependencyManager do
   end
 
   def seen!(initial,seen) do
-    (initial -- seen) ++ seen
+    ((initial -- seen) ++ seen)
   end
 
   @doc """
@@ -222,7 +223,7 @@ defmodule DependencyManager do
   
   # prints to the stdout the commands
   def print(commands) do
-    newCommands = Poison.encode!(commands)
+    newCommands = Poison.encode!(Enum.reverse commands)
     IO.puts newCommands
   end
 
