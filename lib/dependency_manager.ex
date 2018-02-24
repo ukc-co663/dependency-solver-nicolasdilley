@@ -107,7 +107,7 @@ defmodule DependencyManager do
                    
                     # checks if the states meets the constraints
                     case !meetConstraints?(initial,constraints) do
-                          false ->  commands
+                          false -> commands
                           true ->
                               # this initial state does not meet the constraints so lets add another package and recurse
                              Enum.reduce_while(repo,[],fn(package,toReturn) ->  result = addAnotherPackageAndRecurse(initial,newSeen,commands,constraints,package,repo)
@@ -175,15 +175,14 @@ defmodule DependencyManager do
   end
 
   @doc """
-   takes two lists of packages and check if all package in the first one 
-  
+   takes two lists of packages and check if all package in the first one   
    """ 
   def seen?(initial,seen) do
     Enum.all?(initial, fn package -> package in seen end)
   end
 
   def seen!(initial,seen) do
-    ((initial -- seen) ++ seen)
+    (initial --seen) ++ seen
   end
 
   @doc """
