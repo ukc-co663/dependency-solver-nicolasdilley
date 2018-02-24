@@ -95,7 +95,6 @@ defmodule DependencyManager do
 
 
   def search(initial,seen,commands,constraints,repo) do
-    
     case valid(initial,repo) do
         false -> {:error}
         true -> 
@@ -216,13 +215,24 @@ defmodule DependencyManager do
     if one of them fail, return {:error} otherwise return {:ok}
   """
   def resolveDependency([dependency| dependencies],initial,repo) do 
-      result = Enum.reduce_while(initial,{:error},fn package, acc ->  result = Enum.fetch!(String.split(package,"="),0)
+      result = Enum.reduce_while(initial,{:error},fn package, acc ->  
+                                              if(!String.contains?(dependency,"=")) do
+                                                result = Enum.fetch!(String.split(package,"="),0)
+                                                  
                                                 if result === dependency do
                                                   {:halt, {:ok}}
                                                 else  
                                                   {:cont, {:error}}
                                                 end 
-                                              end)
+
+                                              else 
+                                                if package == dependency do
+                                                  {:halt, {:ok}}
+                                                else  
+                                                  {:cont, {:error}}
+                                                end 
+                                              end
+                                            end)
       
       case result do
                     {:error} -> resolveDependency(dependencies,initial,repo)

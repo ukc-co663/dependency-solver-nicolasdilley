@@ -35,7 +35,7 @@ defmodule ConflictResolver do
 				String.contains?(conflict,">=") ->
 					[name,version] = String.split(conflict, ">=")
 
-					if Map.get(package,"name") === name do
+					if Map.get(package,"name") == name do
 						if versionCompare(Map.get(package,"version"),version) >= 0 do
 							{:error}
 						else
@@ -52,7 +52,7 @@ defmodule ConflictResolver do
 
 					[name,version] = String.split(conflict, "<=")
 
-					if Map.get(package,"name") === name do
+					if Map.get(package,"name") == name do
 						if versionCompare(Map.get(package,"version"),version) <= 0 do
 							{:error}
 						else
@@ -65,7 +65,7 @@ defmodule ConflictResolver do
 				String.contains?(conflict,">") ->
 					[name,version] = String.split(conflict, ">")
 
-					if Map.get(package,"name") === name do
+					if Map.get(package,"name") == name do
 						if versionCompare(Map.get(package,"version"),version) > 0 do
 							{:error}
 						else
@@ -80,7 +80,7 @@ defmodule ConflictResolver do
 
 					[name,version] = String.split(conflict, "<")
 
-					if package["name"] === name do
+					if package["name"] == name do
 						if versionCompare(Map.get(package,"version"),version) < 0 do
 							{:error}
 						else
