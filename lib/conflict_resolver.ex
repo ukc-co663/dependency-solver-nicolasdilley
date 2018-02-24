@@ -31,7 +31,6 @@ defmodule ConflictResolver do
 		"""
 		@spec resolveConflict(%{},%{}) :: {:ok} | {:error}
 		def resolveConflict(package,conflict) do
-			
 			cond do
 				String.contains?(conflict,">=") ->
 					[name,version] = String.split(conflict, ">=")
@@ -91,9 +90,9 @@ defmodule ConflictResolver do
 						{:ok}
 					end
 				true -> if (package["name"] != conflict) do
-								{:error}
-							else
 								{:ok}
+							else
+								{:error}
 							end
 				end
 		end
