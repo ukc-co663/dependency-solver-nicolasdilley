@@ -42,51 +42,51 @@ defmodule DependencyManager do
     {:error}
   end
 
-  def findPackage([repo|repos],name) do
+  def findPackage([repo|repos],repoName) do
       cond do
-        String.contains?(name,">") ->
-          [name,version] = String.split(name, ">")
-          if Map.get(repo,"name") == name do
+        String.contains?(repoName,">") ->
+          [name,version] = String.split(repoName, ">")
+          if Map.get(repo,"name") == name && repo["version"] == version do
                   repo 
                 else 
-                  findPackage(repos,name)
+                  findPackage(repos,repoName)
                 end
           
-        String.contains?(name,"<") ->
-          [name,version] = String.split(name, "<")
-          if Map.get(repo,"name") == name do
+        String.contains?(repoName,"<") ->
+          [name,version] = String.split(repoName, "<")
+          if Map.get(repo,"name") == name && repo["version"] == version do
                   repo 
                 else 
-                  findPackage(repos,name)
+                  findPackage(repos,repoName)
                 end
-        String.contains?(name,">=") ->
-          [name,version] = String.split(name, ">=")
+        String.contains?(repoName,">=") ->
+          [name,version] = String.split(repoName, ">=")
 
-          if Map.get(repo,"name") == name do
+          if Map.get(repo,"name") == name && repo["version"] == version do
                   repo 
                 else 
-                  findPackage(repos,name)
+                  findPackage(repos,repoName)
                 end
 
-        String.contains?(name,"<=") ->
-          [name,version] = String.split(name, "<=")
-          if Map.get(repo,"name") == name do
+        String.contains?(repoName,"<=") ->
+          [name,version] = String.split(repoName, "<=")
+          if Map.get(repo,"name") == name && repo["version"] == version do
                   repo 
                 else 
-                  findPackage(repos,name)
+                  findPackage(repos,repoName)
                 end
-        String.contains?(name,"=") ->
-          [name,version] = String.split(name, "=")
-          if Map.get(repo,"name") == name do
+        String.contains?(repoName,"=") ->
+          [name,version] = String.split(repoName, "=")
+          if repo["name"] == name && repo["version"] == version do
                   repo 
                 else 
-                  findPackage(repos,name)
+                  findPackage(repos,repoName)
             end
         true -> 
-                if Map.get(repo,"name") == name do
+                if Map.get(repo,"name") == repoName do
                   repo 
                 else 
-                  findPackage(repos,name)
+                  findPackage(repos,repoName)
                 end
     end
   end
@@ -108,9 +108,9 @@ defmodule DependencyManager do
                    
                     # checks if the states meets the constraints
                     case !meetConstraints?(initial,constraints) do
-                          false -> commands
+                          false ->  commands
                           true ->
-                              # this initial state does not meet the constraints so lets add another one and recurse
+                              # this initial state does not meet the constraints so lets add another package and recurse
                              Enum.reduce_while(repo,[],fn(package,toReturn) ->  result = addAnotherPackageAndRecurse(initial,newSeen,commands,constraints,package,repo)
                                                                        
                                                                       if result != {:error} && result != [] do
@@ -125,10 +125,6 @@ defmodule DependencyManager do
                   end
     end            
   end
-
-  # def addAnotherPackageAndRecurse(_,_,_,_,[],_) do
-  #   {:error}
-  # end
 
   def addAnotherPackageAndRecurse(initial,seen,commands,constraints,package,repo) do
     packageFullName = package["name"] <> "=" <>package["version"]
@@ -195,10 +191,9 @@ defmodule DependencyManager do
     check if every package in the state is valid
   """
   def valid(initial,repo) do 
-      Enum.all?(initial, fn package -> {:ok ,name} = Enum.fetch(String.split(package,"="),0)
-                                      package = findPackage(repo,name)
-                                      ConflictResolver.resolveConflicts(package,initial,repo) == {:ok} &&
-                                      resolve(Map.get(package,"depends",[]),initial,repo) == {:ok} end)
+      Enum.all?(initial, fn package -> package = findPackage(repo,package)
+                                       ConflictResolver.resolveConflicts(package,initial,repo) == {:ok} &&
+                                       resolve(Map.get(package,"depends",[]),initial,repo) == {:ok} end)
   end
   
   def resolve([],_initial,_repo) do
@@ -208,7 +203,7 @@ defmodule DependencyManager do
   def resolve([dependencies|dependenciesList],initial,repo) do
     case resolveDependency(dependencies,initial,repo) do
         {:ok} -> resolve(dependenciesList,initial,repo)
-        {:error} -> false
+        {:error} -> {:error}
       end
   end
 
@@ -221,12 +216,15 @@ defmodule DependencyManager do
     if one of them fail, return {:error} otherwise return {:ok}
   """
   def resolveDependency([dependency| dependencies],initial,repo) do 
-      package = findPackage(repo,dependency)
-      packageFullName = Map.get(package,"name") <> "=" <> Map.get(package,"version")
+      result = Enum.reduce_while(initial,{:error},fn package, acc -> if String.contains?(package,dependency) do
+                                                  {:halt, {:ok}}
+                                                else  
+                                                  {:cont, {:error}}
+                                                end end)
       
-      case packageFullName in initial do
-                    false -> resolveDependency(dependencies,initial,repo)
-                    true -> {:ok}
+      case result do
+                    {:error} -> resolveDependency(dependencies,initial,repo)
+                    _ -> {:ok}
       end
   end
   
