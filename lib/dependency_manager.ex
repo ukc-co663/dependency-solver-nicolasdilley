@@ -216,11 +216,13 @@ defmodule DependencyManager do
     if one of them fail, return {:error} otherwise return {:ok}
   """
   def resolveDependency([dependency| dependencies],initial,repo) do 
-      result = Enum.reduce_while(initial,{:error},fn package, acc -> if String.contains?(package,dependency) do
+      result = Enum.reduce_while(initial,{:error},fn package, acc ->  result = Enum.fetch!(String.split(package,"="),0)
+                                                if result === dependency do
                                                   {:halt, {:ok}}
                                                 else  
                                                   {:cont, {:error}}
-                                                end end)
+                                                end 
+                                              end)
       
       case result do
                     {:error} -> resolveDependency(dependencies,initial,repo)
