@@ -8,7 +8,6 @@ defmodule PackageParser do
 		parsedRepo = Poison.decode!(repo)
 
 		newRepo = Enum.sort(parsedRepo, &(&1["size"] < &2["size"]))
-		IO.inspect newRepo
 		newRepo
 	end
 
