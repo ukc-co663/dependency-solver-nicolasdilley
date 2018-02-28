@@ -36,14 +36,14 @@ defmodule DependencyManager do
   def startProcesses(parsedRepo,parsedInitial,parsedConstraints)do
      Enum.each(parsedRepo, fn package -> spawn(Worker,:start,[self(),parsedInitial,[],[],parsedConstraints,package,parsedRepo]) end)
 
-    send(Kernel.length(parsedRepo))
+    send(Kernel.length(parsedRepo) - 1)
   end
 
   def send(nbOfProcs) do
     receive do
       {:ok, result} -> print(result)
       {:error} when nbOfProcs > 0 -> send(nbOfProcs - 1)
-      _ -> print([None])
+      _ -> IO.puts "None"
     end
   end
 
