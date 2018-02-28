@@ -30,13 +30,23 @@ defmodule DependencyManager do
     # spawn a worker to do the job 
     #  the first worker that finds a solution returns it and the result gets printed
 
-    Enum.each(parsedRepo, fn package -> spawn(Worker,:start,[self(),parsedInitial,[],[],parsedConstraints,package,parsedRepo]) end)
+    startProcesses(parsedRepo,parsedInitial,parsedConstraints)
+    end
 
+  def startProcesses(parsedRepo,parsedInitial,parsedConstraints)do
+     Enum.each(parsedRepo, fn package -> spawn(Worker,:start,[self(),parsedInitial,[],[],parsedConstraints,package,parsedRepo]) end)
+
+    send(Kernel.length(parsedRepo))
+  end
+
+  def send(nbOfProcs) do
     receive do
       {:ok, result} -> print(result)
-      _ -> IO.puts "Big error"
-      end
+      {:error} when nbOfProcs > 0 -> send(nbOfProcs - 1)
+      _ -> print([None])
     end
+  end
+
 
   def findPackage([],_) do
     {:error}
