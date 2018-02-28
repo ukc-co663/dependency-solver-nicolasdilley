@@ -5,7 +5,7 @@ defmodule Worker do
              # sends the message
             send parentId,{:ok, result}
           	else
-          	exit("no result")
+          	send parentId,{:error}
           end
 	end
 end
