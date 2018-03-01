@@ -116,7 +116,7 @@ defmodule DependencyManager do
                     newSeen = seen!(initial,seen)
                    
                     # checks if the states meets the constraints
-                    case !meetConstraints?(initial,constraints) do
+                    case !meetConstraints?(initial,constraints,repo) do
                           false -> commands
                           true ->
                               # this initial state does not meet the constraints so lets add another package and recurse
@@ -151,15 +151,15 @@ defmodule DependencyManager do
     
   end
 
-  def meetConstraints?(initial,constraints) do
-   Enum.all?(constraints, fn constraint -> resolveConstraint(constraint,initial) end)
+  def meetConstraints?(initial,constraints,repo) do
+   Enum.all?(constraints, fn constraint -> resolveConstraint(constraint,initial,repo) end)
   end
 
-  def resolveConstraint(constraint,initial) do
+  def resolveConstraint(constraint,initial,repo) do
     constraintName = String.slice(constraint,1,String.length(constraint))
     case String.at(constraint,0) do
-      "+" -> containsConstraint?(constraintName,initial)
-      "-" -> not containsConstraint?(constraintName,initial)
+      "+" -> containsConstraint?(constraintName,initial,repo)
+      "-" -> not containsConstraint?(constraintName,initial,repo)
       end
   end
 
@@ -167,7 +167,7 @@ defmodule DependencyManager do
     true
   end
 
-  def containsConstraint?(constraint,initial) do
+  def containsConstraint?(constraint,initial,repo) do
       result = Enum.reduce_while(initial,{:error},fn pack, acc ->  
                                                 package = findPackage(repo,pack)
                                                 cond do
