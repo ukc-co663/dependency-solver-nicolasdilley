@@ -163,16 +163,91 @@ defmodule DependencyManager do
       end
   end
 
-  def containsConstraint?(_,[]) do
-    false
+  def containsConstraint?([],[]) do
+    true
   end
 
-  def containsConstraint?(constraint,[package|initial]) do
-      splitName = String.split(package,"=")
-      {:ok, name} = Enum.fetch(splitName,0)
-      case (constraint == name) do
-        false -> containsConstraint?(constraint,initial)
-        _-> true
+  def containsConstraint?(constraint,initial) do
+      result = Enum.reduce_while(initial,{:error},fn pack, acc ->  
+                                                package = findPackage(repo,pack)
+                                                cond do
+                                                String.contains?(constraint,">=") ->
+                                                  [name,version] = String.split(constraint, ">=")
+
+                                                  if package["name"] == name do
+                                                    if ConflictResolver.versionCompare(package["version"],version) >= 0 do
+                                                      {:halt, {:ok}}
+                                                    else  
+                                                      {:cont, {:error}}
+                                                    end
+
+                                                  else
+                                                    {:cont, {:error}}
+                                                  end
+
+
+
+                                                String.contains?(constraint,"<=") ->
+
+                                                  [name,version] = String.split(constraint, "<=")
+
+                                                  if package["name"] == name do
+                                                    if ConflictResolver.versionCompare(package["version"],version) <= 0 do
+                                                     {:halt, {:ok}}
+                                                    else  
+                                                      {:cont, {:error}}
+                                                    end
+                                                  else
+                                                    {:cont, {:error}}
+                                                  end
+
+                                                String.contains?(constraint,">") ->
+                                                  [name,version] = String.split(constraint, ">")
+
+                                                  if package["name"] == name do
+                                                    if ConflictResolver.versionCompare(package["version"],version) > 0 do
+                                                      {:halt, {:ok}}
+                                                    else  
+                                                      {:cont, {:error}}
+                                                    end
+
+                                                  else
+                                                    {:cont, {:error}}
+                                                  end
+                                                String.contains?(constraint,"<") ->
+                                                  [name,version] = String.split(constraint, "<")
+                                                  if package["name"] == name do
+                                                    if ConflictResolver.versionCompare(package["version"],version) < 0 do
+                                                      {:halt, {:ok}}
+                                                    else  
+                                                      {:cont, {:error}}
+                                                    end
+                                                  else
+                                                    {:cont, {:error}}
+                                                  end
+
+                                                  String.contains?(constraint,"=") ->
+                                                  [name,version] = String.split(constraint, "=")
+                                                  if package["name"] == name do
+                                                    if package["version"] == version do
+                                                      {:halt, {:ok}}
+                                                    else  
+                                                      {:cont, {:error}}
+                                                    end
+                                                  else
+                                                    {:cont, {:error}}
+                                                  end
+                                               true -> 
+                                                if package["name"] == constraint do
+                                                  {:halt, {:ok}}
+                                                else  
+                                                  {:cont, {:error}}
+                                                end 
+                                              end
+                                            end)
+      case result do
+                    {:error} -> false
+                    _ -> true
       end
 
   end
