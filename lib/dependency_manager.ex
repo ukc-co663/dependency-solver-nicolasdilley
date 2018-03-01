@@ -34,7 +34,7 @@ defmodule DependencyManager do
     end
 
   def startProcesses(parsedRepo,parsedInitial,parsedConstraints)do
-     Enum.each(parsedRepo, fn package -> spawn(Worker,:start,[self(),parsedInitial,[],[],parsedConstraints,package,parsedRepo]) end)
+    Enum.each(parsedRepo, fn package -> spawn_link(Worker,:start,[self(),parsedInitial,[],[],parsedConstraints,package,parsedRepo]) end)
 
     send(Kernel.length(parsedRepo) - 1)
   end
@@ -218,31 +218,88 @@ defmodule DependencyManager do
   def resolveDependency([],_initial,_repo) do
     {:error}
   end
-
   @doc """
     take a dependency and see if it is matched
     if one of them fail, return {:error} otherwise return {:ok}
   """
   def resolveDependency([dependency| dependencies],initial,repo) do 
-      result = Enum.reduce_while(initial,{:error},fn package, acc ->  
-                                              if(!String.contains?(dependency,"=")) do
-                                                result = Enum.fetch!(String.split(package,"="),0)
-                                                  
-                                                if result === dependency do
-                                                  {:halt, {:ok}}
-                                                else  
-                                                  {:cont, {:error}}
-                                                end 
+      result = Enum.reduce_while(initial,{:error},fn pack, acc ->  
+                                                package = findPackage(repo,pack)
+                                                cond do
+                                                String.contains?(dependency,">=") ->
+                                                  [name,version] = String.split(dependency, ">=")
 
-                                              else 
-                                                if package == dependency do
+                                                  if package["name"] == name do
+                                                    if ConflictResolver.versionCompare(package["version"],version) >= 0 do
+                                                      {:halt, {:ok}}
+                                                    else  
+                                                      {:cont, {:error}}
+                                                    end
+
+                                                  else
+                                                    {:cont, {:error}}
+                                                  end
+
+
+
+                                                String.contains?(dependency,"<=") ->
+
+                                                  [name,version] = String.split(dependency, "<=")
+
+                                                  if package["name"] == name do
+                                                    if ConflictResolver.versionCompare(package["version"],version) <= 0 do
+                                                     {:halt, {:ok}}
+                                                    else  
+                                                      {:cont, {:error}}
+                                                    end
+                                                  else
+                                                    {:cont, {:error}}
+                                                  end
+
+                                                String.contains?(dependency,">") ->
+                                                  [name,version] = String.split(dependency, ">")
+
+                                                  if package["name"] == name do
+                                                    if ConflictResolver.versionCompare(package["version"],version) > 0 do
+                                                      {:halt, {:ok}}
+                                                    else  
+                                                      {:cont, {:error}}
+                                                    end
+
+                                                  else
+                                                    {:cont, {:error}}
+                                                  end
+                                                String.contains?(dependency,"<") ->
+                                                  [name,version] = String.split(dependency, "<")
+                                                  if package["name"] == name do
+                                                    if ConflictResolver.versionCompare(package["version"],version) < 0 do
+                                                      {:halt, {:ok}}
+                                                    else  
+                                                      {:cont, {:error}}
+                                                    end
+                                                  else
+                                                    {:cont, {:error}}
+                                                  end
+
+                                                  String.contains?(dependency,"=") ->
+                                                  [name,version] = String.split(dependency, "=")
+                                                  if package["name"] == name do
+                                                    if package["version"] == version do
+                                                      {:halt, {:ok}}
+                                                    else  
+                                                      {:cont, {:error}}
+                                                    end
+                                                  else
+                                                    {:cont, {:error}}
+                                                  end
+                                               true -> 
+                                                if package["name"] == dependency do
                                                   {:halt, {:ok}}
                                                 else  
                                                   {:cont, {:error}}
                                                 end 
                                               end
                                             end)
-      
       case result do
                     {:error} -> resolveDependency(dependencies,initial,repo)
                     _ -> {:ok}

@@ -1,40 +1,15 @@
 [ { "name" : "A"
-  , "version" : "1",
-    "depends" : [["A=2"]]
-  , "size" : 9 }
-, { "name" : "A"
-  , "version" : "2",
-    "depends" : [["A=1"]]
-  , "size" : 8 }
-, { "name" : "A"
-  , "version" : "3",
-    "depends" : [["A=1"]]
-  , "size" : 7 }
-, { "name" : "A"
-  , "version" : "0",
-    "depends" : [["A=1"]]
-  , "size" : 10 }
-, { "name" : "A"
-  , "version" : "8",
-    "depends" : [["A=1"]]
-  , "size" : 2 }
-, { "name" : "A"
-  , "version" : "4",
-    "depends" : [["A=1"]]
-  , "size" : 6 }
-, { "name" : "A"
-  , "version" : "7",
-    "depends" : [["A=1"]]
-  , "size" : 3 }
-, { "name" : "A"
-  , "version" : "5",
-    "depends" : [["A=1"]]
-  , "size" : 5 }
-, { "name" : "A"
-  , "version" : "9",
-    "depends" : [["A=1"]]
-  , "size" : 1 }
-, { "name" : "A"
-  , "version" : "6",
-    "depends" : [["A=1"]]
-  , "size" : 4 } ]
+  , "version" : "1"
+  , "size" : 3
+  , "depends" : [["B", "C"]] }
+, { "name" : "B"
+  , "version" : "1"
+  , "size" : 8
+  , "depends" : [["D"]] }
+, { "name" : "C"
+  , "version" : "1"
+  , "size" : 10000 }
+, { "name" : "D"
+  , "version" : "1"
+  , "size" : 1
+  , "depends" : [["A"]]} ]
