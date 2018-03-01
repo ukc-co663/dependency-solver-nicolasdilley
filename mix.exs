@@ -4,7 +4,7 @@ defmodule DependencyManager.Mixfile do
   def project do
     [app: :solve,
      version: "0.1.0",
-     elixir: "~> 1.1",
+     elixir: "~> 1.4",
      escript: escript(),
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
