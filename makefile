@@ -4,4 +4,4 @@ all:
 	-apt-get update -y
 	-apt-get install esl-erlang -y
 	-apt-get install elixir -y
-	-mix escript.build 
+	-MIX_ENV=prod mix escript.build 
